@@ -50,7 +50,7 @@ export const services: Service[] = [
 
 export const teamMembers: TeamMember[] = [
   { id: "1", name: "Destiny Maluga", role: "Marketing Manager", image: "https://framerusercontent.com/images/WERes4aGWZVC6bmNU9QbTvBM.jpg?width=1067&height=1600", objectPosition: "51% 20%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
-  { id: "2", name: "Joey Simms", role: "Sales Manager | Host | DJ", image: "https://framerusercontent.com/images/vQuVTK9ADWkDhikVBY0lMY8sIo.jpg?width=1067&height=1600", objectPosition: "52% -7%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
+  { id: "2", name: "Joey Simms", role: "Sales Manager | Host | DJ", image: "https://framerusercontent.com/images/vQuVTK9ADWkDhikVBY0lMY8sIo.jpg?width=1067&height=1600", objectPosition: "52% -36%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
   { id: "3", name: "Danylo Denysevych", role: "Web Developer | Designer", image: "https://framerusercontent.com/images/u2zxAhCF5X9wH4Udtctn7VAd30.jpg?width=6000&height=4000", objectPosition: "48% 18%", social: { linkedin: "https://www.linkedin.com/company/tridenteventgroup/" } },
   { id: "4", name: "Carson Schepp", role: "Videographer | Editor", image: "https://framerusercontent.com/images/rzZTjCUIg1oueLw5i7VNDlsxlo.jpg?width=1067&height=1600", objectPosition: "51% 30%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
   { id: "5", name: "Aidan Froese", role: "Videographer | Editor", image: "https://framerusercontent.com/images/bCkxOJxCeRews9YhSyymmnUtPQ.jpg?width=1067&height=1600", objectPosition: "55% 19%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
