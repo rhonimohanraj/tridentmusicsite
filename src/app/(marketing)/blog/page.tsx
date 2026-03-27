@@ -141,14 +141,14 @@ export default function BlogPage() {
           variants={fadeUp}
           className="text-4xl md:text-6xl lg:text-7xl font-[family-name:var(--font-playfair)] leading-[1.05] tracking-tight"
         >
-          Our Thoughts
+          Notes From the Dance Floor
         </motion.h1>
         <motion.p
           variants={fadeUp}
           className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed"
         >
-          Tips, guides, and stories from years of making celebrations
-          unforgettable across Manitoba and Saskatchewan.
+          Real advice from hundreds of weddings, socials, and late nights
+          across Manitoba and Saskatchewan.
         </motion.p>
       </motion.div>
 

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { LyricLoader } from "@/components/lyric-loader";
 import { HorizontalServices } from "@/components/horizontal-services";
+import { TestimonialsSection } from "@/components/testimonials-columns";
 import { testimonials, teamMembers } from "@/lib/data";
 import { useLocation } from "@/components/location-provider";
 
@@ -113,8 +114,8 @@ export default function HomePage() {
               Who We Are
             </p>
             <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-playfair)] leading-tight tracking-tight">
-              Professional DJs, real <em className="italic">energy</em>, and
-              unforgettable nights
+              Your guests won&apos;t stop{" "}
+              <em className="italic">talking</em> about it
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
               {location.about.copy[0]}
@@ -168,12 +169,12 @@ export default function HomePage() {
             className="mb-12"
           >
             <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
-              Behind The Scenes
+              The People
             </p>
             <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-playfair)] tracking-tight">
-              Meet the team that brings
+              Sixteen people who actually
               <br />
-              <em className="italic">your</em> party to life
+              <em className="italic">love</em> doing this
             </h2>
           </motion.div>
 
@@ -228,32 +229,17 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="mb-12"
+            className="mb-12 text-center"
           >
             <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
-              What People Say
+              Straight From Our Couples
             </p>
+            <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-playfair)] tracking-tight">
+              Don&apos;t take our word for <em className="italic">it</em>
+            </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            {testimonials.map((t, i) => (
-              <motion.div
-                key={t.author}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: i * 0.1, duration: 0.7 }}
-                className="border-l border-white/10 pl-6"
-              >
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed italic">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <p className="mt-4 text-xs uppercase tracking-[0.15em]">
-                  {t.author}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+          <TestimonialsSection testimonials={testimonials} />
         </div>
       </section>
 
@@ -278,7 +264,7 @@ export default function HomePage() {
             href="/inquire"
             className="mt-8 inline-block bg-foreground text-background px-8 py-3.5 text-xs uppercase tracking-[0.2em] font-medium hover:bg-foreground/90 transition-colors"
           >
-            Inquire Now
+            Tell Us About Your Event
           </Link>
         </motion.div>
       </section>

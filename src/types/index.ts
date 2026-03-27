@@ -1,7 +1,13 @@
 export interface TeamMember {
+  id: string;
   name: string;
   role: string;
   image: string;
+  social?: {
+    twitter?: string;
+    linkedin?: string;
+    instagram?: string;
+  };
 }
 
 export interface Service {
@@ -12,8 +18,10 @@ export interface Service {
 }
 
 export interface Testimonial {
-  quote: string;
-  author: string;
+  text: string;
+  name: string;
+  role: string;
+  image: string;
 }
 
 export interface NavItem {

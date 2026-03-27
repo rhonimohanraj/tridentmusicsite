@@ -33,19 +33,19 @@ export default function InquirePage() {
             variants={fadeUp}
             className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4"
           >
-            Contact
+            Let&apos;s Talk
           </motion.p>
           <motion.h1
             variants={fadeUp}
             className="text-4xl md:text-6xl lg:text-7xl font-[family-name:var(--font-playfair)] leading-[1.05] tracking-tight"
           >
-            Get In Touch
+            Tell Us Everything
           </motion.h1>
           <motion.p
             variants={fadeUp}
             className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed"
           >
-            We&apos;d love to get to know you and get the conversation started!
+            Your date, your venue, the vibe you&apos;re going for, whether your grandma has a song request &mdash; all of it. We&apos;ll take it from there.
           </motion.p>
         </motion.div>
       </section>

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { teamMembers } from "@/lib/data";
+import TeamShowcase from "@/components/team-showcase";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -26,7 +27,6 @@ const galleryImages = [
   "https://framerusercontent.com/images/zkDp3L4OzduFvfTmKsE9m9oj8A.jpg?width=1024&height=683",
 ];
 
-// Masonry-style height classes for visual variety
 const masonryHeights = [
   "row-span-2",
   "row-span-1",
@@ -65,7 +65,7 @@ export default function TheTeamPage() {
             variants={fadeUp}
             className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed"
           >
-            Let Us Get Your Party Started
+            We don&apos;t just play music. We read the room, build the energy, and give your guests a night worth remembering.
           </motion.p>
         </motion.div>
       </section>
@@ -83,66 +83,32 @@ export default function TheTeamPage() {
               Our Story
             </p>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              In a world where every beat is expected to be louder and every
-              moment is rushed, we believe in the power of connection through
-              music. Trident Music was born from the desire to slow down the
-              tempo&mdash;to celebrate quality over quantity, and to create
-              experiences where passion and authenticity lead the way.
+              Most DJ companies hand you a playlist form and show up day-of. We&apos;re not most companies. We started doing this because we genuinely love it &mdash; the moment a room shifts from polite conversation to a packed dance floor, the look on a couple&apos;s face when their first song hits, the uncle who hasn&apos;t danced in twenty years suddenly out there doing his thing. We built Trident around chasing that feeling, and we hired fifteen other people who are just as obsessed with it as we are.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* ─── FULL TEAM GRID ─── */}
-      <section className="py-20 md:py-28 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
+      {/* ─── TEAM SHOWCASE ─── */}
+      <section className="py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-12"
+            className="mb-8"
           >
             <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
-              Behind The Scenes
+              The People
             </p>
             <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-playfair)] tracking-tight">
               Meet the <em className="italic">team</em>
             </h2>
           </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {teamMembers.map((member, i) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{
-                  delay: i * 0.05,
-                  duration: 0.6,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="group"
-              >
-                <div className="img-hover-scale relative aspect-[2/3] overflow-hidden">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-                <p className="mt-2 text-xs font-medium">{member.name}</p>
-                <p className="text-[10px] text-muted-foreground uppercase tracking-wider">
-                  {member.role}
-                </p>
-              </motion.div>
-            ))}
-          </div>
         </div>
+
+        <TeamShowcase members={teamMembers} />
       </section>
 
       {/* ─── GALLERY ─── */}
@@ -159,7 +125,7 @@ export default function TheTeamPage() {
               Gallery
             </p>
             <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-playfair)] tracking-tight">
-              Memories from past <em className="italic">events</em>
+              Moments we&apos;ve been <em className="italic">part of</em>
             </h2>
           </motion.div>
 
