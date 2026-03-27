@@ -3,6 +3,7 @@ export interface TeamMember {
   name: string;
   role: string;
   image: string;
+  objectPosition?: string;
   social?: {
     twitter?: string;
     linkedin?: string;

@@ -1,0 +1,114 @@
+{
+  "Destiny Maluga": {
+    "objectPosition": "51% 20%",
+    "scale": 1.2,
+    "detected": true,
+    "eyeLevel": 24.6,
+    "shoulderLevel": 49.2
+  },
+  "Joey Simms": {
+    "objectPosition": "52% 13%",
+    "scale": 1.2,
+    "detected": true,
+    "eyeLevel": 17.5,
+    "shoulderLevel": 47.1
+  },
+  "Danylo Denysevych": {
+    "objectPosition": "48% 18%",
+    "scale": 1.2,
+    "detected": true,
+    "eyeLevel": 23.5,
+    "shoulderLevel": 80.6
+  },
+  "Carson Schepp": {
+    "objectPosition": "51% 30%",
+    "scale": 1.2,
+    "detected": true,
+    "eyeLevel": 35.2,
+    "shoulderLevel": 66.2
+  },
+  "Aidan Froese": {
+    "objectPosition": "55% 19%",
+    "scale": 1.2,
+    "detected": true,
+    "eyeLevel": 24.1,
+    "shoulderLevel": 43.4
+  },
+  "Jared Weir": {
+    "objectPosition": "48% 16%",
+    "scale": 1.2,
+    "detected": true,
+    "eyeLevel": 21.2,
+    "shoulderLevel": 53.6
+  },
+  "Eldon Santillan": {
+    "objectPosition": "53% 23%",
+    "scale": 1.2,
+    "detected": true,
+    "eyeLevel": 28.4,
+    "shoulderLevel": 53.5
+  },
+  "Alexander Vaughn": {
+    "objectPosition": "50% 21%",
+    "scale": 1.2,
+    "detected": true,
+    "eyeLevel": 26.0,
+    "shoulderLevel": 40.6
+  },
+  "Austin Liske": {
+    "objectPosition": "56% 22%",
+    "scale": 1.2,
+    "detected": true,
+    "eyeLevel": 26.5,
+    "shoulderLevel": 49.8
+  },
+  "Emma Sul": {
+    "objectPosition": "48% 19%",
+    "scale": 1.2,
+    "detected": true,
+    "eyeLevel": 24.2,
+    "shoulderLevel": 51.9
+  },
+  "Hailey Rapsky": {
+    "objectPosition": "47% 25%",
+    "scale": 1.2,
+    "detected": true,
+    "eyeLevel": 30.0,
+    "shoulderLevel": 46.2
+  },
+  "Annie Wurtz": {
+    "objectPosition": "51% 19%",
+    "scale": 1.2,
+    "detected": true,
+    "eyeLevel": 23.8,
+    "shoulderLevel": 47.7
+  },
+  "Brenna Kelland": {
+    "objectPosition": "48% 29%",
+    "scale": 1.2,
+    "detected": true,
+    "eyeLevel": 33.7,
+    "shoulderLevel": 80.8
+  },
+  "Bryce Cotton": {
+    "objectPosition": "50% 24%",
+    "scale": 1.2,
+    "detected": true,
+    "eyeLevel": 29.0,
+    "shoulderLevel": 51.0
+  },
+  "Sarah-Jane Speers": {
+    "objectPosition": "59% 24%",
+    "scale": 1.2,
+    "detected": true,
+    "eyeLevel": 29.0,
+    "shoulderLevel": 54.0
+  },
+  "Rhoni Mohanraj": {
+    "objectPosition": "55% 21%",
+    "scale": 1.2,
+    "detected": true,
+    "eyeLevel": 26.5,
+    "shoulderLevel": 52.8
+  }
+}
