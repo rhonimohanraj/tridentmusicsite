@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Outfit } from "next/font/google";
 import { TimezoneThemeProvider } from "@/components/timezone-theme-provider";
+import { getServerLocation } from "@/lib/get-server-location";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -15,19 +16,20 @@ const outfit = Outfit({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Trident Music | Brandon & Manitoba's Premier DJ Service",
-  description:
-    "DJ entertainment services for weddings, events, and celebrations throughout Brandon, Winnipeg, Regina, and Manitoba. Professional DJ, audio visual, and photobooth services.",
-  openGraph: {
-    title: "Trident Music | Premier DJ & Event Entertainment",
-    description:
-      "For those celebrations you can never forget. DJ entertainment for weddings, events, and celebrations across Manitoba.",
-    url: "https://www.tridentmusic.ca",
-    siteName: "Trident Music",
-    type: "website",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const location = await getServerLocation();
+  return {
+    title: location.seo.title,
+    description: location.seo.description,
+    openGraph: {
+      title: location.seo.title,
+      description: location.seo.description,
+      url: "https://www.tridentmusic.ca",
+      siteName: "Trident Music",
+      type: "website",
+    },
+  };
+}
 
 export default function RootLayout({
   children,

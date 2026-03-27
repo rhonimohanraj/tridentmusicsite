@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { LyricLoader } from "@/components/lyric-loader";
 import { HorizontalServices } from "@/components/horizontal-services";
 import { testimonials, teamMembers } from "@/lib/data";
+import { useLocation } from "@/components/location-provider";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -23,6 +24,7 @@ const fadeUp = {
 
 export default function HomePage() {
   const [loaderDone, setLoaderDone] = useState(false);
+  const { location } = useLocation();
 
   return (
     <>
@@ -34,7 +36,7 @@ export default function HomePage() {
         {/* Background image */}
         <div className="absolute inset-0 -z-10">
           <Image
-            src="https://framerusercontent.com/images/5xFSwGZatNRutmzk45FXSubv4qc.webp?width=1800&height=1200"
+            src={location.heroImage}
             alt="DJ performing at event"
             fill
             priority
@@ -53,7 +55,7 @@ export default function HomePage() {
             variants={fadeUp}
             className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4"
           >
-            Brandon &middot; Winnipeg &middot; Regina
+            {location.hero.label}
           </motion.p>
           <motion.h1
             variants={fadeUp}
@@ -67,8 +69,7 @@ export default function HomePage() {
             variants={fadeUp}
             className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed"
           >
-            DJ entertainment services for weddings, events, and celebrations
-            throughout Brandon and Manitoba.
+            {location.hero.subtitle}
           </motion.p>
           <motion.div variants={fadeUp} className="mt-8">
             <Link
@@ -116,14 +117,10 @@ export default function HomePage() {
               unforgettable nights
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              As Brandon, Manitoba&apos;s premier DJ service, we create unforgettable
-              experiences at every event. From weddings and corporate galas to
-              social celebrations, we bring the energy and music that keeps your
-              dance floor packed all night.
+              {location.about.copy[0]}
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              When the lights fade and guests head home, they&apos;ll be talking about{" "}
-              <em>that party</em> for weeks. That&apos;s the Trident Music difference.
+              {location.about.copy[1]}
             </p>
           </motion.div>
 
@@ -272,11 +269,10 @@ export default function HomePage() {
             Tell Us
           </p>
           <h2 className="text-3xl md:text-5xl font-[family-name:var(--font-playfair)] tracking-tight">
-            What are you <em className="italic">planning</em>?
+            {location.cta.heading}
           </h2>
           <p className="mt-4 text-muted-foreground max-w-md mx-auto">
-            Weddings, corporate events, parties, graduations &mdash; we bring
-            the energy.
+            {location.cta.subtext}
           </p>
           <Link
             href="/inquire"

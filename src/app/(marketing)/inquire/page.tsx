@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { socialLinks } from "@/lib/data";
+import { useLocation } from "@/components/location-provider";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -17,6 +18,8 @@ const fadeUp = {
 };
 
 export default function InquirePage() {
+  const { location } = useLocation();
+
   return (
     <>
       {/* ─── HERO ─── */}
@@ -76,28 +79,21 @@ export default function InquirePage() {
             className="lg:col-span-2"
           >
             <div className="border border-white/10 rounded-sm p-8 md:p-10 space-y-10">
-              {/* Brandon HQ */}
+              {/* Office Address */}
               <div>
                 <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-3">
-                  Brandon HQ
+                  {location.hasLocalOffice ? "Headquarters" : "Our Office"}
                 </p>
                 <p className="text-sm leading-relaxed">
-                  381 Park Avenue East
+                  {location.address.street}
                   <br />
-                  Brandon, MB R7A 7A5
+                  {location.address.cityProvince} {location.address.postalCode}
                 </p>
-              </div>
-
-              {/* Winnipeg */}
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-3">
-                  Winnipeg
-                </p>
-                <p className="text-sm leading-relaxed">
-                  425 Ballantrae Dr
-                  <br />
-                  Winnipeg, MB R3T 6H6
-                </p>
+                {!location.hasLocalOffice && (
+                  <p className="text-xs text-muted-foreground mt-2">
+                    Serving {location.city} from our Brandon headquarters
+                  </p>
+                )}
               </div>
 
               {/* Hours */}

@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navigation } from "@/lib/data";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { LocationSwitcher } from "@/components/location-switcher";
 
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -33,6 +34,7 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
+          <LocationSwitcher />
           <ThemeToggle />
         </nav>
 
@@ -76,6 +78,19 @@ export function SiteHeader() {
                   </Link>
                 </motion.div>
               ))}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{
+                  delay: navigation.length * 0.05,
+                  duration: 0.3,
+                }}
+                className="flex items-center gap-6 pt-4"
+              >
+                <LocationSwitcher />
+                <ThemeToggle />
+              </motion.div>
             </nav>
           </motion.div>
         )}

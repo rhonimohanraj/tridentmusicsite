@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useLocation } from "@/components/location-provider";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -101,7 +102,25 @@ const blogPosts = [
 ];
 
 export default function BlogPage() {
-  const [featured, ...rest] = blogPosts;
+  const { location } = useLocation();
+
+  const sortedPosts = [...blogPosts].sort((a, b) => {
+    const aRelevant = location.blogCityKeywords.some(
+      (kw) =>
+        a.title.toLowerCase().includes(kw) ||
+        a.excerpt.toLowerCase().includes(kw)
+    );
+    const bRelevant = location.blogCityKeywords.some(
+      (kw) =>
+        b.title.toLowerCase().includes(kw) ||
+        b.excerpt.toLowerCase().includes(kw)
+    );
+    if (aRelevant && !bRelevant) return -1;
+    if (!aRelevant && bRelevant) return 1;
+    return 0;
+  });
+
+  const [featured, ...rest] = sortedPosts;
 
   return (
     <section className="px-6 md:px-12 py-24 md:py-32">
