@@ -3,7 +3,7 @@ import { navigation, socialLinks } from "@/lib/data";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/5 bg-background">
+    <footer className="border-t border-theme bg-background">
       <div className="mx-auto max-w-7xl px-6 py-16 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
@@ -62,7 +62,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-16 pt-6 border-t border-white/5 flex items-center justify-between">
+        <div className="mt-16 pt-6 border-t border-theme flex items-center justify-between">
           <p className="text-xs text-muted-foreground/50">
             &copy; {new Date().getFullYear()} Trident Event Group
           </p>

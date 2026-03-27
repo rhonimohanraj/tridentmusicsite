@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Outfit } from "next/font/google";
-import { ThemeProvider } from "next-themes";
+import { TimezoneThemeProvider } from "@/components/timezone-theme-provider";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -41,9 +41,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          {children}
-        </ThemeProvider>
+        <TimezoneThemeProvider>{children}</TimezoneThemeProvider>
       </body>
     </html>
   );
