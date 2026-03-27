@@ -96,7 +96,7 @@ function PhotoCard({
   return (
     <div
       className={cn(
-        'overflow-hidden rounded-xl cursor-pointer flex-shrink-0 transition-opacity duration-400',
+        'overflow-hidden rounded-2xl cursor-pointer flex-shrink-0 transition-opacity duration-400',
         className,
         isDimmed ? 'opacity-60' : 'opacity-100',
       )}
@@ -107,7 +107,7 @@ function PhotoCard({
       <img
         src={member.image}
         alt={member.name}
-        className="w-full h-full object-cover transition-[filter] duration-500"
+        className="w-full h-full object-cover transition-[filter,transform] duration-500 scale-[1.15]"
         style={{
           filter: isActive ? 'grayscale(0) brightness(1)' : 'grayscale(1) brightness(0.77)',
         }}

@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { LyricLoader } from "@/components/lyric-loader";
 import { HorizontalServices } from "@/components/horizontal-services";
 import { TestimonialsSection } from "@/components/testimonials-columns";
+import TeamShowcase from "@/components/team-showcase";
 import { testimonials, teamMembers } from "@/lib/data";
 import { useLocation } from "@/components/location-provider";
 
@@ -159,14 +160,14 @@ export default function HomePage() {
       <HorizontalServices />
 
       {/* ─── TEAM PREVIEW ─── */}
-      <section className="py-20 md:py-28 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-12"
+            className="mb-8"
           >
             <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
               The People
@@ -177,47 +178,17 @@ export default function HomePage() {
               <em className="italic">love</em> doing this
             </h2>
           </motion.div>
+        </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {teamMembers.slice(0, 10).map((member, i) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{
-                  delay: i * 0.05,
-                  duration: 0.6,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="group"
-              >
-                <div className="img-hover-scale relative aspect-[2/3] overflow-hidden">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-                <p className="mt-2 text-xs font-medium">{member.name}</p>
-                <p className="text-[10px] text-muted-foreground uppercase tracking-wider">
-                  {member.role}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+        <TeamShowcase members={teamMembers} />
 
-          <div className="mt-8 text-center">
-            <Link
-              href="/the-team"
-              className="text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors"
-            >
-              View full team &rarr;
-            </Link>
-          </div>
+        <div className="mt-8 text-center">
+          <Link
+            href="/the-team"
+            className="text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors"
+          >
+            View full team &rarr;
+          </Link>
         </div>
       </section>
 
