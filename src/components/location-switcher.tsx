@@ -8,8 +8,16 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
+const displayLabel: Record<LocationSlug, string> = {
+  brandon: "Brandon, MB",
+  winnipeg: "Winnipeg, MB",
+  regina: "Regina, SK",
+  generic: "All Locations",
+};
 
 export function LocationSwitcher() {
   const { location, setLocation } = useLocation();
@@ -18,22 +26,35 @@ export function LocationSwitcher() {
     <DropdownMenu>
       <DropdownMenuTrigger className="flex items-center gap-1.5 text-xs uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors outline-none">
         <MapPin size={14} />
-        <span>{location.city}</span>
+        <span>
+          {location.slug === "generic" ? "All Locations" : location.city}
+        </span>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="min-w-[140px]">
-        {Object.values(LOCATIONS).map((loc) => (
+      <DropdownMenuContent align="end" className="min-w-[160px]">
+        {(["brandon", "winnipeg", "regina"] as const).map((slug) => (
           <DropdownMenuItem
-            key={loc.slug}
-            onClick={() => setLocation(loc.slug as LocationSlug)}
+            key={slug}
+            onClick={() => setLocation(slug)}
             className={
-              loc.slug === location.slug
+              slug === location.slug
                 ? "font-medium"
                 : "text-muted-foreground"
             }
           >
-            {loc.city}, {loc.province}
+            {displayLabel[slug]}
           </DropdownMenuItem>
         ))}
+        <DropdownMenuSeparator />
+        <DropdownMenuItem
+          onClick={() => setLocation("generic")}
+          className={
+            location.slug === "generic"
+              ? "font-medium"
+              : "text-muted-foreground"
+          }
+        >
+          All Locations
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

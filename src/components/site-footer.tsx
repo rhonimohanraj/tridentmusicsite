@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { navigation, socialLinks } from "@/lib/data";
 import { useLocation } from "@/components/location-provider";
+import { LOCATIONS } from "@/lib/locations";
 
 export function SiteFooter() {
   const { location } = useLocation();
@@ -43,18 +44,37 @@ export function SiteFooter() {
           {/* Contact & Social */}
           <div>
             <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-4">
-              Location
+              {location.slug === "generic" ? "Locations" : "Location"}
             </p>
             <div className="space-y-3 text-sm text-muted-foreground">
-              <p>
-                {location.address.street}
-                <br />
-                {location.address.cityProvince} {location.address.postalCode}
-              </p>
-              {!location.hasLocalOffice && (
-                <p className="text-xs text-muted-foreground/60">
-                  Serving {location.city} from our Brandon headquarters
-                </p>
+              {location.slug === "generic" ? (
+                <>
+                  <div>
+                    <p className="text-xs font-medium text-foreground/70 mb-1">Brandon HQ</p>
+                    <p>{LOCATIONS.brandon.address.street}<br />{LOCATIONS.brandon.address.cityProvince} {LOCATIONS.brandon.address.postalCode}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-medium text-foreground/70 mb-1">Winnipeg</p>
+                    <p>{LOCATIONS.winnipeg.address.street}<br />{LOCATIONS.winnipeg.address.cityProvince} {LOCATIONS.winnipeg.address.postalCode}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-medium text-foreground/70 mb-1">Regina</p>
+                    <p>Serving Saskatchewan from our Manitoba offices</p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <p>
+                    {location.address.street}
+                    <br />
+                    {location.address.cityProvince} {location.address.postalCode}
+                  </p>
+                  {!location.hasLocalOffice && (
+                    <p className="text-xs text-muted-foreground/60">
+                      Serving {location.city} from our Brandon headquarters
+                    </p>
+                  )}
+                </>
               )}
             </div>
             <div className="flex gap-4 mt-6">

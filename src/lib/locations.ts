@@ -1,4 +1,4 @@
-export type LocationSlug = "brandon" | "winnipeg" | "regina";
+export type LocationSlug = "brandon" | "winnipeg" | "regina" | "generic";
 
 export interface LocationAddress {
   street: string;
@@ -41,7 +41,10 @@ export interface LocationConfig {
 
 export const LOCATION_COOKIE = "trident-location";
 export const LOCATION_HEADER = "x-trident-location";
-export const DEFAULT_LOCATION: LocationSlug = "brandon";
+export const DEFAULT_LOCATION: LocationSlug = "generic";
+
+/** City slugs only — excludes "generic" */
+export const CITY_SLUGS: LocationSlug[] = ["brandon", "winnipeg", "regina"];
 
 const brandonAddress: LocationAddress = {
   street: "381 Park Avenue East",
@@ -243,6 +246,68 @@ export const LOCATIONS: Record<LocationSlug, LocationConfig> = {
         "DJ entertainment services for weddings, events, and celebrations throughout Regina and Saskatchewan. Professional DJ, audio visual, and photobooth services.",
     },
     blogCityKeywords: ["regina", "saskatchewan"],
+  },
+
+  generic: {
+    slug: "generic",
+    city: "Manitoba & Saskatchewan",
+    province: "Manitoba & Saskatchewan",
+    region: "Manitoba and Saskatchewan",
+    address: brandonAddress,
+    hasLocalOffice: true,
+    heroImage:
+      "https://framerusercontent.com/images/5xFSwGZatNRutmzk45FXSubv4qc.webp?width=1800&height=1200",
+    hero: {
+      label: "Brandon \u00B7 Winnipeg \u00B7 Regina",
+      headline: "for those celebrations\nyou can never forget",
+      subtitle:
+        "DJ entertainment services for weddings, events, and celebrations throughout Manitoba and Saskatchewan.",
+    },
+    about: {
+      heading:
+        "Professional DJs, real energy, and unforgettable nights",
+      copy: [
+        "As Manitoba and Saskatchewan\u2019s premier DJ service, we create unforgettable experiences at every event. From weddings and corporate galas to social celebrations, we bring the energy and music that keeps your dance floor packed all night.",
+        "With teams in Brandon, Winnipeg, and coverage across Regina, we\u2019re wherever the party is. When the lights fade and guests head home, they\u2019ll be talking about that party for weeks. That\u2019s the Trident Music difference.",
+      ],
+    },
+    cta: {
+      heading: "What are you planning?",
+      subtext:
+        "Weddings, corporate events, parties, graduations \u2014 we bring the energy across Manitoba and Saskatchewan.",
+    },
+    footer: {
+      description:
+        "Professional DJ and event entertainment for weddings, celebrations, and corporate events across Manitoba and Saskatchewan.",
+    },
+    faqs: [
+      {
+        question: "Where does Trident Music operate?",
+        answer:
+          "We have teams in Brandon (HQ) and Winnipeg, Manitoba, and serve events across Regina, Saskatchewan, and the surrounding regions.",
+      },
+      {
+        question: "Do you travel for events?",
+        answer:
+          "Absolutely. We serve weddings and events across all of Manitoba and Saskatchewan, from major cities to rural communities.",
+      },
+      {
+        question: "What\u2019s included in your DJ packages?",
+        answer:
+          "Our packages include a professional DJ/MC, premium sound system, lighting, music consultation, and full event coordination. Contact us for a custom quote.",
+      },
+      {
+        question: "How do I book Trident Music?",
+        answer:
+          "Head to our inquiry page and fill out the form. We\u2019ll get back to you with a custom quote within 24 hours.",
+      },
+    ],
+    seo: {
+      title: "Trident Music | Manitoba & Saskatchewan\u2019s Premier DJ Service",
+      description:
+        "DJ entertainment services for weddings, events, and celebrations throughout Manitoba and Saskatchewan. Locations in Brandon, Winnipeg, and Regina.",
+    },
+    blogCityKeywords: [],
   },
 };
 
