@@ -90,7 +90,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     text: "Our corporate gala had 300 people and Trident kept every single one of them entertained. Austin on the decks was unreal. The transitions between dinner music and the dance portion were seamless. Our CEO is already asking to rebook for next year.",
-    name: "Sarah & Marcus Chen",
+    name: "Sarah Chen",
     role: "Corporate Gala, Winnipeg",
   },
   {
@@ -100,7 +100,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     text: "Third year in a row hiring Trident for our grad. Sarah-Jane had the students going crazy. They literally count down to the dance because they know it's going to go off. No other DJ company even comes close for school events.",
-    name: "Jennifer & Matt Flett",
+    name: "Jennifer Flett",
     role: "Graduation, Brandon",
   },
   {
