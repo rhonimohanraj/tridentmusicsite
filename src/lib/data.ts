@@ -51,7 +51,7 @@ export const services: Service[] = [
 export const teamMembers: TeamMember[] = [
   { id: "1", name: "Destiny Maluga", role: "Marketing Manager", image: "https://framerusercontent.com/images/WERes4aGWZVC6bmNU9QbTvBM.jpg?width=1067&height=1600", objectPosition: "51% 20%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
   { id: "2", name: "Joey Simms", role: "Sales Manager | Host | DJ", image: "https://framerusercontent.com/images/vQuVTK9ADWkDhikVBY0lMY8sIo.jpg?width=1067&height=1600", objectPosition: "52% -36%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
-  { id: "3", name: "Danylo Denysevych", role: "Web Developer | Designer", image: "https://framerusercontent.com/images/u2zxAhCF5X9wH4Udtctn7VAd30.jpg?width=6000&height=4000", objectPosition: "48% -17%", social: { linkedin: "https://www.linkedin.com/company/tridenteventgroup/" } },
+  { id: "3", name: "Danylo Denysevych", role: "Web Developer | Designer", image: "https://framerusercontent.com/images/u2zxAhCF5X9wH4Udtctn7VAd30.jpg?width=6000&height=4000", objectPosition: "48% 8%", social: { linkedin: "https://www.linkedin.com/company/tridenteventgroup/" } },
   { id: "4", name: "Carson Schepp", role: "Videographer | Editor", image: "https://framerusercontent.com/images/rzZTjCUIg1oueLw5i7VNDlsxlo.jpg?width=1067&height=1600", objectPosition: "51% 30%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
   { id: "5", name: "Aidan Froese", role: "Videographer | Editor", image: "https://framerusercontent.com/images/bCkxOJxCeRews9YhSyymmnUtPQ.jpg?width=1067&height=1600", objectPosition: "55% 19%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
   { id: "6", name: "Jared Weir", role: "Host | DJ | Music Master", image: "https://framerusercontent.com/images/pwVwklZywXKq0qhySUvzyZ9jpE.jpg?width=1067&height=1600", objectPosition: "48% 16%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
@@ -125,12 +125,31 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const lyrics: string[] = [
+  // ─── Billboard 2026 ───
+  "I just might fall for you tonight",
+  "Choosin' Texas over everything",
+  "Man, I need you more than ever",
+  "Stateside, we're running out of time",
+  "American girls got me feeling some type of way",
+  "So easy to fall in love with you",
+  "Risk it all for one more night",
+  "Opalite, you're shining through the dark",
+  "Aperture, let the light come in",
+  "The great divide won't keep me from you",
+
+  // ─── Billboard 2025 ───
+  "Die with a smile on my face",
+  "APT, APT — come and play with me",
+  "That's so true, I can't deny it",
+  "I'm just a girl, standing in front of a boy",
+  "Espresso, you keep me up at night",
+
+  // ─── Timeless anthems ───
   "Everybody dance now",
   "I gotta feeling that tonight's gonna be a good night",
   "We found love in a hopeless place",
   "Don't stop me now, I'm having such a good time",
   "Started from the bottom, now we here",
-  "Put your hands up in the air",
   "I wanna dance with somebody",
   "Uptown funk you up",
   "Livin' on a prayer",
@@ -139,17 +158,47 @@ export const lyrics: string[] = [
   "Shut up and dance with me",
   "All I do is win win win",
   "Just dance, gonna be okay",
-  "It's getting hot in here",
   "Can't stop the feeling",
   "Hey ya! Hey ya!",
   "Billie Jean is not my lover",
   "Let me clear my throat",
   "September, do you remember?",
-  "Yeah! Yeah! Yeah!",
   "Ice ice baby",
-  "Somebody once told me the world is gonna roll me",
-  "Mr. Brightside",
-  "Yeah, you got that yummy yummy",
+  "Mr. Brightside coming out of my cage",
+
+  // ─── Classic party & dance ───
+  "We are the champions, my friends",
+  "Stayin' alive, stayin' alive",
+  "Bohemian Rhapsody, is this the real life?",
+  "Another one bites the dust",
+  "Superstition, very superstitious",
+  "Get lucky, we're up all night",
+  "One more time, we're gonna celebrate",
+  "I like to move it, move it",
+  "Levels, oh sometimes I get a good feeling",
+  "Lean back, lean back",
+
+  // ─── R&B & Hip-Hop classics ───
+  "No diggity, no doubt",
+  "This is how we do it",
+  "It was a good day",
+  "California love",
+  "In da club, it's your birthday",
+  "Regulate, G-funk era",
+  "Return of the Mack, you know that I'll be back",
+  "Jump around, jump around",
+
+  // ─── Pop & rock icons ───
+  "Cruel summer, devils roll the dice",
+  "Blinding lights, I can't sleep until I feel your touch",
+  "Take on me, take me on",
+  "Shake it off, shake it off",
+  "Dancing in the moonlight",
+  "Here comes the sun, and I say it's alright",
+  "Don't stop believin', hold on to that feeling",
+  "Wannabe, tell me what you want",
+  "Crazy in love, got me looking so crazy right now",
+  "Party in the USA",
 ];
 
 export const socialLinks = {
