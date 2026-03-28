@@ -35,5 +35,9 @@ export default async function BlogPostPage({
   const post = getBlogPost(slug);
   if (!post) notFound();
 
-  return <BlogArticle post={post} />;
+  const index = blogPosts.findIndex((p) => p.slug === slug);
+  const prev = index > 0 ? blogPosts[index - 1] : null;
+  const next = index < blogPosts.length - 1 ? blogPosts[index + 1] : null;
+
+  return <BlogArticle post={post} prev={prev} next={next} />;
 }

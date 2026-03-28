@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { BlogPost } from "@/lib/blog";
 
 const fadeUp = {
@@ -14,7 +14,13 @@ const fadeUp = {
   },
 };
 
-export function BlogArticle({ post }: { post: BlogPost }) {
+interface BlogArticleProps {
+  post: BlogPost;
+  prev: BlogPost | null;
+  next: BlogPost | null;
+}
+
+export function BlogArticle({ post, prev, next }: BlogArticleProps) {
   return (
     <article className="px-6 md:px-12 py-24 md:py-32">
       {/* Back link */}
@@ -106,6 +112,58 @@ export function BlogArticle({ post }: { post: BlogPost }) {
           Get a Quote &rarr;
         </Link>
       </motion.div>
+
+      {/* Prev / Next navigation */}
+      {(prev || next) && (
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          className="max-w-3xl mx-auto mt-12 pt-8 border-t border-theme grid grid-cols-2 gap-6"
+        >
+          {prev ? (
+            <Link
+              href={`/blog/${prev.slug}`}
+              className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <ArrowLeft
+                width={20}
+                height={20}
+                className="shrink-0 transition-transform duration-300 group-hover:-translate-x-1"
+              />
+              <div className="min-w-0">
+                <p className="text-[10px] uppercase tracking-[0.2em] mb-1">Previous</p>
+                <p className="text-sm font-[family-name:var(--font-playfair)] leading-snug truncate">
+                  {prev.title}
+                </p>
+              </div>
+            </Link>
+          ) : (
+            <div />
+          )}
+          {next ? (
+            <Link
+              href={`/blog/${next.slug}`}
+              className="group flex items-center justify-end gap-3 text-right text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <div className="min-w-0">
+                <p className="text-[10px] uppercase tracking-[0.2em] mb-1">Next</p>
+                <p className="text-sm font-[family-name:var(--font-playfair)] leading-snug truncate">
+                  {next.title}
+                </p>
+              </div>
+              <ArrowRight
+                width={20}
+                height={20}
+                className="shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </Link>
+          ) : (
+            <div />
+          )}
+        </motion.div>
+      )}
     </article>
   );
 }
