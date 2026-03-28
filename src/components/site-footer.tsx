@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { navigation, socialLinks } from "@/lib/data";
 import { useLocation } from "@/components/location-provider";
-import { LOCATIONS } from "@/lib/locations";
+import { LOCATIONS, SEO_TAGLINES } from "@/lib/locations";
 
 export function SiteFooter() {
   const { location } = useLocation();
@@ -93,7 +93,12 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-16 pt-6 border-t border-theme flex items-center justify-between">
+        {/* SEO tagline */}
+        <p className="mt-12 text-xs text-muted-foreground/40 leading-relaxed max-w-4xl">
+          {SEO_TAGLINES[location.slug]}
+        </p>
+
+        <div className="mt-6 pt-6 border-t border-theme flex items-center justify-between">
           <p className="text-xs text-muted-foreground/50">
             &copy; {new Date().getFullYear()} Trident Event Group
           </p>

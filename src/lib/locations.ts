@@ -311,6 +311,17 @@ export const LOCATIONS: Record<LocationSlug, LocationConfig> = {
   },
 };
 
+export const SEO_TAGLINES: Record<LocationSlug, string> = {
+  brandon:
+    "Trident Music is headquartered in Brandon, Manitoba, proudly providing award-winning DJ entertainment across the Westman area, Winnipeg, and Southern Manitoba. We are the premier choice for weddings and events in Brandon, Portage la Prairie, Dauphin, and destination celebrations across Western Canada.",
+  winnipeg:
+    "Trident Music proudly serves Winnipeg and all of Southern Manitoba with award-winning DJ entertainment. Headquartered in Brandon with a dedicated Winnipeg team, we are the premier choice for weddings and events in Winnipeg, Steinbach, Selkirk, and destination celebrations across Western Canada.",
+  regina:
+    "Trident Music brings Manitoba\u2019s most booked DJ team to Regina and Saskatchewan. Headquartered in Brandon with teams across the prairies, we are the premier choice for weddings and events in Regina, Moose Jaw, Saskatoon, and destination celebrations across Western Canada.",
+  generic:
+    "Trident Music is headquartered in Brandon, Manitoba, proudly providing award-winning DJ entertainment across Winnipeg, Steinbach, Portage la Prairie, Thompson, and the Westman area. We are the premier choice for weddings and events throughout Manitoba, Saskatchewan, and destination celebrations across Western Canada.",
+};
+
 export function getLocationBySlug(slug: string): LocationConfig {
   if (slug in LOCATIONS) return LOCATIONS[slug as LocationSlug];
   return LOCATIONS[DEFAULT_LOCATION];
