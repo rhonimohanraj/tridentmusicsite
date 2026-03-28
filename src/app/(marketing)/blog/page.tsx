@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useLocation } from "@/components/location-provider";
 import { MoveRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { blogPosts } from "@/lib/blog";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -18,99 +19,6 @@ const fadeUp = {
     },
   }),
 };
-
-const blogPosts = [
-  {
-    title: "Why Trident Music is the Perfect Choice for Your Regina Wedding",
-    excerpt:
-      "Discover Why Saskatchewan Couples Choose Manitoba's Premier DJ Service",
-    category: "Weddings",
-    image:
-      "https://framerusercontent.com/images/N7YHOrvApkBAJM5UaVPtxvwJUBQ.webp?width=1600&height=1010",
-    slug: "regina-wedding",
-  },
-  {
-    title: "Best Wedding Venues in Regina for Your Perfect Day",
-    excerpt:
-      "The Ultimate Guide to Regina Wedding Venues from Saskatchewan's Premier DJ Service",
-    category: "Venues",
-    image:
-      "https://framerusercontent.com/images/zR9r5CJ56r5ck2Xc6sH3aiI8ezE.webp?width=1336&height=751",
-    slug: "regina-venues",
-  },
-  {
-    title: "Planning Your Winnipeg Wedding: DJ Timeline and Music Guide",
-    excerpt:
-      "Your Complete Guide to Wedding Entertainment Planning in Manitoba",
-    category: "Planning",
-    image:
-      "https://framerusercontent.com/images/yZg0faxngMsHKWBfLdzZHhRzak.webp?width=1000&height=667",
-    slug: "winnipeg-timeline",
-  },
-  {
-    title: "Top 10 Wedding Venues in Winnipeg We Love Working With",
-    excerpt: "Our top 10 favorite Winnipeg wedding venues",
-    category: "Venues",
-    image:
-      "https://framerusercontent.com/images/8FxAMW3iIeXfGczdzs3wAtW5g38.jpg?width=1400&height=851",
-    slug: "winnipeg-venues",
-  },
-  {
-    title: "Best DJ Service In Brandon? Trident Music",
-    excerpt:
-      "If you're searching for the best DJ service in Brandon, Manitoba, your search ends here!",
-    category: "Brandon",
-    image:
-      "https://framerusercontent.com/images/x5334o4bG5vQHuHuk1efPc7zs.jpg?width=750&height=500",
-    slug: "brandon-best",
-  },
-  {
-    title:
-      "Top 10 Reasons to Choose Trident Music for Your Manitoba Event",
-    excerpt:
-      "Planning a wedding, social, graduation party, or corporate event in Manitoba?",
-    category: "Events",
-    image:
-      "https://framerusercontent.com/images/GqczSXUS9PqYlZ84LTFroKLZ40.webp?width=1000&height=667",
-    slug: "top-10-reasons",
-  },
-  {
-    title: "Why Trident Music is the Best DJ Service in Brandon",
-    excerpt:
-      "People across Brandon, Winnipeg, and Manitoba choose Trident Music. Here's why.",
-    category: "Brandon",
-    image:
-      "https://framerusercontent.com/images/57QszomWEqCBDiWJDPLPv55lQ.webp?width=2000&height=1333",
-    slug: "brandon-best-dj",
-  },
-  {
-    title: "Why You Shouldn't Hire Just Based on Price",
-    excerpt:
-      "While budget matters, hiring based only on price can lead to stress and unmet expectations.",
-    category: "Advice",
-    image:
-      "https://framerusercontent.com/images/dRnpfFfEVluQCFFcxC1UZmJrImA.jpg?width=750&height=500",
-    slug: "price-vs-quality",
-  },
-  {
-    title: "Why a Playlist Can't Replace a Pro DJ",
-    excerpt:
-      "A Spotify playlist can't match the energy, flow, and experience a professional DJ brings.",
-    category: "Advice",
-    image:
-      "https://framerusercontent.com/images/kpBTMuRfzVwtHD0Aiqv2p0ze9lY.png?width=500&height=623",
-    slug: "playlist-vs-dj",
-  },
-  {
-    title: "Top 25 Songs For Your Wedding Day!",
-    excerpt:
-      "Top 25 songs for your groomsmen to walk down the aisle to.",
-    category: "Music",
-    image:
-      "https://framerusercontent.com/images/riAr7RpZCXn4fKvzqPGGvbtsA.jpg?width=500&height=500",
-    slug: "top-25-songs",
-  },
-];
 
 export default function BlogPage() {
   const { location } = useLocation();
@@ -172,7 +80,7 @@ export default function BlogPage() {
       >
         {/* Featured — large card */}
         <motion.div variants={fadeUp} className="col-span-1 md:col-span-2 lg:col-span-1 md:row-span-2">
-          <Link href="#" className="group block h-full">
+          <Link href={`/blog/${featured.slug}`} className="group block h-full">
             <div
               style={{ backgroundImage: `url(${featured.image})` }}
               className="relative flex size-full cursor-pointer flex-col justify-end overflow-hidden rounded-[20px] bg-cover bg-center bg-no-repeat p-6 md:p-8 text-white min-h-[400px] md:min-h-full transition-all duration-300 hover:scale-[0.98] hover:rotate-[0.3deg]"
@@ -207,7 +115,7 @@ export default function BlogPage() {
         {/* Side cards — first two from rest */}
         {rest.slice(0, 2).map((post, i) => (
           <motion.div key={post.slug} variants={fadeUp} custom={i + 1}>
-            <Link href="#" className="group block h-full">
+            <Link href={`/blog/${post.slug}`} className="group block h-full">
               <div
                 style={{ backgroundImage: `url(${post.image})` }}
                 className="relative flex size-full cursor-pointer flex-col justify-end overflow-hidden rounded-[20px] bg-cover bg-center bg-no-repeat p-5 text-white min-h-[280px] transition-all duration-300 hover:scale-[0.98] hover:rotate-[0.3deg]"
@@ -247,7 +155,7 @@ export default function BlogPage() {
             custom={i}
             variants={fadeUp}
           >
-            <Link href="#" className="group block">
+            <Link href={`/blog/${post.slug}`} className="group block">
               <div
                 style={{ backgroundImage: `url(${post.image})` }}
                 className={cn(
