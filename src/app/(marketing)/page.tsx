@@ -214,7 +214,7 @@ export default function HomePage() {
             className="mb-12 text-center"
           >
             <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
-              Straight From Our Couples
+              Straight From Our Clients
             </p>
             <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-playfair)] tracking-tight">
               Don&apos;t take our word for <em className="italic">it</em>
