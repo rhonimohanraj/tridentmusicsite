@@ -31,7 +31,7 @@ function TestimonialsColumn({
           <React.Fragment key={index}>
             {testimonials.map((t, i) => (
               <div
-                className="p-10 rounded-3xl border shadow-lg shadow-primary/10 max-w-xs w-full"
+                className="p-10 rounded-full border shadow-lg shadow-primary/10 max-w-xs w-full"
                 key={i}
               >
                 <div>{t.text}</div>
