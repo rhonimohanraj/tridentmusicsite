@@ -116,80 +116,78 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const lyrics: string[] = [
-  // ─── Billboard 2026 ───
-  "I just might fall for you tonight",
+  // ─── Billboard Hot 100 — March 2026 ───
   "Choosin' Texas over everything",
   "Man, I need you more than ever",
+  "I just might fall for you tonight",
+  "Just an ordinary day, and I'm next to you",
+  "Golden, everything you touch turns golden",
   "Stateside, we're running out of time",
-  "American girls got me feeling some type of way",
-  "So easy to fall in love with you",
-  "Risk it all for one more night",
   "Opalite, you're shining through the dark",
-  "Aperture, let the light come in",
-  "The great divide won't keep me from you",
+  "The fate of Ophelia, written in the stars",
+  "So easy to fall in love with you",
+  "American girls got me feeling some type of way",
 
-  // ─── Billboard 2025 ───
-  "Die with a smile on my face",
-  "APT, APT — come and play with me",
-  "That's so true, I can't deny it",
-  "I'm just a girl, standing in front of a boy",
-  "Espresso, you keep me up at night",
-
-  // ─── Timeless anthems ───
-  "Everybody dance now",
-  "I gotta feeling that tonight's gonna be a good night",
-  "We found love in a hopeless place",
-  "Don't stop me now, I'm having such a good time",
-  "Started from the bottom, now we here",
-  "I wanna dance with somebody",
-  "Uptown funk you up",
-  "Livin' on a prayer",
-  "Sweet Caroline, bah bah bah",
-  "Tonight we are young",
-  "Shut up and dance with me",
-  "All I do is win win win",
-  "Just dance, gonna be okay",
-  "Can't stop the feeling",
-  "Hey ya! Hey ya!",
-  "Billie Jean is not my lover",
-  "Let me clear my throat",
-  "September, do you remember?",
-  "Ice ice baby",
-  "Mr. Brightside coming out of my cage",
-
-  // ─── Classic party & dance ───
+  // ─── 60s & 70s ───
+  "Here comes the sun, and I say it's alright",
+  "Bohemian Rhapsody, is this the real life?",
   "We are the champions, my friends",
   "Stayin' alive, stayin' alive",
-  "Bohemian Rhapsody, is this the real life?",
-  "Another one bites the dust",
   "Superstition, very superstitious",
-  "Get lucky, we're up all night",
-  "One more time, we're gonna celebrate",
-  "I like to move it, move it",
-  "Levels, oh sometimes I get a good feeling",
-  "Lean back, lean back",
+  "September, do you remember?",
+  "Ain't no mountain high enough",
+  "I will survive, hey hey",
 
-  // ─── R&B & Hip-Hop classics ───
+  // ─── 80s ───
+  "Billie Jean is not my lover",
+  "Don't stop believin', hold on to that feeling",
+  "Take on me, take me on",
+  "Livin' on a prayer",
+  "Don't stop me now, I'm having such a good time",
+  "I wanna dance with somebody",
+  "Purple Rain, let it wash away",
+  "Every breath you take, every move you make",
+
+  // ─── 90s ───
   "No diggity, no doubt",
   "This is how we do it",
-  "It was a good day",
   "California love",
-  "In da club, it's your birthday",
-  "Regulate, G-funk era",
   "Return of the Mack, you know that I'll be back",
   "Jump around, jump around",
-
-  // ─── Pop & rock icons ───
-  "Cruel summer, devils roll the dice",
-  "Blinding lights, I can't sleep until I feel your touch",
-  "Take on me, take me on",
-  "Shake it off, shake it off",
-  "Dancing in the moonlight",
-  "Here comes the sun, and I say it's alright",
-  "Don't stop believin', hold on to that feeling",
   "Wannabe, tell me what you want",
+  "Ice ice baby",
+  "It was a good day",
+
+  // ─── 2000s ───
+  "In da club, it's your birthday",
+  "Hey ya! Hey ya!",
   "Crazy in love, got me looking so crazy right now",
+  "Mr. Brightside coming out of my cage",
+  "Yeah! Okay, let's go",
+  "Dancing in the moonlight",
+  "Let me clear my throat",
+
+  // ─── 2010s ───
+  "We found love in a hopeless place",
+  "Uptown funk you up",
+  "Shut up and dance with me",
+  "Started from the bottom, now we here",
+  "Can't stop the feeling",
+  "All I do is win win win",
+  "Get lucky, we're up all night",
+  "Blinding lights, I can't sleep until I feel your touch",
+  "Cruel summer, devils roll the dice",
+  "Shake it off, shake it off",
+
+  // ─── Party anthems ───
+  "Everybody dance now",
+  "I gotta feeling that tonight's gonna be a good night",
+  "Tonight we are young",
+  "Just dance, gonna be okay",
   "Party in the USA",
+  "Sweet Caroline, bah bah bah",
+  "One more time, we're gonna celebrate",
+  "Regulate, G-funk era",
 ];
 
 export const socialLinks = {
