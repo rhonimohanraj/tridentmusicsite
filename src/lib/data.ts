@@ -49,7 +49,7 @@ export const services: Service[] = [
 ];
 
 export const teamMembers: TeamMember[] = [
-  { id: "1", name: "Zuha Jamil", role: "Client Communications", image: "https://placehold.co/1067x1600/1a1a1a/666?text=ZJ", objectPosition: "50% 20%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
+  { id: "1", name: "Zuha Jamil", role: "Client Communications", image: "/images/zuha-jamil.jpg", objectPosition: "50% 20%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
   { id: "2", name: "Joey Simms", role: "Sales Manager | Host | DJ", image: "https://framerusercontent.com/images/vQuVTK9ADWkDhikVBY0lMY8sIo.jpg?width=1067&height=1600", objectPosition: "52% -36%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
   { id: "3", name: "Danylo Denysevych", role: "Web Developer | Designer", image: "https://framerusercontent.com/images/u2zxAhCF5X9wH4Udtctn7VAd30.jpg?width=6000&height=4000", objectPosition: "48% 58%", social: { linkedin: "https://www.linkedin.com/company/tridenteventgroup/" } },
   { id: "4", name: "Carson Schepp", role: "Videographer | Editor", image: "https://framerusercontent.com/images/rzZTjCUIg1oueLw5i7VNDlsxlo.jpg?width=1067&height=1600", objectPosition: "51% 30%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
