@@ -35,10 +35,7 @@ function TestimonialsColumn({
                 <p className="text-[15px] leading-relaxed text-card-foreground">
                   &ldquo;{t.text}&rdquo;
                 </p>
-                <div className="flex items-center gap-3 mt-6">
-                  <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-xs font-medium text-muted-foreground shrink-0">
-                    {t.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
-                  </div>
+                <div className="flex items-center mt-6">
                   <div className="flex flex-col">
                     <span className="text-sm font-semibold tracking-tight leading-5 text-foreground">
                       {t.name}
