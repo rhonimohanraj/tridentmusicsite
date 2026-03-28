@@ -4,6 +4,7 @@ export interface TeamMember {
   role: string;
   image: string;
   objectPosition?: string;
+  imageScale?: number;
   social?: {
     twitter?: string;
     linkedin?: string;
