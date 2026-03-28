@@ -30,17 +30,18 @@ function TestimonialsColumn({
             {testimonials.map((t, i) => (
               <div
                 key={i}
-                className="p-8 rounded-[2rem] border border-border/50 bg-card shadow-sm max-w-xs w-full"
+                className="px-8 py-10 rounded-[2.5rem] bg-secondary/60 max-w-xs w-full"
               >
-                <p className="text-[15px] leading-relaxed text-card-foreground">
-                  &ldquo;{t.text}&rdquo;
+                <p className="text-base leading-[1.7] text-foreground/90">
+                  {t.text}
                 </p>
-                <div className="flex items-center mt-6">
+                <div className="flex items-center gap-4 mt-8">
+                  <div className="w-12 h-12 rounded-full bg-muted/80 shrink-0" />
                   <div className="flex flex-col">
-                    <span className="text-sm font-semibold tracking-tight leading-5 text-foreground">
+                    <span className="text-base font-semibold tracking-tight text-foreground">
                       {t.name}
                     </span>
-                    <span className="text-xs leading-5 text-muted-foreground tracking-tight">
+                    <span className="text-sm text-muted-foreground">
                       {t.role}
                     </span>
                   </div>
