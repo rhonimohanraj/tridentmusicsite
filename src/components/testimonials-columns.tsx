@@ -16,33 +16,33 @@ function TestimonialsColumn({
   return (
     <div className={className}>
       <motion.div
-        animate={{
-          translateY: "-50%",
-        }}
+        animate={{ translateY: "-50%" }}
         transition={{
           duration,
           repeat: Infinity,
           ease: "linear",
           repeatType: "loop",
         }}
-        className="flex flex-col gap-6 pb-6 bg-background"
+        className="flex flex-col gap-6 pb-6"
       >
-        {[...new Array(2)].map((_, index) => (
+        {[...Array(2)].map((_, index) => (
           <React.Fragment key={index}>
             {testimonials.map((t, i) => (
               <div
-                className="p-10 rounded-3xl border shadow-lg shadow-primary/10 max-w-xs w-full"
                 key={i}
+                className="p-10 rounded-3xl border border-border bg-card shadow-lg shadow-primary/10 max-w-xs w-full"
               >
-                <div>{t.text}</div>
-                <div className="flex items-center gap-2 mt-5">
+                <p className="text-sm leading-relaxed text-card-foreground">
+                  &ldquo;{t.text}&rdquo;
+                </p>
+                <div className="flex items-center gap-3 mt-5">
                   <div className="flex flex-col">
-                    <div className="font-medium tracking-tight leading-5">
+                    <span className="text-sm font-medium tracking-tight leading-5 text-foreground">
                       {t.name}
-                    </div>
-                    <div className="leading-5 opacity-60 tracking-tight">
+                    </span>
+                    <span className="text-xs leading-5 text-muted-foreground tracking-tight">
                       {t.role}
-                    </div>
+                    </span>
                   </div>
                 </div>
               </div>
