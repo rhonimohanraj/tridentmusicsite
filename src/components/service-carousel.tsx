@@ -115,10 +115,13 @@ export function ServiceCarousel() {
 
   return (
     <section className="py-20 md:py-28">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-8">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 text-center mb-12 md:mb-16">
+        <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
           Our Services
         </p>
+        <h2 className="text-3xl md:text-5xl font-[family-name:var(--font-playfair)] leading-[1.1] tracking-tight">
+          Everything your event needs.{"\n"}Nothing it doesn&rsquo;t.
+        </h2>
       </div>
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
         <div className="relative overflow-hidden rounded-2xl md:rounded-[2.5rem] lg:rounded-[4rem] flex flex-col lg:flex-row min-h-[500px] lg:aspect-video border border-border/40">
