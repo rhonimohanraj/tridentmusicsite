@@ -5,10 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { LyricLoader } from "@/components/lyric-loader";
-import { HorizontalServices } from "@/components/horizontal-services";
+import HoverRevealCards from "@/components/hover-reveal-cards";
 import { TestimonialsSection } from "@/components/testimonials-columns";
 import TeamShowcase from "@/components/team-showcase";
-import { testimonials, teamMembers } from "@/lib/data";
+import { testimonials, teamMembers, services } from "@/lib/data";
 import { useLocation } from "@/components/location-provider";
 
 const fadeUp = {
@@ -167,8 +167,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── HORIZONTAL SCROLL SERVICES ─── */}
-      <HorizontalServices />
+      {/* ─── SERVICES ─── */}
+      <HoverRevealCards
+        items={services.map((s) => ({
+          id: s.id,
+          title: s.title,
+          subtitle: "Inquire",
+          imageUrl: s.image,
+          href: s.href,
+        }))}
+      />
 
       {/* ─── TEAM PREVIEW ─── */}
       <section className="py-20 md:py-28">
