@@ -2,26 +2,8 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Heart,
-  PartyPopper,
-  Camera,
-  Building2,
-  Speaker,
-  GraduationCap,
-} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { services } from "@/lib/data";
-import type { LucideIcon } from "lucide-react";
-
-const SERVICE_ICONS: Record<number, LucideIcon> = {
-  1: Heart,
-  2: PartyPopper,
-  3: Camera,
-  4: Building2,
-  5: Speaker,
-  6: GraduationCap,
-};
 
 const SERVICE_DESCRIPTIONS: Record<number, string> = {
   1: "Unforgettable music and energy for your perfect day.",
@@ -98,7 +80,6 @@ export function ServiceCarousel() {
                   services.length / 2,
                   distance
                 );
-                const Icon = SERVICE_ICONS[service.id] || Heart;
 
                 return (
                   <motion.div
@@ -109,13 +90,13 @@ export function ServiceCarousel() {
                     }}
                     animate={{
                       y: wrappedDistance * ITEM_HEIGHT,
-                      opacity: 1 - Math.abs(wrappedDistance) * 0.25,
+                      opacity: 1 - Math.abs(wrappedDistance) * 0.2,
                     }}
                     transition={{
                       type: "spring",
-                      stiffness: 90,
-                      damping: 22,
-                      mass: 1,
+                      stiffness: 60,
+                      damping: 20,
+                      mass: 1.2,
                     }}
                     className="absolute flex items-center justify-start"
                   >
@@ -124,23 +105,12 @@ export function ServiceCarousel() {
                       onMouseEnter={() => setIsPaused(true)}
                       onMouseLeave={() => setIsPaused(false)}
                       className={cn(
-                        "relative flex items-center gap-3 md:gap-4 px-5 md:px-8 lg:px-8 py-3 md:py-4 rounded-full transition-all duration-700 text-left group border",
+                        "relative flex items-center px-5 md:px-8 lg:px-8 py-3 md:py-4 rounded-full transition-all duration-700 text-left group border",
                         isActive
                           ? "bg-primary-foreground text-primary border-primary-foreground z-10"
                           : "bg-transparent text-primary-foreground/60 border-primary-foreground/20 hover:border-primary-foreground/40 hover:text-primary-foreground"
                       )}
                     >
-                      <div
-                        className={cn(
-                          "flex items-center justify-center transition-colors duration-500",
-                          isActive
-                            ? "text-primary"
-                            : "text-primary-foreground/40"
-                        )}
-                      >
-                        <Icon size={18} strokeWidth={2} />
-                      </div>
-
                       <span className="font-normal text-xs md:text-sm tracking-tight whitespace-nowrap uppercase">
                         {service.title}
                       </span>
@@ -202,7 +172,7 @@ export function ServiceCarousel() {
                           className="absolute inset-x-0 bottom-0 p-6 md:p-10 pt-24 md:pt-32 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end pointer-events-none"
                         >
                           <div className="bg-background text-foreground px-4 py-1.5 rounded-full text-[10px] md:text-[11px] font-normal uppercase tracking-[0.2em] w-fit shadow-lg mb-3 border border-border/50">
-                            {index + 1} &bull; {service.title}
+                            {service.title}
                           </div>
                           <p className="text-white font-normal text-lg md:text-2xl leading-tight drop-shadow-md tracking-tight">
                             {SERVICE_DESCRIPTIONS[service.id]}
