@@ -142,16 +142,16 @@ export function BlogArticle({ post, prev, next }: BlogArticleProps) {
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeUp}
-        className="max-w-3xl mx-auto mt-12 pt-8 border-t border-theme"
+        className="max-w-3xl mx-auto mt-12 pt-8 border-t border-theme text-center"
       >
         <p className="text-xl md:text-2xl font-[family-name:var(--font-playfair)] leading-snug">
           Ready to make your event unforgettable?
         </p>
         <Link
           href="/inquire"
-          className="inline-block mt-4 text-sm uppercase tracking-[0.2em] text-foreground hover:text-muted-foreground transition-colors"
+          className="inline-block mt-6 px-8 py-3 text-sm uppercase tracking-[0.15em] bg-white text-black rounded-full hover:bg-white/90 transition-colors"
         >
-          Get a Quote &rarr;
+          Check Your Date Availability
         </Link>
       </motion.div>
     </article>
