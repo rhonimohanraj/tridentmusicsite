@@ -106,19 +106,14 @@ export function BlogArticle({ post, prev, next }: BlogArticleProps) {
           {prev ? (
             <Link
               href={`/blog/${prev.slug}`}
-              className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
+              className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <ArrowLeft
-                width={20}
-                height={20}
+                width={18}
+                height={18}
                 className="shrink-0 transition-transform duration-300 group-hover:-translate-x-1"
               />
-              <div className="min-w-0">
-                <p className="text-[10px] uppercase tracking-[0.2em] mb-1">Previous</p>
-                <p className="text-sm font-[family-name:var(--font-playfair)] leading-snug truncate">
-                  {prev.title}
-                </p>
-              </div>
+              Previous
             </Link>
           ) : (
             <div />
@@ -126,17 +121,12 @@ export function BlogArticle({ post, prev, next }: BlogArticleProps) {
           {next ? (
             <Link
               href={`/blog/${next.slug}`}
-              className="group flex items-center justify-end gap-3 text-right text-muted-foreground hover:text-foreground transition-colors"
+              className="group flex items-center justify-end gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              <div className="min-w-0">
-                <p className="text-[10px] uppercase tracking-[0.2em] mb-1">Next</p>
-                <p className="text-sm font-[family-name:var(--font-playfair)] leading-snug truncate">
-                  {next.title}
-                </p>
-              </div>
+              Next
               <ArrowRight
-                width={20}
-                height={20}
+                width={18}
+                height={18}
                 className="shrink-0 transition-transform duration-300 group-hover:translate-x-1"
               />
             </Link>
