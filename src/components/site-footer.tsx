@@ -102,9 +102,12 @@ export function SiteFooter() {
           <p className="text-xs text-muted-foreground/50">
             &copy; {new Date().getFullYear()} Trident Event Group
           </p>
-          <p className="text-xs text-muted-foreground/50">
-            Mon &ndash; Fri, 9 AM &ndash; 4 PM
-          </p>
+          <div className="flex items-center gap-4 text-xs text-muted-foreground/50">
+            <a href="/llms.txt" className="hover:text-muted-foreground transition-colors">
+              AI Info
+            </a>
+            <span>Mon &ndash; Fri, 9 AM &ndash; 4 PM</span>
+          </div>
         </div>
       </div>
     </footer>
