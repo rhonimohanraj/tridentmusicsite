@@ -113,59 +113,74 @@ export default function HomePage() {
         </motion.blockquote>
       </section>
 
-      {/* ─── ABOUT ─── */}
-      <section className="py-20 md:py-28 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
-              Who We Are
-            </p>
-            <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-playfair)] leading-tight tracking-tight">
-              Your guests won&apos;t stop{" "}
-              <em className="italic">talking</em> about it
-            </h2>
-            <p className="mt-6 text-muted-foreground leading-relaxed">
-              {location.about.copy[0]}
-            </p>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              {location.about.copy[1]}
-            </p>
-          </motion.div>
+      {/* ─── ABOUT — SHOWCASE SECTIONS ─── */}
+      {[
+        {
+          image: "https://framerusercontent.com/images/e3LdW2RrLwwGkZV5YDQwbd5m8.webp?width=1000&height=667",
+          label: "Who We Are",
+          heading: "We don\u2019t just play music.\nWe pack dance floors.",
+          body: location.about.copy[0],
+          align: "left" as const,
+        },
+        {
+          image: "https://framerusercontent.com/images/GJZsUK4NGKnaSQI6ek1WeReFJA.webp?width=500&height=500",
+          label: "The Experience",
+          heading: "Your aunt who never dances?\nShe\u2019ll be out there.",
+          body: location.about.copy[1],
+          align: "right" as const,
+        },
+        {
+          image: "https://framerusercontent.com/images/ooBD2Ka3IKN1NPmWiIlbQIVk.webp?width=1000&height=667",
+          label: "Our Promise",
+          heading: "Every event gets the\nfull Trident treatment.",
+          body: "A personalized music consultation. Professional-grade sound and lighting. A DJ who reads the room and adjusts in real time. Backup systems for everything. No cookie-cutter playlists. No autopilot. Just a crew that treats your night like it matters \u2014 because it does.",
+          align: "left" as const,
+        },
+        {
+          image: "https://framerusercontent.com/images/SZgQJ1E5KDsxGxyGaUlaXPtoBBY.webp?width=800&height=533",
+          label: "The Result",
+          heading: "Shoes off. Ties loose.\nStories for months.",
+          body: "When the night ends, your guests won\u2019t just leave. They\u2019ll walk out with sore feet, shoes in hand, and stories they\u2019ll be telling at brunch for the next month. That\u2019s the difference between hiring a DJ and hiring us.",
+          align: "right" as const,
+        },
+      ].map((section, i) => (
+        <section
+          key={i}
+          className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden"
+        >
+          {/* Background image */}
+          <div className="absolute inset-0 -z-10">
+            <Image
+              src={section.image}
+              alt={section.label}
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+          </div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="grid grid-cols-2 gap-3"
+            className={`relative z-10 max-w-2xl px-6 md:px-12 pb-16 md:pb-24 ${
+              section.align === "right" ? "ml-auto text-right" : ""
+            }`}
           >
-            {[
-              "https://framerusercontent.com/images/e3LdW2RrLwwGkZV5YDQwbd5m8.webp?width=1000&height=667",
-              "https://framerusercontent.com/images/GJZsUK4NGKnaSQI6ek1WeReFJA.webp?width=500&height=500",
-              "https://framerusercontent.com/images/ooBD2Ka3IKN1NPmWiIlbQIVk.webp?width=1000&height=667",
-              "https://framerusercontent.com/images/SZgQJ1E5KDsxGxyGaUlaXPtoBBY.webp?width=800&height=533",
-            ].map((src, i) => (
-              <div
-                key={i}
-                className="img-hover-scale relative aspect-square overflow-hidden"
-              >
-                <Image
-                  src={src}
-                  alt="Trident Music event"
-                  fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover"
-                />
-              </div>
-            ))}
+            <p className="text-[10px] uppercase tracking-[0.3em] text-white/50 mb-4">
+              {section.label}
+            </p>
+            <h2 className="text-3xl md:text-5xl font-[family-name:var(--font-playfair)] leading-[1.1] tracking-tight text-white whitespace-pre-line">
+              {section.heading}
+            </h2>
+            <p className="mt-6 text-sm md:text-base text-white/70 leading-relaxed max-w-lg">
+              {section.body}
+            </p>
           </motion.div>
-        </div>
-      </section>
+        </section>
+      ))}
 
       {/* ─── SERVICES ─── */}
       <ServiceCarousel />
