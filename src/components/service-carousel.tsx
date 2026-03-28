@@ -119,7 +119,7 @@ export function ServiceCarousel() {
         <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
           Our Services
         </p>
-        <h2 className="text-4xl md:text-6xl lg:text-7xl font-[family-name:var(--font-playfair)] leading-[1.05] tracking-tight">
+        <h2 className="text-3xl md:text-5xl lg:text-[3.5rem] font-[family-name:var(--font-playfair)] leading-[1.1] tracking-tight">
           Everything your event needs.<br />
           Nothing it <em>doesn&rsquo;t.</em>
         </h2>
