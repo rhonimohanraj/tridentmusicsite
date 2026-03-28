@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect, useCallback, useRef } from "react";
+import { motion, AnimatePresence, useMotionValue, animate } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { services } from "@/lib/data";
 
@@ -16,28 +16,78 @@ const SERVICE_DESCRIPTIONS: Record<number, string> = {
 
 const AUTO_PLAY_INTERVAL = 3000;
 const ITEM_HEIGHT = 65;
-const ITEMS_COUNT = services.length;
+const COUNT = services.length;
+// Render enough copies so the strip never shows a gap
+const COPIES = 5;
+const TOTAL = COUNT * COPIES;
 
 export function ServiceCarousel() {
-  const [step, setStep] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const y = useMotionValue(0);
+  const stepRef = useRef(0);
 
-  const currentIndex =
-    ((step % ITEMS_COUNT) + ITEMS_COUNT) % ITEMS_COUNT;
+  // Build the repeated list once
+  const items = Array.from({ length: TOTAL }, (_, i) => services[i % COUNT]);
 
-  // Triple the list for seamless infinite scroll
-  const tripled = useMemo(
-    () => [...services, ...services, ...services],
-    []
+  // The "home" position for a given activeIndex: center copy is at index offset COUNT*2
+  const getTargetY = (idx: number) => {
+    const centerItem = COUNT * 2 + idx;
+    return -(centerItem * ITEM_HEIGHT);
+  };
+
+  const goTo = useCallback(
+    (nextIndex: number) => {
+      setActiveIndex(nextIndex);
+      animate(y, getTargetY(nextIndex), {
+        type: "tween",
+        duration: 0.55,
+        ease: [0.4, 0, 0.2, 1],
+      });
+    },
+    [y]
   );
 
   const nextStep = useCallback(() => {
-    setStep((prev) => prev + 1);
-  }, []);
+    setActiveIndex((prev) => {
+      const next = (prev + 1) % COUNT;
+      // Animate one step down
+      stepRef.current += 1;
+      const targetItem = COUNT * 2 + stepRef.current;
+      animate(y, -(targetItem * ITEM_HEIGHT), {
+        type: "tween",
+        duration: 0.55,
+        ease: [0.4, 0, 0.2, 1],
+        onComplete: () => {
+          // Silently reset to center copy to keep the strip from drifting
+          if (stepRef.current >= COUNT) {
+            stepRef.current = stepRef.current % COUNT;
+            y.set(getTargetY(stepRef.current));
+          }
+        },
+      });
+      return next;
+    });
+  }, [y]);
 
   const handleChipClick = (realIndex: number) => {
-    const diff = (realIndex - currentIndex + ITEMS_COUNT) % ITEMS_COUNT;
-    if (diff > 0) setStep((s) => s + diff);
+    if (realIndex === activeIndex) return;
+    const diff = (realIndex - activeIndex + COUNT) % COUNT;
+    // Jump forward by diff steps
+    stepRef.current += diff;
+    const targetItem = COUNT * 2 + stepRef.current;
+    animate(y, -(targetItem * ITEM_HEIGHT), {
+      type: "tween",
+      duration: 0.55,
+      ease: [0.4, 0, 0.2, 1],
+      onComplete: () => {
+        if (stepRef.current >= COUNT) {
+          stepRef.current = stepRef.current % COUNT;
+          y.set(getTargetY(stepRef.current));
+        }
+      },
+    });
+    setActiveIndex(realIndex);
   };
 
   useEffect(() => {
@@ -46,24 +96,22 @@ export function ServiceCarousel() {
     return () => clearInterval(interval);
   }, [nextStep, isPaused]);
 
-  const getCardStatus = (index: number) => {
-    const diff = index - currentIndex;
-    const len = ITEMS_COUNT;
+  // Initialize strip position
+  useEffect(() => {
+    y.set(getTargetY(0));
+  }, [y]);
 
+  const getCardStatus = (index: number) => {
+    const diff = index - activeIndex;
     let normalizedDiff = diff;
-    if (diff > len / 2) normalizedDiff -= len;
-    if (diff < -len / 2) normalizedDiff += len;
+    if (diff > COUNT / 2) normalizedDiff -= COUNT;
+    if (diff < -COUNT / 2) normalizedDiff += COUNT;
 
     if (normalizedDiff === 0) return "active";
     if (normalizedDiff === -1) return "prev";
     if (normalizedDiff === 1) return "next";
     return "hidden";
   };
-
-  // The offset moves the entire tripled strip upward as step increases
-  const stripOffset = -(currentIndex * ITEM_HEIGHT);
-  // Center the strip so the active item is in the middle
-  const centerOffset = (ITEMS_COUNT * ITEM_HEIGHT);
 
   return (
     <section className="py-20 md:py-28">
@@ -76,56 +124,44 @@ export function ServiceCarousel() {
         <div className="relative overflow-hidden rounded-2xl md:rounded-[2.5rem] lg:rounded-[4rem] flex flex-col lg:flex-row min-h-[500px] lg:aspect-video border border-border/40">
           {/* Left panel — service list */}
           <div className="w-full lg:w-[40%] min-h-[300px] md:min-h-[350px] lg:h-full relative z-30 flex flex-col items-start justify-center overflow-hidden px-6 md:px-12 lg:pl-16 bg-primary">
-            <div className="absolute inset-x-0 top-0 h-16 md:h-24 lg:h-20 bg-gradient-to-b from-primary via-primary/90 to-transparent z-40" />
-            <div className="absolute inset-x-0 bottom-0 h-16 md:h-24 lg:h-20 bg-gradient-to-t from-primary via-primary/90 to-transparent z-40" />
+            <div className="absolute inset-x-0 top-0 h-16 md:h-24 lg:h-20 bg-gradient-to-b from-primary via-primary/90 to-transparent z-40 pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-16 md:h-24 lg:h-20 bg-gradient-to-t from-primary via-primary/90 to-transparent z-40 pointer-events-none" />
             <div className="relative w-full h-full flex items-center justify-center lg:justify-start z-20 overflow-hidden">
               <motion.div
-                animate={{ y: stripOffset + centerOffset }}
-                transition={{
-                  type: "tween",
-                  duration: 0.6,
-                  ease: [0.25, 0.1, 0.25, 1],
-                }}
+                style={{ y, top: "50%", marginTop: -(ITEM_HEIGHT / 2) }}
                 className="absolute flex flex-col items-center lg:items-start"
-                style={{ top: "50%", marginTop: -(ITEM_HEIGHT / 2) }}
               >
-                {tripled.map((service, i) => {
-                  const realIndex = i % ITEMS_COUNT;
-                  const isActive = realIndex === currentIndex;
-                  // Distance from center copy's active item
-                  const distFromActive = i - (ITEMS_COUNT + currentIndex);
+                {items.map((service, i) => {
+                  const realIndex = i % COUNT;
+                  const isActive = realIndex === activeIndex;
+                  // Only highlight the center copy
+                  const centerCopyIndex = COUNT * 2 + activeIndex;
+                  const dist = Math.abs(i - centerCopyIndex);
 
                   return (
                     <div
-                      key={`${service.id}-${i}`}
+                      key={i}
                       style={{ height: ITEM_HEIGHT }}
-                      className="flex items-center justify-start"
+                      className="flex items-center justify-start shrink-0"
                     >
-                      <motion.button
+                      <button
                         onClick={() => handleChipClick(realIndex)}
                         onMouseEnter={() => setIsPaused(true)}
                         onMouseLeave={() => setIsPaused(false)}
-                        animate={{
-                          opacity: isActive
-                            ? 1
-                            : Math.max(0, 1 - Math.abs(distFromActive) * 0.2),
-                          scale: isActive ? 1 : 0.95,
-                        }}
-                        transition={{
-                          duration: 0.5,
-                          ease: [0.25, 0.1, 0.25, 1],
-                        }}
                         className={cn(
-                          "relative flex items-center px-5 md:px-8 lg:px-8 py-3 md:py-4 rounded-full text-left border transition-colors duration-500",
+                          "relative flex items-center px-5 md:px-8 lg:px-8 py-3 md:py-4 rounded-full text-left border transition-all duration-500",
                           isActive
                             ? "bg-primary-foreground text-primary border-primary-foreground"
                             : "bg-transparent text-primary-foreground/60 border-primary-foreground/20 hover:border-primary-foreground/40 hover:text-primary-foreground"
                         )}
+                        style={{
+                          opacity: isActive ? 1 : Math.max(0.15, 1 - dist * 0.2),
+                        }}
                       >
                         <span className="font-normal text-xs md:text-sm tracking-tight whitespace-nowrap uppercase">
                           {service.title}
                         </span>
-                      </motion.button>
+                      </button>
                     </div>
                   );
                 })}
