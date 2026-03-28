@@ -94,25 +94,6 @@ export function BlogArticle({ post, prev, next }: BlogArticleProps) {
         ))}
       </motion.div>
 
-      {/* CTA */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeUp}
-        className="max-w-3xl mx-auto mt-16 pt-12 border-t border-theme"
-      >
-        <p className="text-xl md:text-2xl font-[family-name:var(--font-playfair)] leading-snug">
-          Ready to make your event unforgettable?
-        </p>
-        <Link
-          href="/inquire"
-          className="inline-block mt-4 text-sm uppercase tracking-[0.2em] text-foreground hover:text-muted-foreground transition-colors"
-        >
-          Get a Quote &rarr;
-        </Link>
-      </motion.div>
-
       {/* Prev / Next navigation */}
       {(prev || next) && (
         <motion.div
@@ -120,7 +101,7 @@ export function BlogArticle({ post, prev, next }: BlogArticleProps) {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeUp}
-          className="max-w-3xl mx-auto mt-12 pt-8 border-t border-theme grid grid-cols-2 gap-6"
+          className="max-w-3xl mx-auto mt-16 pt-12 border-t border-theme grid grid-cols-2 gap-6"
         >
           {prev ? (
             <Link
@@ -164,6 +145,25 @@ export function BlogArticle({ post, prev, next }: BlogArticleProps) {
           )}
         </motion.div>
       )}
+
+      {/* CTA */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        className="max-w-3xl mx-auto mt-12 pt-8 border-t border-theme"
+      >
+        <p className="text-xl md:text-2xl font-[family-name:var(--font-playfair)] leading-snug">
+          Ready to make your event unforgettable?
+        </p>
+        <Link
+          href="/inquire"
+          className="inline-block mt-4 text-sm uppercase tracking-[0.2em] text-foreground hover:text-muted-foreground transition-colors"
+        >
+          Get a Quote &rarr;
+        </Link>
+      </motion.div>
     </article>
   );
 }
