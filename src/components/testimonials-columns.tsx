@@ -30,14 +30,17 @@ function TestimonialsColumn({
             {testimonials.map((t, i) => (
               <div
                 key={i}
-                className="p-10 rounded-2xl border border-border bg-card shadow-lg shadow-primary/10 max-w-xs w-full"
+                className="p-8 rounded-3xl border border-border/50 bg-card shadow-sm max-w-xs w-full"
               >
-                <p className="text-sm leading-relaxed text-card-foreground">
+                <p className="text-[15px] leading-relaxed text-card-foreground">
                   &ldquo;{t.text}&rdquo;
                 </p>
-                <div className="flex items-center gap-3 mt-5">
+                <div className="flex items-center gap-3 mt-6">
+                  <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-xs font-medium text-muted-foreground shrink-0">
+                    {t.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+                  </div>
                   <div className="flex flex-col">
-                    <span className="text-sm font-medium tracking-tight leading-5 text-foreground">
+                    <span className="text-sm font-semibold tracking-tight leading-5 text-foreground">
                       {t.name}
                     </span>
                     <span className="text-xs leading-5 text-muted-foreground tracking-tight">
