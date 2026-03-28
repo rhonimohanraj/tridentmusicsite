@@ -194,5 +194,5 @@ export const socialLinks = {
   instagram: "https://www.instagram.com/tridentmusic/",
   linkedin: "https://www.linkedin.com/company/tridenteventgroup/",
   facebook: "https://www.facebook.com/Tridentmusicinc/",
-  tiktok: "https://www.tiktok.com/@tridentmusicinc",
+  tiktok: "https://www.tiktok.com/@tridenteventgroup.ca",
 };
