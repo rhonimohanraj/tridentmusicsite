@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -25,8 +25,19 @@ const fadeUp = {
 };
 
 export default function HomePage() {
-  const [loaderDone, setLoaderDone] = useState(false);
+  const [loaderDone, setLoaderDone] = useState(() => {
+    if (typeof window !== "undefined") {
+      return sessionStorage.getItem("trident-loader-shown") === "true";
+    }
+    return false;
+  });
   const { location } = useLocation();
+
+  useEffect(() => {
+    if (loaderDone) {
+      sessionStorage.setItem("trident-loader-shown", "true");
+    }
+  }, [loaderDone]);
 
   return (
     <>
