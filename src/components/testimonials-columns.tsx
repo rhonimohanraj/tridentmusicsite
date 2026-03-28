@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import type { Testimonial } from "@/types";
 
@@ -17,40 +16,33 @@ function TestimonialsColumn({
   return (
     <div className={className}>
       <motion.div
-        animate={{ translateY: "-50%" }}
+        animate={{
+          translateY: "-50%",
+        }}
         transition={{
           duration,
           repeat: Infinity,
           ease: "linear",
           repeatType: "loop",
         }}
-        className="flex flex-col gap-6 pb-6"
+        className="flex flex-col gap-6 pb-6 bg-background"
       >
-        {[...Array(2)].map((_, index) => (
+        {[...new Array(2)].map((_, index) => (
           <React.Fragment key={index}>
             {testimonials.map((t, i) => (
               <div
+                className="p-10 rounded-3xl border shadow-lg shadow-primary/10 max-w-xs w-full"
                 key={i}
-                className="p-10 rounded-3xl border border-border bg-card shadow-lg shadow-primary/10 max-w-xs w-full"
               >
-                <p className="text-sm leading-relaxed text-card-foreground">
-                  &ldquo;{t.text}&rdquo;
-                </p>
-                <div className="flex items-center gap-3 mt-5">
-                  <Image
-                    width={40}
-                    height={40}
-                    src={t.image}
-                    alt={t.name}
-                    className="h-10 w-10 rounded-full bg-muted"
-                  />
+                <div>{t.text}</div>
+                <div className="flex items-center gap-2 mt-5">
                   <div className="flex flex-col">
-                    <span className="text-sm font-medium tracking-tight leading-5 text-foreground">
+                    <div className="font-medium tracking-tight leading-5">
                       {t.name}
-                    </span>
-                    <span className="text-xs leading-5 text-muted-foreground tracking-tight">
+                    </div>
+                    <div className="leading-5 opacity-60 tracking-tight">
                       {t.role}
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>

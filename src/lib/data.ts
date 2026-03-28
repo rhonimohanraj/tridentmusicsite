@@ -72,55 +72,46 @@ export const testimonials: Testimonial[] = [
     text: "If you are looking for someone to DJ/MC your event and make it the best time of your life they are what you are looking for. Not only would I recommend Trident but I will never trust anyone else. If they are booked up for your day then just change the date. Trust me when I say.. they are worth it.",
     name: "Rachel & Will Cook",
     role: "Wedding, Brandon",
-    image: "https://api.dicebear.com/9.x/initials/svg?seed=RC&backgroundColor=1a1a2e&textColor=ffffff",
   },
   {
     text: "We had Trident Music DJ our wedding this weekend and it was everything we could have asked for! The dance floor was packed from the beginning of the night to the very last song. We've had multiple compliments on how good the music was, Jared crushed it!",
     name: "Ashleigh Watson",
     role: "Wedding, Brandon",
-    image: "https://api.dicebear.com/9.x/initials/svg?seed=AW&backgroundColor=1a1a2e&textColor=ffffff",
   },
   {
     text: "Of all the socials/weddings I've been to, the ones being put on by Trident are really just something else. Rhoni definitely knows how to keep a dance going!",
     name: "Raul Toichoa",
     role: "Wedding Guest",
-    image: "https://api.dicebear.com/9.x/initials/svg?seed=RT&backgroundColor=1a1a2e&textColor=ffffff",
   },
   {
     text: "The main DJ had amazing taste and kept everyone on the dance floor all night! 10 out of 10 would request them again.",
     name: "Diana Dawson",
     role: "Social Event, Winnipeg",
-    image: "https://api.dicebear.com/9.x/initials/svg?seed=DD&backgroundColor=1a1a2e&textColor=ffffff",
   },
   {
     text: "Our corporate gala had 300 people and Trident kept every single one of them entertained. The transitions between dinner music and the dance portion were seamless. Our CEO is already asking to rebook for next year.",
     name: "Marcus Chen",
     role: "Corporate Gala, Winnipeg",
-    image: "https://api.dicebear.com/9.x/initials/svg?seed=MC&backgroundColor=1a1a2e&textColor=ffffff",
   },
   {
     text: "We were nervous about hiring a DJ from Manitoba for our Regina wedding but oh my god, best decision we made. They drove out, set up early, and by 9pm my 87-year-old grandpa was on the dance floor. Enough said.",
     name: "Taylor & Bryce Makichuk",
     role: "Wedding, Regina",
-    image: "https://api.dicebear.com/9.x/initials/svg?seed=TM&backgroundColor=1a1a2e&textColor=ffffff",
   },
   {
     text: "Third year in a row hiring Trident for our grad. The students literally count down to the dance because they know it's going to go off. No other DJ company even comes close for school events.",
     name: "Jennifer Flett",
     role: "Graduation, Brandon",
-    image: "https://api.dicebear.com/9.x/initials/svg?seed=JF&backgroundColor=1a1a2e&textColor=ffffff",
   },
   {
     text: "My maid of honour found Trident on Instagram and thank god she did. They met with us three times before the wedding to get the music exactly right. When that first dance song hit I completely lost it. Perfect.",
     name: "Keira Makdessi",
     role: "Wedding, Winnipeg",
-    image: "https://api.dicebear.com/9.x/initials/svg?seed=KM&backgroundColor=1a1a2e&textColor=ffffff",
   },
   {
     text: "I've been to a lot of weddings. A LOT. The Trident ones are different. You can just feel the energy shift when they take over. People who 'don't dance' are suddenly out there. It's kind of wild to watch.",
     name: "Devon Makdessi",
     role: "Wedding Guest",
-    image: "https://api.dicebear.com/9.x/initials/svg?seed=DM&backgroundColor=1a1a2e&textColor=ffffff",
   },
 ];
 
