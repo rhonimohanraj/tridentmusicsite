@@ -94,7 +94,7 @@ export function SiteFooter() {
         </div>
 
         {/* SEO tagline */}
-        <p className="mt-12 text-xs text-muted-foreground/40 leading-relaxed max-w-4xl mx-auto text-center">
+        <p className="mt-12 text-xs text-muted-foreground/40 leading-relaxed text-center">
           {SEO_TAGLINES[location.slug]}
         </p>
 
