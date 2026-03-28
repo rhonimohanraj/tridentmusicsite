@@ -30,7 +30,7 @@ function TestimonialsColumn({
             {testimonials.map((t, i) => (
               <div
                 key={i}
-                className="p-10 rounded-3xl border border-border bg-card shadow-lg shadow-primary/10 max-w-xs w-full"
+                className="p-10 rounded-[32px] border border-border bg-card shadow-lg shadow-primary/10 max-w-xs w-full"
               >
                 <p className="text-sm leading-relaxed text-card-foreground">
                   &ldquo;{t.text}&rdquo;
