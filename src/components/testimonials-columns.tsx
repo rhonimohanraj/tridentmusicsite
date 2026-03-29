@@ -35,16 +35,13 @@ function TestimonialsColumn({
                 <p className="text-base leading-[1.7] text-foreground/90">
                   {t.text}
                 </p>
-                <div className="flex items-center gap-4 mt-8">
-                  <div className="w-12 h-12 rounded-full bg-muted/80 shrink-0" />
-                  <div className="flex flex-col">
-                    <span className="text-base font-semibold tracking-tight text-foreground">
-                      {t.name}
-                    </span>
-                    <span className="text-sm text-muted-foreground">
-                      {t.role}
-                    </span>
-                  </div>
+                <div className="mt-8">
+                  <span className="text-base font-semibold tracking-tight text-foreground">
+                    {t.name}
+                  </span>
+                  <span className="block text-sm text-muted-foreground">
+                    {t.role}
+                  </span>
                 </div>
               </div>
             ))}
