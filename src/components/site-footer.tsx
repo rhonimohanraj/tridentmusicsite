@@ -104,12 +104,16 @@ export function SiteFooter() {
           <p className="text-xs text-muted-foreground/50">
             &copy; {new Date().getFullYear()} Trident Event Group
           </p>
-          <div className="flex items-center gap-4 text-xs text-muted-foreground/50">
-            <a href="/llms.txt" className="hover:text-muted-foreground transition-colors">
+          <div className="flex items-center gap-5">
+            <a href="/llms.txt" className="text-xs text-muted-foreground/50 hover:text-muted-foreground transition-colors">
               AI Info
             </a>
-            <LocationSwitcher />
-            <ThemeToggle />
+            <div className="text-muted-foreground/50">
+              <LocationSwitcher />
+            </div>
+            <div className="text-muted-foreground/50">
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </div>
