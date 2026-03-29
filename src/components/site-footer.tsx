@@ -29,7 +29,7 @@ export function SiteFooter() {
             <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-4">
               Navigate
             </p>
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col gap-0.5">
               {navigation.map((item) => (
                 <Link
                   key={item.href}
