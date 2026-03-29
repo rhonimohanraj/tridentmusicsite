@@ -100,12 +100,12 @@ export function SiteFooter() {
           {SEO_TAGLINES[location.slug]}
         </p>
 
-        <div className="mt-6 pt-6 border-t border-theme flex items-center justify-between">
+        <div className="mt-6 pt-6 border-t border-theme flex flex-wrap items-center justify-between gap-y-3">
           <p className="text-xs text-muted-foreground/50">
             &copy; {new Date().getFullYear()} Trident Event Group
           </p>
-          <div className="flex items-center gap-5 text-muted-foreground/50 [&_button]:text-muted-foreground/50">
-            <a href="/llms.txt" className="text-xs hover:text-muted-foreground transition-colors leading-none">
+          <div className="flex items-center gap-4 text-muted-foreground/50 [&_button]:text-muted-foreground/50">
+            <a href="/llms.txt" className="text-[10px] hover:text-muted-foreground transition-colors leading-none">
               AI Info
             </a>
             <LocationSwitcher />

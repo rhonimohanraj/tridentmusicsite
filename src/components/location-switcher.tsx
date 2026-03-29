@@ -24,7 +24,7 @@ export function LocationSwitcher() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex items-center gap-1.5 text-xs uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors outline-none">
+      <DropdownMenuTrigger className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors outline-none">
         <MapPin size={14} />
         <span>
           {location.slug === "generic" ? "All Locations" : location.city}
