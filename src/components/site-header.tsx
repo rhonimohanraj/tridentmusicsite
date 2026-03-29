@@ -12,7 +12,7 @@ export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-lg">
       <div className="mx-auto flex items-center justify-between px-6 py-5 md:px-12">
         {/* Logo */}
         <Link href="/" className="relative z-50">

@@ -43,7 +43,7 @@ export function BlogArticle({ post, prev, next }: BlogArticleProps) {
       >
         <motion.span
           variants={fadeUp}
-          className="inline-block text-xs capitalize py-1 px-3 rounded-full bg-white/10 border border-white/10 text-muted-foreground mb-6"
+          className="inline-block text-xs capitalize py-1 px-3 rounded-full bg-secondary border border-border text-muted-foreground mb-6"
         >
           {post.category}
         </motion.span>
@@ -149,7 +149,7 @@ export function BlogArticle({ post, prev, next }: BlogArticleProps) {
         </p>
         <Link
           href="/inquire"
-          className="inline-block mt-6 px-8 py-3 text-sm uppercase tracking-[0.15em] bg-white text-black rounded-full hover:bg-white/90 transition-colors"
+          className="inline-block mt-6 px-8 py-3 text-sm uppercase tracking-[0.15em] bg-foreground text-background rounded-full hover:bg-foreground/90 transition-colors"
         >
           Check Your Date Availability
         </Link>

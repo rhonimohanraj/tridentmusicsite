@@ -78,7 +78,7 @@ export default function InquirePage() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-2"
           >
-            <div className="border border-white/10 rounded-sm p-8 md:p-10 space-y-10">
+            <div className="border border-border rounded-sm p-8 md:p-10 space-y-10">
               {/* Office Address */}
               <div>
                 <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-3">

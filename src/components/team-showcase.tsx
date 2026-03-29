@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { FaLinkedinIn, FaTwitter, FaBehance, FaInstagram } from 'react-icons/fa';
+import { FaLinkedinIn, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
 import type { TeamMember } from '@/types';
 

@@ -145,7 +145,7 @@ export default function PodcastPage() {
                 }}
               >
                 <Link href="#" className="group block">
-                  <div className="flex flex-col sm:flex-row gap-5 sm:gap-8 items-start border border-white/5 rounded-sm p-4 sm:p-5 hover:border-white/15 hover:bg-white/[0.02] transition-all duration-500">
+                  <div className="flex flex-col sm:flex-row gap-5 sm:gap-8 items-start border border-border rounded-sm p-4 sm:p-5 hover:border-foreground/15 hover:bg-foreground/[0.02] transition-all duration-500">
                     {/* Thumbnail */}
                     <div className="relative w-full sm:w-48 md:w-56 flex-shrink-0 aspect-video overflow-hidden rounded-sm">
                       <Image

@@ -33,8 +33,25 @@ export default async function DJServicePage({ params }: Props) {
   if (!CITY_SLUGS.includes(slug as LocationSlug)) notFound();
   const loc = LOCATIONS[slug as LocationSlug];
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: loc.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative h-[70vh] flex items-end pb-16 md:pb-24 px-6 md:px-12 overflow-hidden">
         <div className="absolute inset-0 -z-10">

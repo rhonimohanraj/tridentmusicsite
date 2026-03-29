@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence, useMotionValue, animate } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { services } from "@/lib/data";
@@ -204,11 +205,13 @@ export function ServiceCarousel() {
                     }}
                     className="absolute inset-0 rounded-2xl md:rounded-[2rem] overflow-hidden border-4 md:border-8 border-background bg-background origin-center"
                   >
-                    <img
+                    <Image
                       src={service.image}
                       alt={service.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 420px"
                       className={cn(
-                        "w-full h-full object-cover transition-all duration-700",
+                        "object-cover transition-all duration-700",
                         isActive
                           ? "grayscale-0 blur-0"
                           : "grayscale blur-[2px] brightness-75"
