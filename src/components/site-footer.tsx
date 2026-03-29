@@ -4,6 +4,8 @@ import Link from "next/link";
 import { navigation, socialLinks } from "@/lib/data";
 import { useLocation } from "@/components/location-provider";
 import { LOCATIONS, SEO_TAGLINES } from "@/lib/locations";
+import { LocationSwitcher } from "@/components/location-switcher";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function SiteFooter() {
   const { location } = useLocation();
@@ -106,7 +108,8 @@ export function SiteFooter() {
             <a href="/llms.txt" className="hover:text-muted-foreground transition-colors">
               AI Info
             </a>
-            <span>Mon &ndash; Fri, 9 AM &ndash; 4 PM</span>
+            <LocationSwitcher />
+            <ThemeToggle />
           </div>
         </div>
       </div>

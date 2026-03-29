@@ -34,8 +34,6 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <LocationSwitcher />
-          <ThemeToggle />
         </nav>
 
         {/* Mobile menu button */}
