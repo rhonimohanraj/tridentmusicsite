@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Outfit } from "next/font/google";
 import { TimezoneThemeProvider } from "@/components/timezone-theme-provider";
+import { SmoothCursor } from "@/components/ui/smooth-cursor";
 import { getServerLocation } from "@/lib/get-server-location";
 import "./globals.css";
 
@@ -102,7 +103,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <TimezoneThemeProvider>{children}</TimezoneThemeProvider>
+        <TimezoneThemeProvider>
+          {children}
+          <SmoothCursor />
+        </TimezoneThemeProvider>
       </body>
     </html>
   );
