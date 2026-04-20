@@ -63,7 +63,7 @@ export default function InquirePage() {
           >
             <div className="w-full overflow-hidden rounded-sm">
               <iframe
-                src="https://forms.fillout.com/t/tozFganius"
+                src="https://tridenteventgroup.fillout.com/t/rLWc3MM1yCus"
                 style={{ width: "100%", border: "none", height: "700px" }}
                 title="Inquiry Form"
               />

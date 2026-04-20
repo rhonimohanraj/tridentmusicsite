@@ -13,7 +13,7 @@ export const services: Service[] = [
   {
     id: 1,
     title: "Wedding Entertainment",
-    image: "https://framerusercontent.com/images/m1TjCz3iD0cd9ldiyZ2TnuuiVfc.jpg?width=5760&height=3840",
+    image: "/images/slide_1.jpg",
     href: "/inquire",
   },
   {
@@ -37,34 +37,34 @@ export const services: Service[] = [
   {
     id: 5,
     title: "A/V Rental",
-    image: "https://framerusercontent.com/images/o2w2YWAUpH91rG6985dxW2hXnZs.jpg?width=2500&height=3333",
+    image: "/images/slide_3.jpg",
     href: "/inquire",
   },
   {
     id: 6,
     title: "Schools & Grads",
-    image: "https://framerusercontent.com/images/CzjLhmXuSiMiSnX1LqmJA2Cewlk.jpg?width=2500&height=1406",
+    image: "/images/slide_2.jpg",
     href: "/inquire",
   },
 ];
 
 export const teamMembers: TeamMember[] = [
-  { id: "1", name: "Zuha Jamil", role: "Client Communications", image: "/images/zuha-jamil.jpg", objectPosition: "50% 10%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
-  { id: "2", name: "Joey Simms", role: "Sales Manager | Host | DJ", image: "https://framerusercontent.com/images/vQuVTK9ADWkDhikVBY0lMY8sIo.jpg?width=1067&height=1600", objectPosition: "52% -36%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
-  { id: "3", name: "Danylo Denysevych", role: "Web Developer | Designer", image: "https://framerusercontent.com/images/u2zxAhCF5X9wH4Udtctn7VAd30.jpg?width=6000&height=4000", objectPosition: "48% 30%", social: { linkedin: "https://www.linkedin.com/company/tridenteventgroup/" } },
-  { id: "4", name: "Carson Schepp", role: "Videographer | Editor", image: "https://framerusercontent.com/images/rzZTjCUIg1oueLw5i7VNDlsxlo.jpg?width=1067&height=1600", objectPosition: "51% 30%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
-  { id: "5", name: "Aidan Froese", role: "Videographer | Editor", image: "https://framerusercontent.com/images/bCkxOJxCeRews9YhSyymmnUtPQ.jpg?width=1067&height=1600", objectPosition: "55% 19%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
-  { id: "6", name: "Jared Weir", role: "Host | DJ | Music Master", image: "https://framerusercontent.com/images/pwVwklZywXKq0qhySUvzyZ9jpE.jpg?width=1067&height=1600", objectPosition: "48% 16%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
-  { id: "7", name: "Eldon Santillan", role: "Host | DJ", image: "https://framerusercontent.com/images/V27LNCPltP7VDWhXnGrsRG09PPk.jpg?width=1067&height=1600", objectPosition: "53% 23%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
-  { id: "8", name: "Alexander Vaughn", role: "Videographer | Editor", image: "https://framerusercontent.com/images/QaoZGfAWAQODyQ1kenM4iuRbw.jpg?width=1067&height=1600", objectPosition: "50% 21%", imageScale: 1.50, social: { instagram: "https://www.instagram.com/tridentmusic/" } },
-  { id: "9", name: "Austin Liske", role: "DJ", image: "https://framerusercontent.com/images/GgRsX73P5vdG6iy6d0EtXn3Ek.jpg?width=1067&height=1600", objectPosition: "56% 22%" },
-  { id: "10", name: "Emma Sul", role: "Content Creator", image: "https://framerusercontent.com/images/pPmRI6oGGWREXJLVbpQrT4aaWJ4.jpg?width=1067&height=1600", objectPosition: "48% 11%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
-  { id: "11", name: "Hailey Rapsky", role: "MC | DJ", image: "https://framerusercontent.com/images/ixQfGL8YiV277zEXuEMexDFCgSU.jpg?width=1067&height=1600", objectPosition: "47% 25%", imageScale: 1.50, social: { instagram: "https://www.instagram.com/tridentmusic/" } },
-  { id: "12", name: "Annie Wurtz", role: "Photographer | Photobooth Lead", image: "https://framerusercontent.com/images/7trBcaIGjaAFxflZumULWZysBbg.jpg?width=1067&height=1600", objectPosition: "51% 19%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
-  { id: "13", name: "Brenna Kelland", role: "Executive Assistant", image: "https://framerusercontent.com/images/i89ZcpC5klSPVufBkdB1FIu2R4.jpg?width=1600&height=1067", objectPosition: "48% 19%" },
-  { id: "14", name: "Bryce Cotton", role: "System Technician", image: "https://framerusercontent.com/images/MfrCzX5QbLcxHZ3U48nMpGHpj6o.jpg?width=1067&height=1600", objectPosition: "50% 24%" },
-  { id: "15", name: "Sarah-Jane Speers", role: "Host | DJ", image: "https://framerusercontent.com/images/S09a0KJU1WmwwklxP4sS1aVZnLQ.jpg?width=1067&height=1600", objectPosition: "59% 24%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
-  { id: "16", name: "Rhoni Mohanraj", role: "Co-Founder | DJ", image: "https://framerusercontent.com/images/Ys0oT02Hh6WsW36hAq5vgexpHY.jpg?width=1067&height=1600", objectPosition: "55% 21%", social: { instagram: "https://www.instagram.com/tridentmusic/", linkedin: "https://www.linkedin.com/company/tridenteventgroup/" } },
+  { id: "1", name: "Zuha Jamil", role: "Client Communications", image: "/images/zuha-jamil.jpg", objectPosition: "50% 5%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
+  { id: "2", name: "Joey Simms", role: "Sales Manager | Host | DJ", image: "https://framerusercontent.com/images/vQuVTK9ADWkDhikVBY0lMY8sIo.jpg?width=1067&height=1600", objectPosition: "52% 5%", imageScale: 1.0, social: { instagram: "https://www.instagram.com/tridentmusic/" } },
+  { id: "3", name: "Danylo Denysevych", role: "Web Developer | Designer", image: "https://framerusercontent.com/images/u2zxAhCF5X9wH4Udtctn7VAd30.jpg?width=6000&height=4000", objectPosition: "48% 10%", imageScale: 1.0, social: { linkedin: "https://www.linkedin.com/company/tridenteventgroup/" } },
+  { id: "4", name: "Carson Schepp", role: "Videographer | Editor", image: "https://framerusercontent.com/images/rzZTjCUIg1oueLw5i7VNDlsxlo.jpg?width=1067&height=1600", objectPosition: "51% 8%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
+  { id: "5", name: "Aidan Froese", role: "Videographer | Editor", image: "https://framerusercontent.com/images/bCkxOJxCeRews9YhSyymmnUtPQ.jpg?width=1067&height=1600", objectPosition: "55% 5%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
+  { id: "6", name: "Jared Weir", role: "Host | DJ | Music Master", image: "https://framerusercontent.com/images/pwVwklZywXKq0qhySUvzyZ9jpE.jpg?width=1067&height=1600", objectPosition: "48% 5%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
+  { id: "7", name: "Eldon Santillan", role: "Host | DJ", image: "https://framerusercontent.com/images/V27LNCPltP7VDWhXnGrsRG09PPk.jpg?width=1067&height=1600", objectPosition: "53% 5%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
+  { id: "8", name: "Alexander Vaughn", role: "Videographer | Editor", image: "https://framerusercontent.com/images/QaoZGfAWAQODyQ1kenM4iuRbw.jpg?width=1067&height=1600", objectPosition: "50% 5%", imageScale: 1.50, social: { instagram: "https://www.instagram.com/tridentmusic/" } },
+  { id: "9", name: "Austin Liske", role: "DJ", image: "https://framerusercontent.com/images/GgRsX73P5vdG6iy6d0EtXn3Ek.jpg?width=1067&height=1600", objectPosition: "56% 5%" },
+  { id: "10", name: "Emma Sul", role: "Content Creator", image: "https://framerusercontent.com/images/pPmRI6oGGWREXJLVbpQrT4aaWJ4.jpg?width=1067&height=1600", objectPosition: "48% 5%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
+  { id: "11", name: "Hailey Rapsky", role: "MC | DJ", image: "https://framerusercontent.com/images/ixQfGL8YiV277zEXuEMexDFCgSU.jpg?width=1067&height=1600", objectPosition: "47% 5%", imageScale: 1.50, social: { instagram: "https://www.instagram.com/tridentmusic/" } },
+  { id: "12", name: "Annie Wurtz", role: "Photographer | Photobooth Lead", image: "https://framerusercontent.com/images/7trBcaIGjaAFxflZumULWZysBbg.jpg?width=1067&height=1600", objectPosition: "51% 5%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
+  { id: "13", name: "Brenna Kelland", role: "Executive Assistant", image: "https://framerusercontent.com/images/i89ZcpC5klSPVufBkdB1FIu2R4.jpg?width=1600&height=1067", objectPosition: "48% 10%" },
+  { id: "14", name: "Bryce Cotton", role: "System Technician", image: "https://framerusercontent.com/images/MfrCzX5QbLcxHZ3U48nMpGHpj6o.jpg?width=1067&height=1600", objectPosition: "50% 5%" },
+  { id: "15", name: "Sarah-Jane Speers", role: "Host | DJ", image: "https://framerusercontent.com/images/S09a0KJU1WmwwklxP4sS1aVZnLQ.jpg?width=1067&height=1600", objectPosition: "59% 5%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
+  { id: "16", name: "Rhoni Mohanraj", role: "Co-Founder | DJ", image: "https://framerusercontent.com/images/Ys0oT02Hh6WsW36hAq5vgexpHY.jpg?width=1067&height=1600", objectPosition: "55% 5%", social: { instagram: "https://www.instagram.com/tridentmusic/", linkedin: "https://www.linkedin.com/company/tridenteventgroup/" } },
 ];
 
 export const testimonials: Testimonial[] = [

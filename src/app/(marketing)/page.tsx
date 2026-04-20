@@ -25,24 +25,19 @@ const fadeUp = {
 };
 
 export default function HomePage() {
-  const [loaderDone, setLoaderDone] = useState(() => {
-    if (typeof window !== "undefined") {
-      return sessionStorage.getItem("trident-loader-shown") === "true";
-    }
-    return false;
-  });
+  const [loaderDone, setLoaderDone] = useState(false);
   const { location } = useLocation();
 
   useEffect(() => {
-    if (loaderDone) {
-      sessionStorage.setItem("trident-loader-shown", "true");
+    if (sessionStorage.getItem("trident-loader-shown") === "true") {
+      setLoaderDone(true);
     }
-  }, [loaderDone]);
+  }, []);
 
   return (
     <>
       {/* Lyric Loader */}
-      <AnimatePresence>{!loaderDone && <LyricLoader onComplete={() => setLoaderDone(true)} />}</AnimatePresence>
+      <AnimatePresence>{!loaderDone && <LyricLoader onComplete={() => { sessionStorage.setItem("trident-loader-shown", "true"); setLoaderDone(true); }} />}</AnimatePresence>
 
       {/* ─── HERO ─── */}
       <section className="relative h-screen flex items-end pb-20 md:pb-28 px-6 md:px-12 overflow-hidden">
@@ -53,7 +48,7 @@ export default function HomePage() {
             alt="DJ performing at event"
             fill
             priority
-            className="object-cover"
+            className="object-cover object-top"
           />
           <div className="absolute inset-0 hero-gradient" />
         </div>
@@ -116,28 +111,28 @@ export default function HomePage() {
       {/* ─── ABOUT — SHOWCASE SECTIONS ─── */}
       {[
         {
-          image: "https://framerusercontent.com/images/e3LdW2RrLwwGkZV5YDQwbd5m8.webp?width=1000&height=667",
+          image: "/images/ChamberOfCommerceGala.jpg",
           label: "Who We Are",
           heading: "We don\u2019t just play music.\nWe pack dance floors.",
           body: location.about.copy[0],
           align: "left" as const,
         },
         {
-          image: "https://framerusercontent.com/images/GJZsUK4NGKnaSQI6ek1WeReFJA.webp?width=500&height=500",
+          image: "/images/dancing_wedding.jpg",
           label: "The Experience",
-          heading: "Your aunt who never dances?\nShe\u2019ll be out there.",
+          heading: "Your uncle who never dances?\nHe\u2019ll be out there.",
           body: location.about.copy[1],
           align: "right" as const,
         },
         {
-          image: "https://framerusercontent.com/images/ooBD2Ka3IKN1NPmWiIlbQIVk.webp?width=1000&height=667",
+          image: "/images/wedding_homephoto.jpg",
           label: "Our Promise",
           heading: "Every event gets the\nfull Trident treatment.",
           body: "A personalized music consultation. Professional-grade sound and lighting. A DJ who reads the room and adjusts in real time. Backup systems for everything. No cookie-cutter playlists. No autopilot. Just a crew that treats your night like it matters \u2014 because it does.",
           align: "left" as const,
         },
         {
-          image: "https://framerusercontent.com/images/SZgQJ1E5KDsxGxyGaUlaXPtoBBY.webp?width=800&height=533",
+          image: "/images/photobooth_homepage.jpg",
           label: "The Result",
           heading: "Shoes off. Ties loose.\nStories for months.",
           body: "When the night ends, your guests won\u2019t just leave. They\u2019ll walk out with sore feet, shoes in hand, and stories they\u2019ll be telling at brunch for the next month. That\u2019s the difference between hiring a DJ and hiring us.",
@@ -165,9 +160,8 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className={`relative z-10 max-w-2xl px-6 md:px-12 pb-16 md:pb-24 ${
-              section.align === "right" ? "ml-auto text-right" : ""
-            }`}
+            className={`relative z-10 max-w-2xl px-6 md:px-12 pb-16 md:pb-24 ${section.align === "right" ? "ml-auto text-right" : ""
+              }`}
           >
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/50 mb-4">
               {section.label}

@@ -7,10 +7,11 @@ import { lyrics } from "@/lib/data";
 export function LyricLoader({ onComplete }: { onComplete: () => void }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
+  const [shuffled, setShuffled] = useState<string[]>(lyrics.slice(0, 5));
 
-  const shuffled = useState(() =>
-    [...lyrics].sort(() => Math.random() - 0.5).slice(0, 5)
-  )[0];
+  useEffect(() => {
+    setShuffled([...lyrics].sort(() => Math.random() - 0.5).slice(0, 5));
+  }, []);
 
   const advance = useCallback(() => {
     if (currentIndex < shuffled.length - 1) {
