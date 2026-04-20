@@ -128,7 +128,7 @@ export function ServiceCarousel() {
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
         <div className="relative overflow-hidden rounded-2xl md:rounded-[2.5rem] lg:rounded-[4rem] flex flex-col lg:flex-row min-h-[500px] lg:aspect-video border border-border/40">
           {/* Left panel — service list */}
-          <div className="w-full lg:w-[40%] min-h-[300px] md:min-h-[350px] lg:h-full relative z-30 flex flex-col items-start justify-center overflow-hidden px-6 md:px-12 lg:pl-16 bg-primary">
+          <div className="w-full lg:w-[40%] h-[300px] md:h-[350px] lg:h-full relative z-30 flex flex-col items-start justify-center overflow-hidden px-6 md:px-12 lg:pl-16 bg-primary">
             <div className="absolute inset-x-0 top-0 h-16 md:h-24 lg:h-20 bg-gradient-to-b from-primary via-primary/90 to-transparent z-40 pointer-events-none" />
             <div className="absolute inset-x-0 bottom-0 h-16 md:h-24 lg:h-20 bg-gradient-to-t from-primary via-primary/90 to-transparent z-40 pointer-events-none" />
             <div className="relative w-full h-full flex items-center justify-center lg:justify-start z-20 overflow-hidden">
