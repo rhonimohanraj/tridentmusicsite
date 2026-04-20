@@ -12,10 +12,10 @@ export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-lg">
-      <div className="mx-auto flex items-center justify-between px-6 py-5 md:px-12">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/40 h-16 flex items-center">
+      <div className="w-full flex items-center justify-between px-6 md:px-12">
         {/* Logo */}
-        <Link href="/" className="relative z-50">
+        <Link href="/" className="relative z-50 inline-flex items-center">
           <span className="text-lg font-[family-name:var(--font-playfair)] font-bold tracking-tight text-foreground">
             TRIDENT<span className="font-light ml-1">MUSIC</span>
           </span>
@@ -29,7 +29,7 @@ export function SiteHeader() {
               href={item.href}
               target={item.external ? "_blank" : undefined}
               rel={item.external ? "noopener noreferrer" : undefined}
-              className="text-xs uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300"
+              className="inline-flex items-center text-xs uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               {item.label}
             </Link>

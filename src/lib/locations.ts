@@ -69,7 +69,7 @@ export const LOCATIONS: Record<LocationSlug, LocationConfig> = {
     address: brandonAddress,
     hasLocalOffice: true,
     heroImage:
-      "/images/HeroImage.jpg",
+      "/images/HeroImage.jpeg",
     hero: {
       label: "Brandon \u00B7 Manitoba",
       headline: "for those celebrations\nyou can never forget",

@@ -1,7 +1,7 @@
 "use client"
 
 import { FC, useEffect, useRef, useState } from "react"
-import { motion, useSpring } from "motion/react"
+import { motion, useSpring, AnimatePresence } from "motion/react"
 
 interface Position {
   x: number
@@ -24,7 +24,7 @@ function isTrackablePointer(pointerType: string) {
   return pointerType !== "touch"
 }
 
-const DefaultCursorSVG: FC = () => {
+const DefaultCursorSVG: FC<{ color: string }> = ({ color }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -37,11 +37,11 @@ const DefaultCursorSVG: FC = () => {
       <g filter="url(#filter0_d_91_7928)">
         <path
           d="M42.6817 41.1495L27.5103 6.79925C26.7269 5.02557 24.2082 5.02558 23.3927 6.79925L7.59814 41.1495C6.75833 42.9759 8.52712 44.8902 10.4125 44.1954L24.3757 39.0496C24.8829 38.8627 25.4385 38.8627 25.9422 39.0496L39.8121 44.1954C41.6849 44.8902 43.4884 42.9759 42.6817 41.1495Z"
-          fill="currentColor"
+          fill={color}
         />
         <path
           d="M43.7146 40.6933L28.5431 6.34306C27.3556 3.65428 23.5772 3.69516 22.3668 6.32755L6.57226 40.6778C5.3134 43.4156 7.97238 46.298 10.803 45.2549L24.7662 40.109C25.0221 40.0147 25.2999 40.0156 25.5494 40.1082L39.4193 45.254C42.2261 46.2953 44.9254 43.4347 43.7146 40.6933Z"
-          stroke="currentColor"
+          stroke={color}
           strokeOpacity={0.3}
           strokeWidth={2.25825}
         />
@@ -88,7 +88,6 @@ const DefaultCursorSVG: FC = () => {
 }
 
 export function SmoothCursor({
-  cursor = <DefaultCursorSVG />,
   springConfig = {
     damping: 45,
     stiffness: 400,
@@ -103,6 +102,7 @@ export function SmoothCursor({
   const accumulatedRotation = useRef(0)
   const [isEnabled, setIsEnabled] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
+  const [isHoveringLink, setIsHoveringLink] = useState(false)
 
   const cursorX = useSpring(0, springConfig)
   const cursorY = useSpring(0, springConfig)
@@ -117,55 +117,52 @@ export function SmoothCursor({
     damping: 35,
   })
 
+  // Detect hovering over interactive elements
+  useEffect(() => {
+    const onOver = (e: PointerEvent) => {
+      const el = e.target as Element
+      setIsHoveringLink(!!el.closest('a, button, [role="button"], input, select, textarea, label'))
+    }
+    window.addEventListener("pointerover", onOver, { passive: true })
+    return () => window.removeEventListener("pointerover", onOver)
+  }, [])
+
   useEffect(() => {
     const mediaQuery = window.matchMedia(DESKTOP_POINTER_QUERY)
 
     const updateEnabled = () => {
       const nextIsEnabled = mediaQuery.matches
       setIsEnabled(nextIsEnabled)
-
-      if (!nextIsEnabled) {
-        setIsVisible(false)
-      }
+      if (!nextIsEnabled) setIsVisible(false)
     }
 
     updateEnabled()
     mediaQuery.addEventListener("change", updateEnabled)
-
-    return () => {
-      mediaQuery.removeEventListener("change", updateEnabled)
-    }
+    return () => mediaQuery.removeEventListener("change", updateEnabled)
   }, [])
 
   useEffect(() => {
-    if (!isEnabled) {
-      return
-    }
+    if (!isEnabled) return
 
     let timeout: ReturnType<typeof setTimeout> | null = null
 
     const updateVelocity = (currentPos: Position) => {
       const currentTime = Date.now()
       const deltaTime = currentTime - lastUpdateTime.current
-
       if (deltaTime > 0) {
         velocity.current = {
           x: (currentPos.x - lastMousePos.current.x) / deltaTime,
           y: (currentPos.y - lastMousePos.current.y) / deltaTime,
         }
       }
-
       lastUpdateTime.current = currentTime
       lastMousePos.current = currentPos
     }
 
     const smoothPointerMove = (e: PointerEvent) => {
-      if (!isTrackablePointer(e.pointerType)) {
-        return
-      }
+      if (!isTrackablePointer(e.pointerType)) return
 
       setIsVisible(true)
-
       const currentPos = { x: e.clientX, y: e.clientY }
       updateVelocity(currentPos)
 
@@ -178,8 +175,7 @@ export function SmoothCursor({
 
       if (speed > 0.1) {
         const currentAngle =
-          Math.atan2(velocity.current.y, velocity.current.x) * (180 / Math.PI) +
-          90
+          Math.atan2(velocity.current.y, velocity.current.x) * (180 / Math.PI) + 90
 
         let angleDiff = currentAngle - previousAngle.current
         if (angleDiff > 180) angleDiff -= 360
@@ -189,25 +185,15 @@ export function SmoothCursor({
         previousAngle.current = currentAngle
 
         scale.set(0.95)
-
-        if (timeout !== null) {
-          clearTimeout(timeout)
-        }
-
-        timeout = setTimeout(() => {
-          scale.set(1)
-        }, 150)
+        if (timeout !== null) clearTimeout(timeout)
+        timeout = setTimeout(() => scale.set(1), 150)
       }
     }
 
     let rafId = 0
     const throttledPointerMove = (e: PointerEvent) => {
-      if (!isTrackablePointer(e.pointerType)) {
-        return
-      }
-
+      if (!isTrackablePointer(e.pointerType)) return
       if (rafId) return
-
       rafId = requestAnimationFrame(() => {
         smoothPointerMove(e)
         rafId = 0
@@ -218,46 +204,69 @@ export function SmoothCursor({
     style.id = "smooth-cursor-hide"
     style.textContent = "*, *::before, *::after { cursor: none !important; }"
     document.head.appendChild(style)
-    window.addEventListener("pointermove", throttledPointerMove, {
-      passive: true,
-    })
+    window.addEventListener("pointermove", throttledPointerMove, { passive: true })
 
     return () => {
       window.removeEventListener("pointermove", throttledPointerMove)
       document.getElementById("smooth-cursor-hide")?.remove()
       if (rafId) cancelAnimationFrame(rafId)
-      if (timeout !== null) {
-        clearTimeout(timeout)
-      }
+      if (timeout !== null) clearTimeout(timeout)
     }
   }, [cursorX, cursorY, rotation, scale, isEnabled])
 
-  if (!isEnabled) {
-    return null
-  }
+  if (!isEnabled) return null
 
   return (
-    <motion.div
-      style={{
-        position: "fixed",
-        left: cursorX,
-        top: cursorY,
-        translateX: "-50%",
-        translateY: "-50%",
-        rotate: rotation,
-        scale: scale,
-        zIndex: 99999,
-        pointerEvents: "none",
-        willChange: "transform",
-        opacity: isVisible ? 1 : 0,
-      }}
-      initial={false}
-      animate={{ opacity: isVisible ? 1 : 0 }}
-      transition={{
-        duration: 0.15,
-      }}
-    >
-      {cursor}
-    </motion.div>
+    <>
+      {/* Link hover ring */}
+      <AnimatePresence>
+        {isHoveringLink && isVisible && (
+          <motion.div
+            key="ring"
+            initial={{ opacity: 0, scale: 0.4 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.4 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            style={{
+              position: "fixed",
+              left: cursorX,
+              top: cursorY,
+              translateX: "-50%",
+              translateY: "-50%",
+              width: 40,
+              height: 40,
+              borderRadius: "50%",
+              border: "1.5px solid white",
+              zIndex: 99998,
+              pointerEvents: "none",
+              mixBlendMode: "difference",
+            }}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Main cursor */}
+      <motion.div
+        style={{
+          position: "fixed",
+          left: cursorX,
+          top: cursorY,
+          translateX: "-50%",
+          translateY: "-50%",
+          rotate: rotation,
+          scale: scale,
+          zIndex: 99999,
+          pointerEvents: "none",
+          willChange: "transform",
+          mixBlendMode: "difference",
+          opacity: isVisible ? 1 : 0,
+        }}
+        initial={false}
+        animate={{ opacity: isVisible ? 1 : 0 }}
+        transition={{ duration: 0.15 }}
+      >
+        <DefaultCursorSVG color="#ffffff" />
+      </motion.div>
+    </>
   )
 }
