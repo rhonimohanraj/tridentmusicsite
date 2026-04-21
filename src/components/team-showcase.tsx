@@ -17,59 +17,96 @@ export default function TeamShowcase({ members = [] }: TeamShowcaseProps) {
   const col3 = members.filter((_, i) => i % 3 === 2);
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-10 lg:gap-14 select-none w-full max-w-5xl mx-auto py-8 px-4 md:px-6 font-sans">
-      {/* ── Left: photo grid ── */}
-      <div className="flex gap-2 md:gap-3 flex-shrink-0 overflow-x-auto pb-1 md:pb-0">
-        {/* Column 1 */}
-        <div className="flex flex-col gap-2 md:gap-3">
-          {col1.map((member) => (
-            <PhotoCard
-              key={member.id}
-              member={member}
-              className="w-[110px] h-[120px] sm:w-[130px] sm:h-[140px] md:w-[155px] md:h-[165px]"
-              hoveredId={hoveredId}
-              onHover={setHoveredId}
-            />
-          ))}
+    <>
+      {/* ── Mobile: card grid (photo + name + role) ── */}
+      <div className="md:hidden grid grid-cols-2 gap-4 px-4 py-8 w-full select-none font-sans">
+        {members.map((member) => (
+          <MemberCard key={member.id} member={member} />
+        ))}
+      </div>
+
+      {/* ── Desktop: original side-by-side layout ── */}
+      <div className="hidden md:flex flex-row items-center justify-center gap-10 lg:gap-14 select-none w-full max-w-5xl mx-auto py-8 px-6 font-sans">
+        {/* Left: photo grid */}
+        <div className="flex gap-3 flex-shrink-0">
+          <div className="flex flex-col gap-3">
+            {col1.map((member) => (
+              <PhotoCard
+                key={member.id}
+                member={member}
+                className="w-[155px] h-[165px]"
+                hoveredId={hoveredId}
+                onHover={setHoveredId}
+              />
+            ))}
+          </div>
+          <div className="flex flex-col gap-3 mt-[68px]">
+            {col2.map((member) => (
+              <PhotoCard
+                key={member.id}
+                member={member}
+                className="w-[172px] h-[182px]"
+                hoveredId={hoveredId}
+                onHover={setHoveredId}
+              />
+            ))}
+          </div>
+          <div className="flex flex-col gap-3 mt-[32px]">
+            {col3.map((member) => (
+              <PhotoCard
+                key={member.id}
+                member={member}
+                className="w-[162px] h-[172px]"
+                hoveredId={hoveredId}
+                onHover={setHoveredId}
+              />
+            ))}
+          </div>
         </div>
 
-        {/* Column 2 */}
-        <div className="flex flex-col gap-2 md:gap-3 mt-[48px] sm:mt-[56px] md:mt-[68px]">
-          {col2.map((member) => (
-            <PhotoCard
+        {/* Right: member name list */}
+        <div className="flex flex-col gap-5 pt-2 flex-1 w-full">
+          {members.map((member) => (
+            <MemberRow
               key={member.id}
               member={member}
-              className="w-[122px] h-[132px] sm:w-[145px] sm:h-[155px] md:w-[172px] md:h-[182px]"
-              hoveredId={hoveredId}
-              onHover={setHoveredId}
-            />
-          ))}
-        </div>
-
-        {/* Column 3 */}
-        <div className="flex flex-col gap-2 md:gap-3 mt-[22px] sm:mt-[26px] md:mt-[32px]">
-          {col3.map((member) => (
-            <PhotoCard
-              key={member.id}
-              member={member}
-              className="w-[115px] h-[125px] sm:w-[136px] sm:h-[146px] md:w-[162px] md:h-[172px]"
               hoveredId={hoveredId}
               onHover={setHoveredId}
             />
           ))}
         </div>
       </div>
+    </>
+  );
+}
 
-      {/* ── Right: member name list */}
-      <div className="flex flex-col sm:grid sm:grid-cols-2 md:flex md:flex-col gap-4 md:gap-5 pt-0 md:pt-2 flex-1 w-full">
-        {members.map((member) => (
-          <MemberRow
-            key={member.id}
-            member={member}
-            hoveredId={hoveredId}
-            onHover={setHoveredId}
-          />
-        ))}
+/* ─────────────────────────────────────────
+   Mobile member card (photo + text below)
+───────────────────────────────────────── */
+
+function MemberCard({ member }: { member: TeamMember }) {
+  return (
+    <div className="flex flex-col gap-2">
+      <div className="overflow-hidden rounded-2xl w-full aspect-[3/4]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={member.image}
+          alt={member.name}
+          className="w-full h-full object-cover"
+          style={{
+            filter: 'grayscale(1) brightness(0.77)',
+            objectPosition: member.objectPosition || '50% 25%',
+            transform: `scale(${member.imageScale || 1.20})`,
+          }}
+        />
+      </div>
+      <div>
+        <p className="text-sm font-semibold tracking-tight text-foreground leading-snug">
+          {member.name}
+        </p>
+        <p className="text-[9px] font-medium uppercase tracking-[0.18em] text-muted-foreground mt-0.5">
+          {member.role}
+        </p>
       </div>
     </div>
   );
@@ -212,7 +249,7 @@ function MemberRow({
       </div>
 
       {/* Role */}
-      <p className="mt-1.5 pl-[27px] text-[7px] md:text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+      <p className="mt-1.5 pl-[27px] text-[9px] md:text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
         {member.role}
       </p>
     </div>

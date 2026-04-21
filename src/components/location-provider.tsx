@@ -4,6 +4,7 @@ import {
   createContext,
   useContext,
   useState,
+  useEffect,
   useCallback,
   useMemo,
 } from "react";
@@ -39,11 +40,12 @@ function setCookie(name: string, value: string) {
 export function LocationProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
-  const [slug, setSlug] = useState<LocationSlug>(() => {
+  const [slug, setSlug] = useState<LocationSlug>(DEFAULT_LOCATION);
+
+  useEffect(() => {
     const cookie = getCookie(LOCATION_COOKIE);
-    if (cookie && cookie in LOCATIONS) return cookie as LocationSlug;
-    return DEFAULT_LOCATION;
-  });
+    if (cookie && cookie in LOCATIONS) setSlug(cookie as LocationSlug);
+  }, []);
 
   const location = useMemo(() => getLocationBySlug(slug), [slug]);
 

@@ -12,41 +12,43 @@ export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-lg">
-      <div className="mx-auto flex items-center justify-between px-6 py-5 md:px-12">
-        {/* Logo */}
-        <Link href="/" className="relative z-50">
-          <span className="text-lg font-[family-name:var(--font-playfair)] font-bold tracking-tight text-foreground">
-            TRIDENT<span className="font-light ml-1">MUSIC</span>
-          </span>
-        </Link>
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/40 h-16 flex items-center">
+        <div className="w-full flex items-center justify-between px-6 md:px-12">
+          {/* Logo */}
+          <Link href="/" className="relative z-50 inline-flex items-center">
+            <span className="text-lg font-[family-name:var(--font-playfair)] font-bold tracking-tight text-foreground">
+              TRIDENT<span className="font-light ml-1">MUSIC</span>
+            </span>
+          </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              target={item.external ? "_blank" : undefined}
-              rel={item.external ? "noopener noreferrer" : undefined}
-              className="text-xs uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navigation.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener noreferrer" : undefined}
+                className="inline-flex items-center text-xs uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
-        {/* Mobile menu button */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="relative z-50 md:hidden text-foreground"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-        >
-          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
-      </div>
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="relative z-50 md:hidden text-foreground"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+      </header>
 
-      {/* Mobile menu overlay */}
+      {/* Mobile menu overlay — outside <header> so fixed positioning works correctly */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -54,7 +56,7 @@ export function SiteHeader() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-background/98 backdrop-blur-md flex items-center justify-center"
+            className="fixed inset-0 z-40 bg-background flex items-start justify-center pt-32"
           >
             <nav className="flex flex-col items-center gap-8">
               {navigation.map((item, i) => (
@@ -93,6 +95,6 @@ export function SiteHeader() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
