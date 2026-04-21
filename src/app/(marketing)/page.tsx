@@ -48,7 +48,7 @@ export default function HomePage() {
             alt="DJ performing at event"
             fill
             priority
-            className="object-cover object-top"
+            className="object-cover object-top brightness-75"
           />
           <div className="absolute inset-0 hero-gradient" />
         </div>

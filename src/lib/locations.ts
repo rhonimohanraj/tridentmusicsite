@@ -69,7 +69,7 @@ export const LOCATIONS: Record<LocationSlug, LocationConfig> = {
     address: brandonAddress,
     hasLocalOffice: true,
     heroImage:
-      "/images/HeroImage.jpeg",
+      "https://framerusercontent.com/images/5xFSwGZatNRutmzk45FXSubv4qc.webp?width=1800&height=1200",
     hero: {
       label: "Brandon \u00B7 Manitoba",
       headline: "for those celebrations\nyou can never forget",
@@ -131,7 +131,7 @@ export const LOCATIONS: Record<LocationSlug, LocationConfig> = {
     address: winnipegAddress,
     hasLocalOffice: true,
     heroImage:
-      "https://framerusercontent.com/images/57QszomWEqCBDiWJDPLPv55lQ.webp?width=2000&height=1333",
+      "https://framerusercontent.com/images/5xFSwGZatNRutmzk45FXSubv4qc.webp?width=1800&height=1200",
     hero: {
       label: "Winnipeg \u00B7 Manitoba",
       headline: "for those celebrations\nyou can never forget",
@@ -194,7 +194,7 @@ export const LOCATIONS: Record<LocationSlug, LocationConfig> = {
     address: brandonAddress,
     hasLocalOffice: false,
     heroImage:
-      "https://framerusercontent.com/images/sSf1izSYGKv6eVcrRnYKu06Nmk.webp?width=1500&height=1000",
+      "https://framerusercontent.com/images/5xFSwGZatNRutmzk45FXSubv4qc.webp?width=1800&height=1200",
     hero: {
       label: "Regina \u00B7 Saskatchewan",
       headline: "for those celebrations\nyou can never forget",
