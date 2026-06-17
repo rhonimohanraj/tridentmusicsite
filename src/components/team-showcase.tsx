@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from 'react';
-import { FaLinkedinIn, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
 import type { TeamMember } from '@/types';
 
@@ -170,8 +169,6 @@ function MemberRow({
 }) {
   const isActive = hoveredId === member.id;
   const isDimmed = hoveredId !== null && !isActive;
-  const hasSocial = member.social?.twitter ?? member.social?.linkedin ?? member.social?.instagram;
-
   return (
     <div
       className={cn(
@@ -198,54 +195,6 @@ function MemberRow({
           {member.name}
         </span>
 
-        {/* Social icons */}
-        {hasSocial && (
-          <div
-            className={cn(
-              'flex items-center gap-1.5 ml-0.5 transition-all duration-200',
-              isActive
-                ? 'opacity-100 translate-x-0'
-                : 'opacity-0 -translate-x-2 pointer-events-none',
-            )}
-          >
-            {member.social?.twitter && (
-              <a
-                href={member.social.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="p-1 rounded text-muted-foreground hover:text-foreground hover:bg-foreground/10 transition-all duration-150 hover:scale-110"
-                title="X / Twitter"
-              >
-                <FaTwitter size={10} />
-              </a>
-            )}
-            {member.social?.linkedin && (
-              <a
-                href={member.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="p-1 rounded text-muted-foreground hover:text-foreground hover:bg-foreground/10 transition-all duration-150 hover:scale-110"
-                title="LinkedIn"
-              >
-                <FaLinkedinIn size={10} />
-              </a>
-            )}
-            {member.social?.instagram && (
-              <a
-                href={member.social.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="p-1 rounded text-muted-foreground hover:text-foreground hover:bg-foreground/10 transition-all duration-150 hover:scale-110"
-                title="Instagram"
-              >
-                <FaInstagram size={10} />
-              </a>
-            )}
-          </div>
-        )}
       </div>
 
       {/* Role */}

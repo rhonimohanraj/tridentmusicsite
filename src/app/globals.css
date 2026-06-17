@@ -202,10 +202,10 @@
 
 /* Light mode gradient overrides for hero */
 :root .hero-gradient {
-  background: linear-gradient(to top, oklch(0.97 0.003 80), oklch(0.97 0.003 80 / 70%), transparent);
+  background: linear-gradient(to top, oklch(0.97 0.003 80 / 90%), oklch(0.97 0.003 80 / 50%), transparent);
 }
 .dark .hero-gradient {
-  background: linear-gradient(to top, oklch(0.08 0.005 260), oklch(0.08 0.005 260 / 70%), transparent);
+  background: linear-gradient(to top, oklch(0.08 0.005 260 / 90%), oklch(0.08 0.005 260 / 50%), transparent);
 }
 
 /* Light mode border color */
