@@ -30,7 +30,9 @@ export function SiteHeader() {
                 href={item.href}
                 target={item.external ? "_blank" : undefined}
                 rel={item.external ? "noopener noreferrer" : undefined}
-                className="inline-flex items-center text-xs uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300"
+                className={`inline-flex items-center text-xs uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300 ${
+                  item.href === "/inquire" ? "font-bold" : "font-normal"
+                }`}
               >
                 {item.label}
               </Link>
