@@ -53,7 +53,7 @@ export default function InquirePage() {
       {/* ─── FORM + CONTACT INFO ─── */}
       <section className="pb-24 md:pb-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
-          {/* Left: Fillout Form */}
+          {/* Left: OpnForm Inquiry Form */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -63,7 +63,7 @@ export default function InquirePage() {
           >
             <div className="w-full overflow-hidden rounded-sm">
               <iframe
-                src="https://tridenteventgroup.fillout.com/t/rLWc3MM1yCus"
+                src="https://forms.tridenteventgroup.ca/forms/trident-music-everything-form-jktyhf"
                 style={{ width: "100%", border: "none", height: "700px" }}
                 title="Inquiry Form"
               />
