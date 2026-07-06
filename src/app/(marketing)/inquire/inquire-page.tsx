@@ -1,6 +1,27 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import Script from "next/script";
+
+const FORM_SRC =
+  "https://forms.tridenteventgroup.ca/forms/trident-music-everything-form-jktyhf";
+// Parent-side iframe-resizer served by OpnForm, version-matched to the form's
+// child script. Lets the iframe grow to the form's full height (no inner scroll).
+const RESIZER_SRC = "https://forms.tridenteventgroup.ca/widgets/iframe.min.js";
+
+declare global {
+  interface Window {
+    iFrameResize?: (
+      options: Record<string, unknown>,
+      target: string | HTMLElement,
+    ) => void;
+  }
+}
+
+type ResizableIframe = HTMLIFrameElement & {
+  iFrameResizer?: { close: () => void };
+};
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -16,6 +37,29 @@ const fadeUp = {
 };
 
 export default function InquirePage() {
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  // Attach the resizer once both the script and the iframe are ready.
+  useEffect(() => {
+    let cancelled = false;
+    const node = iframeRef.current;
+
+    const tryInit = () => {
+      if (cancelled || !node) return;
+      if (window.iFrameResize) {
+        window.iFrameResize({ log: false, checkOrigin: false }, node);
+        return;
+      }
+      window.setTimeout(tryInit, 100);
+    };
+    tryInit();
+
+    return () => {
+      cancelled = true;
+      (node as ResizableIframe | null)?.iFrameResizer?.close?.();
+    };
+  }, []);
+
   return (
     <>
       {/* ─── HERO ─── */}
@@ -57,14 +101,18 @@ export default function InquirePage() {
         >
           <div className="w-full overflow-hidden rounded-sm">
             <iframe
-              src="https://forms.tridenteventgroup.ca/forms/trident-music-everything-form-jktyhf"
-              className="w-full h-[85vh] min-h-[700px]"
-              style={{ border: "none" }}
+              ref={iframeRef}
+              src={FORM_SRC}
+              scrolling="no"
+              className="w-full"
+              style={{ border: "none", width: "1px", minWidth: "100%", minHeight: "600px" }}
               title="Inquiry Form"
             />
           </div>
         </motion.div>
       </section>
+
+      <Script src={RESIZER_SRC} strategy="afterInteractive" />
     </>
   );
 }
