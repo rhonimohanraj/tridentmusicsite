@@ -44,19 +44,24 @@ export function SiteHeader() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                target={item.external ? "_blank" : undefined}
-                rel={item.external ? "noopener noreferrer" : undefined}
-                className={`inline-flex items-center text-xs uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300 ${
-                  item.href === "/inquire" ? "font-bold" : "font-normal"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navigation.map((item) => {
+              const isInquire = item.href === "/inquire";
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
+                  className={
+                    isInquire
+                      ? "inline-flex items-center rounded-full bg-primary px-4 py-1.5 text-xs font-bold uppercase tracking-[0.15em] text-primary-foreground hover:opacity-90 transition-opacity duration-300"
+                      : "inline-flex items-center text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300"
+                  }
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Mobile menu button */}
@@ -94,7 +99,11 @@ export function SiteHeader() {
                     target={item.external ? "_blank" : undefined}
                     rel={item.external ? "noopener noreferrer" : undefined}
                     onClick={() => setMobileOpen(false)}
-                    className="text-2xl font-[family-name:var(--font-playfair)] text-foreground hover:text-muted-foreground transition-colors"
+                    className={
+                      item.href === "/inquire"
+                        ? "inline-flex items-center rounded-full bg-primary px-6 py-2 text-2xl font-[family-name:var(--font-playfair)] text-primary-foreground transition-opacity hover:opacity-90"
+                        : "text-2xl font-[family-name:var(--font-playfair)] text-foreground hover:text-muted-foreground transition-colors"
+                    }
                   >
                     {item.label}
                   </Link>
