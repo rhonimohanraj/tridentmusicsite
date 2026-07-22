@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navigation } from "@/lib/data";
@@ -16,10 +17,29 @@ export function SiteHeader() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/40 h-16 flex items-center">
         <div className="w-full flex items-center justify-between px-6 md:px-12">
           {/* Logo */}
-          <Link href="/" className="relative z-50 inline-flex items-center">
-            <span className="text-lg font-[family-name:var(--font-playfair)] font-bold tracking-tight text-foreground">
-              TRIDENT<span className="font-light ml-1">MUSIC</span>
-            </span>
+          <Link
+            href="/"
+            aria-label="Trident Music — home"
+            className="relative z-50 inline-flex items-center"
+          >
+            {/* dark navy logo for light theme */}
+            <Image
+              src="/images/logos/trident-music-dark.png"
+              alt="Trident Music"
+              width={390}
+              height={301}
+              priority
+              className="h-10 w-auto block dark:hidden"
+            />
+            {/* white logo for dark theme */}
+            <Image
+              src="/images/logos/trident-music-white.png"
+              alt="Trident Music"
+              width={390}
+              height={301}
+              priority
+              className="h-10 w-auto hidden dark:block"
+            />
           </Link>
 
           {/* Desktop nav */}
