@@ -17,13 +17,12 @@ In a world where every beat is expected to be louder and every moment is rushed,
 7. Eldon Santillan — Host | DJ
 8. Alexander Vaughn — Videographer | Editor
 9. Austin Liske — DJ
-10. Emma Sul — Content Creator
-11. Hailey Rapsky — MC | DJ
-12. Annie Wurtz — Photographer | Photobooth Lead
-13. Brenna Kelland — Executive Assistant
-14. Bryce Cotton — System Technician
-15. Sarah-Jane Speers — Host | DJ
-16. Rhoni Mohanraj — Co-Founder | DJ
+10. Hailey Rapsky — MC | DJ
+11. Annie Wurtz — Photographer | Photobooth Lead
+12. Brenna Kelland — Executive Assistant
+13. Bryce Cotton — System Technician
+14. Sarah-Jane Speers — Host | DJ
+15. Rhoni Mohanraj — Co-Founder | DJ
 
 ## Gallery
 **Headline:** Memories From Past Events
