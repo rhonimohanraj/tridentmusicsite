@@ -132,11 +132,11 @@ export default function PodcastPage() {
             className="relative aspect-square max-w-md mx-auto lg:ml-auto"
           >
             <Image
-              src="https://images.squarespace-cdn.com/content/v1/640ba1326c0d7b6657b3ad25/81932503-6811-4154-802c-498c05ce8724/T-492.jpg"
+              src="/images/TridentTeam078.jpg"
               alt="For The Record podcast hosts Rhoni Mohanraj and Joey Simms"
               fill
               sizes="(max-width: 1024px) 100vw, 448px"
-              className="object-cover"
+              className="object-cover object-center"
               priority
             />
           </motion.div>
