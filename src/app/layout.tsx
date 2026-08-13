@@ -3,6 +3,7 @@ import { Playfair_Display, Outfit } from "next/font/google";
 import { TimezoneThemeProvider } from "@/components/timezone-theme-provider";
 import { SmoothCursor } from "@/components/ui/smooth-cursor";
 import { getServerLocation } from "@/lib/get-server-location";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -107,6 +108,7 @@ export default function RootLayout({
           {children}
           <SmoothCursor />
         </TimezoneThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
