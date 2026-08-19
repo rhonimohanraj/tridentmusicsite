@@ -4,9 +4,8 @@ export const navigation: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "The Team", href: "/the-team" },
   { label: "Blog", href: "/blog" },
-  { label: "Inquire", href: "/inquire" },
   { label: "Podcast", href: "/podcast" },
-  { label: "mrng", href: "https://www.mrng.ca/", external: true },
+  { label: "Inquire", href: "/inquire" },
 ];
 
 export const services: Service[] = [

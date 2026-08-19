@@ -45,4 +45,4 @@ Trident Music provides expert DJ and audio-visual services for weddings, corpora
 - TikTok: @tridentmusicinc
 
 ## Navigation
-Home | The Team | Blog | Inquire | Podcast | mrng
+Home | The Team | Blog | Podcast | Inquire
