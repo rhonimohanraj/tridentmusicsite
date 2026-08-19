@@ -63,11 +63,11 @@ export const teamMembers: TeamMember[] = [
   { id: "14", name: "Bryce Cotton", role: "System Technician", image: "https://framerusercontent.com/images/MfrCzX5QbLcxHZ3U48nMpGHpj6o.jpg?width=1067&height=1600", objectPosition: "50% 5%" },
   { id: "15", name: "Sarah-Jane Speers", role: "Host | DJ", image: "https://framerusercontent.com/images/S09a0KJU1WmwwklxP4sS1aVZnLQ.jpg?width=1067&height=1600", objectPosition: "59% 5%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
   { id: "16", name: "Rhoni Mohanraj", role: "Co-Founder | DJ", image: "https://framerusercontent.com/images/Ys0oT02Hh6WsW36hAq5vgexpHY.jpg?width=1067&height=1600", objectPosition: "55% 5%", social: { instagram: "https://www.instagram.com/tridentmusic/", linkedin: "https://www.linkedin.com/company/tridenteventgroup/" } },
-  { id: "17", name: "Max", role: "Videographer", image: "/images/Max.jpg", objectPosition: "47% 5%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
-  { id: "18", name: "Chanel", role: "Content Creator", image: "/images/Chanel.jpg", objectPosition: "48% 8%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
-  { id: "19", name: "Gracie", role: "Client Relationship", image: "/images/Gracie.jpg", objectPosition: "52% 6%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
-  { id: "20", name: "Beth", role: "DJ", image: "/images/Beth.jpg", objectPosition: "55% 6%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
-  { id: "21", name: "Carter", role: "Videographer", image: "/images/Carter.jpg", objectPosition: "53% 8%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
+  { id: "17", name: "Max Gonzales", role: "Videographer", image: "/images/Max.jpg", objectPosition: "47% 5%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
+  { id: "18", name: "Chanel Villaflores", role: "Content Creator", image: "/images/Chanel.jpg", objectPosition: "48% 8%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
+  { id: "19", name: "Gracie Ducharme", role: "Client Relationship", image: "/images/Gracie.jpg", objectPosition: "52% 6%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
+  { id: "20", name: "Beth Saige", role: "DJ", image: "/images/Beth.jpg", objectPosition: "55% 6%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
+  { id: "21", name: "Carter Dupuis", role: "Videographer", image: "/images/Carter.jpg", objectPosition: "53% 8%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
 ];
 
 export const testimonials: Testimonial[] = [
