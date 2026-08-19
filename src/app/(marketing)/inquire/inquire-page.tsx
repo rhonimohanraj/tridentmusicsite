@@ -90,25 +90,27 @@ export default function InquirePage() {
         </motion.div>
       </section>
 
-      {/* ─── FULL-WIDTH FORM ─── */}
-      <section className="pb-24 md:pb-32 px-6 md:px-12">
+      {/* ─── FULL-BLEED FORM ───
+          The embed is edge-to-edge on purpose. OpnForm paints its own page
+          background and centres the form card inside it, so constraining the
+          iframe to a max-width stacked three visible bands (site bg, form bg,
+          card). Full-bleed lets the form's background read as the page. */}
+      <section>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-6xl mx-auto"
+          className="w-full"
         >
-          <div className="w-full overflow-hidden rounded-sm">
-            <iframe
-              ref={iframeRef}
-              src={FORM_SRC}
-              scrolling="no"
-              className="w-full"
-              style={{ border: "none", width: "1px", minWidth: "100%", minHeight: "600px" }}
-              title="Inquiry Form"
-            />
-          </div>
+          <iframe
+            ref={iframeRef}
+            src={FORM_SRC}
+            scrolling="no"
+            className="w-full block"
+            style={{ border: "none", width: "1px", minWidth: "100%", minHeight: "600px" }}
+            title="Inquiry Form"
+          />
         </motion.div>
       </section>
 
