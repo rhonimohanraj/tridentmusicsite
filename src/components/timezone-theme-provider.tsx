@@ -1,12 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { ThemeProvider, useTheme } from "next-themes";
+import { isForcedDark } from "@/lib/forced-dark";
 
-function TimezoneAutoSwitcher() {
+function TimezoneAutoSwitcher({ enabled }: { enabled: boolean }) {
   const { setTheme, theme } = useTheme();
 
   useEffect(() => {
+    // Route pins the theme (see lib/forced-dark) — leave it alone.
+    if (!enabled) return;
+
     // Only auto-switch if user hasn't manually overridden
     const userOverride = localStorage.getItem("theme-manual-override");
     if (userOverride === "true") return;
@@ -30,7 +35,7 @@ function TimezoneAutoSwitcher() {
     }, 5 * 60 * 1000);
 
     return () => clearInterval(interval);
-  }, [setTheme, theme]);
+  }, [setTheme, theme, enabled]);
 
   return null;
 }
@@ -40,14 +45,17 @@ export function TimezoneThemeProvider({
 }: {
   children: React.ReactNode;
 }) {
+  const forcedDark = isForcedDark(usePathname());
+
   return (
     <ThemeProvider
       attribute="class"
       defaultTheme="dark"
       enableSystem={false}
       storageKey="trident-theme"
+      forcedTheme={forcedDark ? "dark" : undefined}
     >
-      <TimezoneAutoSwitcher />
+      <TimezoneAutoSwitcher enabled={!forcedDark} />
       {children}
     </ThemeProvider>
   );

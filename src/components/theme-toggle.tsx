@@ -1,12 +1,15 @@
 "use client";
 
 import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation";
 import { Sun, Moon } from "lucide-react";
 import { useEffect, useState } from "react";
+import { isForcedDark } from "@/lib/forced-dark";
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const forcedDark = isForcedDark(usePathname());
 
   useEffect(() => setMounted(true), []);
 
@@ -18,6 +21,8 @@ export function ThemeToggle() {
   }
 
   if (!mounted) return <div className="w-4 h-4" />;
+  // The theme is pinned on this route, so the control would be a dead switch.
+  if (forcedDark) return null;
 
   return (
     <button
