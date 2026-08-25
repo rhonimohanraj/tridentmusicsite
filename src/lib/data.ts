@@ -66,7 +66,7 @@ export const teamMembers: TeamMember[] = [
   { id: "17", name: "Max Gonzales", role: "Videographer", image: "/images/Max.jpg", objectPosition: "47% 5%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
   { id: "18", name: "Chanel Villaflores", role: "Content Creator", image: "/images/Chanel.jpg", objectPosition: "48% 8%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
   { id: "19", name: "Gracie Ducharme", role: "Client Relationship", image: "/images/Gracie.jpg", objectPosition: "52% 6%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
-  { id: "20", name: "Beth Saige", role: "DJ", image: "/images/Beth.jpg", objectPosition: "55% 6%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
+  { id: "20", name: "Beth Saige", role: "DJ", image: "/images/Beth.jpeg", objectPosition: "52% 8%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
   { id: "21", name: "Carter Dupuis", role: "Videographer", image: "/images/Carter.jpg", objectPosition: "53% 8%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },
 ];
 
