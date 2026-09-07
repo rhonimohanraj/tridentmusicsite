@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Playfair_Display, Outfit } from "next/font/google";
 import { TimezoneThemeProvider } from "@/components/timezone-theme-provider";
 import { SmoothCursor } from "@/components/ui/smooth-cursor";
@@ -103,6 +104,16 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-7QWGYGM05T"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-7QWGYGM05T');`}
+        </Script>
         <TimezoneThemeProvider>
           {children}
           <SmoothCursor />
