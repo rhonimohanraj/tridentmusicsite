@@ -54,6 +54,8 @@ const jsonLd = {
   alternateName: "Trident Event Group",
   url: "https://www.tridentmusic.ca",
   logo: "https://www.tridentmusic.ca/images/logo.png",
+  telephone: "+1-431-441-2676",
+  email: "hello@tridenteventgroup.ca",
   description:
     "DJ entertainment for weddings, events, and celebrations across Manitoba and Saskatchewan.",
   address: [

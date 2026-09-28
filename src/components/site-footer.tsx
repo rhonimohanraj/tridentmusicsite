@@ -78,6 +78,14 @@ export function SiteFooter() {
                   )}
                 </>
               )}
+              <div className="pt-1">
+                <p>
+                  <a href="tel:+14314412676" className="hover:text-foreground transition-colors">431-441-2676</a>
+                </p>
+                <p>
+                  <a href="mailto:hello@tridenteventgroup.ca" className="hover:text-foreground transition-colors">hello@tridenteventgroup.ca</a>
+                </p>
+              </div>
             </div>
             <div className="flex gap-4 mt-6">
               {Object.entries(socialLinks).map(([name, url]) => (
