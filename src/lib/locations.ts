@@ -47,10 +47,10 @@ export const DEFAULT_LOCATION: LocationSlug = "generic";
 export const CITY_SLUGS: LocationSlug[] = ["brandon", "winnipeg", "regina"];
 
 const brandonAddress: LocationAddress = {
-  street: "381 Park Avenue East",
+  street: "19 Premier Avenue",
   cityProvince: "Brandon, MB",
-  postalCode: "R7A 7A5",
-  full: "381 Park Avenue East, Brandon, MB R7A 7A5",
+  postalCode: "R7B 3N9",
+  full: "19 Premier Avenue, Brandon, MB R7B 3N9",
 };
 
 const winnipegAddress: LocationAddress = {

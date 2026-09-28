@@ -34,7 +34,7 @@ Trident Music provides expert DJ and audio-visual services for weddings, corpora
 - "The main DJ had amazing taste and kept everyone on the dance floor all night! 10 out of 10 would request them again." — Diana Dawson
 
 ## Business Info
-**Brandon HQ:** 381 Park Avenue East, Brandon, MB R7A 7A5
+**Brandon HQ:** 19 Premier Avenue, Brandon, MB R7B 3N9
 **Winnipeg:** 425 Ballantrae Dr, Winnipeg, MB R3T 6H6
 **Hours:** Mon-Fri 9:00 AM - 4:00 PM
 

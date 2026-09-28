@@ -61,10 +61,10 @@ const jsonLd = {
   address: [
     {
       "@type": "PostalAddress",
-      streetAddress: "381 Park Avenue East",
+      streetAddress: "19 Premier Avenue",
       addressLocality: "Brandon",
       addressRegion: "MB",
-      postalCode: "R7A 7A5",
+      postalCode: "R7B 3N9",
       addressCountry: "CA",
     },
     {
