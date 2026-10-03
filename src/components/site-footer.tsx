@@ -21,14 +21,14 @@ export function SiteFooter() {
             alt="Trident Music"
             width={390}
             height={301}
-            className="h-11 w-auto block dark:hidden"
+            className="h-16 w-auto block dark:hidden"
           />
           <Image
             src="/images/logos/trident-music-white.png"
             alt="Trident Music"
             width={390}
             height={301}
-            className="h-11 w-auto hidden dark:block"
+            className="h-16 w-auto hidden dark:block"
           />
         </div>
 
