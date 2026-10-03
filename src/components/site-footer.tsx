@@ -1,125 +1,57 @@
 "use client";
 
-import Link from "next/link";
-import { navigation, socialLinks } from "@/lib/data";
-import { useLocation } from "@/components/location-provider";
-import { LOCATIONS, SEO_TAGLINES } from "@/lib/locations";
+import Image from "next/image";
+import { socialLinks } from "@/lib/data";
 import { LocationSwitcher } from "@/components/location-switcher";
-import { ThemeToggle } from "@/components/theme-toggle";
 
+const links = [
+  { label: "Event Group", href: "https://www.tridenteventgroup.ca", external: true },
+  { label: "Instagram", href: socialLinks.instagram, external: true },
+  { label: "Contact", href: "mailto:hello@tridenteventgroup.ca", external: false },
+];
+
+// Mirrors the Trident Films footer: centered logo, one row of links, one credit line.
 export function SiteFooter() {
-  const { location } = useLocation();
-
   return (
     <footer className="border-t border-theme bg-background">
-      <div className="mx-auto max-w-7xl px-6 py-16 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Brand */}
-          <div>
-            <span className="text-lg font-[family-name:var(--font-playfair)] font-bold tracking-tight">
-              TRIDENT<span className="font-light ml-1">MUSIC</span>
-            </span>
-            <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs">
-              {location.footer.description}
-            </p>
-          </div>
-
-          {/* Navigation */}
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-4">
-              Navigate
-            </p>
-            <nav className="flex flex-col gap-0.5">
-              {navigation.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  target={item.external ? "_blank" : undefined}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* Contact & Social */}
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-4">
-              {location.slug === "generic" ? "Locations" : "Location"}
-            </p>
-            <div className="space-y-3 text-sm text-muted-foreground">
-              {location.slug === "generic" ? (
-                <>
-                  <div>
-                    <p className="text-xs font-medium text-foreground/70 mb-1">Brandon HQ</p>
-                    <p>{LOCATIONS.brandon.address.street}<br />{LOCATIONS.brandon.address.cityProvince} {LOCATIONS.brandon.address.postalCode}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs font-medium text-foreground/70 mb-1">Winnipeg</p>
-                    <p>{LOCATIONS.winnipeg.address.street}<br />{LOCATIONS.winnipeg.address.cityProvince} {LOCATIONS.winnipeg.address.postalCode}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs font-medium text-foreground/70 mb-1">Regina</p>
-                    <p>Serving Saskatchewan from our Manitoba offices</p>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <p>
-                    {location.address.street}
-                    <br />
-                    {location.address.cityProvince} {location.address.postalCode}
-                  </p>
-                  {!location.hasLocalOffice && (
-                    <p className="text-xs text-muted-foreground/60">
-                      Serving {location.city} from our Brandon headquarters
-                    </p>
-                  )}
-                </>
-              )}
-              <div className="pt-1">
-                <p>
-                  <a href="tel:+14314412676" className="hover:text-foreground transition-colors">431-441-2676</a>
-                </p>
-                <p>
-                  <a href="mailto:hello@tridenteventgroup.ca" className="hover:text-foreground transition-colors">hello@tridenteventgroup.ca</a>
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4 mt-6">
-              {Object.entries(socialLinks).map(([name, url]) => (
-                <a
-                  key={name}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {name}
-                </a>
-              ))}
-            </div>
-          </div>
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-7 px-6 py-16 text-center md:px-12">
+        <div className="opacity-55">
+          <Image
+            src="/images/logos/trident-music-dark.png"
+            alt="Trident Music"
+            width={390}
+            height={301}
+            className="h-11 w-auto block dark:hidden"
+          />
+          <Image
+            src="/images/logos/trident-music-white.png"
+            alt="Trident Music"
+            width={390}
+            height={301}
+            className="h-11 w-auto hidden dark:block"
+          />
         </div>
 
-        {/* SEO tagline */}
-        <p className="mt-12 text-xs text-muted-foreground/40 leading-relaxed text-center">
-          {SEO_TAGLINES[location.slug]}
-        </p>
-
-        <div className="mt-6 pt-6 border-t border-theme flex flex-wrap items-center justify-between gap-y-3">
-          <p className="text-xs text-muted-foreground/50">
-            &copy; {new Date().getFullYear()} Trident Event Group
-          </p>
-          <div className="flex items-center gap-4 text-muted-foreground/50 [&_button]:text-muted-foreground/50">
-            <a href="/llms.txt" className="text-[10px] hover:text-muted-foreground transition-colors leading-none">
-              AI Info
-            </a>
+        <div className="flex flex-wrap items-center justify-center gap-x-9 gap-y-4">
+          <div className="flex h-9 items-center rounded-full border border-theme px-4 [&_button]:min-h-0">
             <LocationSwitcher />
-            <ThemeToggle />
           </div>
+          {links.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener noreferrer" : undefined}
+              className="inline-flex items-center text-[11px] uppercase tracking-[0.12em] text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
+
+        <p className="text-[10px] tracking-[0.1em] text-muted-foreground/60">
+          Trident Music | A Division of Trident Event Group
+        </p>
       </div>
     </footer>
   );

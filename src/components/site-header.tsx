@@ -62,6 +62,7 @@ export function SiteHeader() {
                 </Link>
               );
             })}
+            <ThemeToggle />
           </nav>
 
           {/* Mobile menu button */}
