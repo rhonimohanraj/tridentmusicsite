@@ -11,18 +11,14 @@ In a world where every beat is expected to be louder and every moment is rushed,
 1. Destiny Maluga — Marketing Manager
 2. Joey Simms — Sales Manager | Host | DJ
 3. Danylo Denysevych — Web Developer | Web Designer
-4. Carson Schepp — Videographer | Editor
-5. Aidan Froese — Videographer | Editor
-6. Jared Weir — Host | DJ | Music Master
-7. Eldon Santillan — Host | DJ
-8. Alexander Vaughn — Videographer | Editor
-9. Austin Liske — DJ
-10. Hailey Rapsky — MC | DJ
-11. Annie Wurtz — Photographer | Photobooth Lead
-12. Brenna Kelland — Executive Assistant
-13. Bryce Cotton — System Technician
-14. Sarah-Jane Speers — Host | DJ
-15. Rhoni Mohanraj — Co-Founder | DJ
+4. Jared Weir — Host | DJ | Music Master
+5. Eldon Santillan — Host | DJ
+6. Austin Liske — DJ
+7. Hailey Rapsky — MC | DJ
+8. Annie Wurtz — Photographer | Photobooth Lead
+9. Brenna Kelland — Executive Assistant
+10. Sarah-Jane Speers — Host | DJ
+11. Rhoni Mohanraj — Co-Founder | DJ
 
 ## Gallery
 **Headline:** Memories From Past Events
