@@ -1,10 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { LyricLoader } from "@/components/lyric-loader";
+import { motion } from "framer-motion";
 import { ServiceCarousel } from "@/components/service-carousel";
 import { TestimonialsSection } from "@/components/testimonials-columns";
 import TeamShowcase from "@/components/team-showcase";
@@ -25,20 +23,10 @@ const fadeUp = {
 };
 
 export default function HomePage() {
-  const [loaderDone, setLoaderDone] = useState(false);
   const { location } = useLocation();
-
-  useEffect(() => {
-    if (sessionStorage.getItem("trident-loader-shown") === "true") {
-      setLoaderDone(true);
-    }
-  }, []);
 
   return (
     <>
-      {/* Lyric Loader */}
-      <AnimatePresence>{!loaderDone && <LyricLoader onComplete={() => { sessionStorage.setItem("trident-loader-shown", "true"); setLoaderDone(true); }} />}</AnimatePresence>
-
       {/* ─── HERO ─── */}
       <section className="relative h-screen flex items-end pb-20 md:pb-28 px-6 md:px-12 overflow-hidden">
         {/* Background image */}
@@ -56,7 +44,7 @@ export default function HomePage() {
         <motion.div
           className="max-w-4xl"
           initial="hidden"
-          animate={loaderDone ? "visible" : "hidden"}
+          animate="visible"
           variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
         >
           <motion.p

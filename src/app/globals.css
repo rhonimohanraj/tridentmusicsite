@@ -215,3 +215,38 @@
 .dark .border-theme {
   border-color: oklch(1 0 0 / 5%);
 }
+
+/* Cursor — same as tridentfilms.ca (components/cursor.tsx) */
+.tf-cursor-dot,
+.tf-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10000;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  transform: translate(-100px, -100px);
+}
+.tf-cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--foreground);
+}
+.tf-cursor-ring {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+.tf-cursor-ring.hovering {
+  width: 64px;
+  height: 64px;
+  border-color: rgba(128, 128, 128, 0.7);
+}
+@media (max-width: 768px), (hover: none), (pointer: coarse) {
+  .tf-cursor-dot,
+  .tf-cursor-ring {
+    display: none;
+  }
+}

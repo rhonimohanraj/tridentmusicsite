@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Playfair_Display, Outfit } from "next/font/google";
 import { TimezoneThemeProvider } from "@/components/timezone-theme-provider";
-import { SmoothCursor } from "@/components/ui/smooth-cursor";
+import { Cursor } from "@/components/cursor";
 import { getServerLocation } from "@/lib/get-server-location";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -119,7 +119,7 @@ gtag('config', 'G-7QWGYGM05T');`}
         </Script>
         <TimezoneThemeProvider>
           {children}
-          <SmoothCursor />
+          <Cursor />
         </TimezoneThemeProvider>
         <Analytics />
       </body>
