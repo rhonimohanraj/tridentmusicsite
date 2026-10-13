@@ -151,6 +151,8 @@ gtag('config', 'G-7QWGYGM05T');`}
           <Cursor />
         </TimezoneThemeProvider>
         <Analytics />
+        {/* WebMCP tools for browser AI agents; reads its config from these data attributes. */}
+        <script src="/webmcp.js" data-brand="Trident Music" data-inquiry="/inquire" defer />
       </body>
     </html>
   );
