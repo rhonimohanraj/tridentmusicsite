@@ -6,6 +6,7 @@ import { Cursor } from "@/components/cursor";
 import { getServerLocation } from "@/lib/get-server-location";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import { webmcpScript } from "@/lib/webmcp-script";
 import { business, SITE_URL } from "@/lib/site";
 
 const playfair = Playfair_Display({
@@ -152,7 +153,11 @@ gtag('config', 'G-7QWGYGM05T');`}
         </TimezoneThemeProvider>
         <Analytics />
         {/* WebMCP tools for browser AI agents; reads its config from these data attributes. */}
-        <script src="/webmcp.js" data-brand="Trident Music" data-inquiry="/inquire" defer />
+        <script
+          data-brand="Trident Music"
+          data-inquiry="/inquire"
+          dangerouslySetInnerHTML={{ __html: webmcpScript }}
+        />
       </body>
     </html>
   );
