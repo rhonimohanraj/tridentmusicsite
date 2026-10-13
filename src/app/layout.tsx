@@ -25,6 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const location = await getServerLocation();
   return {
     metadataBase: new URL("https://www.tridentmusic.ca"),
+    other: { "is-agentic-site-type": "business" },
     title: {
       default: location.seo.title,
       template: "%s | Trident Music",
