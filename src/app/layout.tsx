@@ -6,6 +6,7 @@ import { Cursor } from "@/components/cursor";
 import { getServerLocation } from "@/lib/get-server-location";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import { business, SITE_URL } from "@/lib/site";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -35,11 +36,20 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: "Trident Music",
       type: "website",
       locale: "en_CA",
+      images: [
+        {
+          url: "/images/ChamberOfCommerceGala.jpg",
+          width: 2500,
+          height: 1667,
+          alt: "Trident Music DJ performing for a packed room at a gala",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: location.seo.title,
       description: location.seo.description,
+      images: ["/images/ChamberOfCommerceGala.jpg"],
     },
     alternates: {
       canonical: "https://www.tridentmusic.ca",
@@ -47,35 +57,53 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+// Organization identity for agents and search engines. Facts come from
+// src/lib/site.ts so pages, Markdown twins, and JSON-LD stay in sync.
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "EntertainmentBusiness",
-  name: "Trident Music",
+  "@type": ["Organization", "LocalBusiness", "EntertainmentBusiness"],
+  "@id": `${SITE_URL}/#organization`,
+  name: business.name,
   alternateName: "Trident Event Group",
-  url: "https://www.tridentmusic.ca",
-  logo: "https://www.tridentmusic.ca/images/logo.png",
+  legalName: business.legalName,
+  url: SITE_URL,
+  logo: business.logo,
+  image: business.image,
   telephone: "+1-431-441-2676",
-  email: "hello@tridenteventgroup.ca",
+  email: business.email,
   description:
     "DJ entertainment for weddings, events, and celebrations across Manitoba and Saskatchewan.",
-  address: [
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: business.hq.street,
+    addressLocality: business.hq.city,
+    addressRegion: business.hq.region,
+    postalCode: business.hq.postalCode,
+    addressCountry: business.hq.country,
+  },
+  location: [
     {
-      "@type": "PostalAddress",
-      streetAddress: "19 Premier Avenue",
-      addressLocality: "Brandon",
-      addressRegion: "MB",
-      postalCode: "R7B 3N9",
-      addressCountry: "CA",
-    },
-    {
-      "@type": "PostalAddress",
-      streetAddress: "425 Ballantrae Dr",
-      addressLocality: "Winnipeg",
-      addressRegion: "MB",
-      postalCode: "R3T 6H6",
-      addressCountry: "CA",
+      "@type": "Place",
+      name: "Trident Music Winnipeg",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: business.winnipeg.street,
+        addressLocality: business.winnipeg.city,
+        addressRegion: business.winnipeg.region,
+        postalCode: business.winnipeg.postalCode,
+        addressCountry: business.winnipeg.country,
+      },
     },
   ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    email: business.email,
+    telephone: business.phoneDisplay,
+    url: business.inquiryUrl,
+    areaServed: ["CA-MB", "CA-SK"],
+    availableLanguage: "en",
+  },
   areaServed: [
     { "@type": "City", name: "Brandon" },
     { "@type": "City", name: "Winnipeg" },
@@ -83,12 +111,13 @@ const jsonLd = {
     { "@type": "State", name: "Manitoba" },
     { "@type": "State", name: "Saskatchewan" },
   ],
-  sameAs: [
-    "https://www.instagram.com/tridentmusic/",
-    "https://www.linkedin.com/company/tridenteventgroup/",
-    "https://www.facebook.com/Tridentmusicinc/",
-    "https://www.tiktok.com/@tridenteventgroup.ca",
-  ],
+  openingHours: "Mo-Fr 09:00-16:00",
+  sameAs: [...business.sameAs],
+  parentOrganization: {
+    "@type": "Organization",
+    name: business.parent.name,
+    url: business.parent.url,
+  },
 };
 
 export default function RootLayout({

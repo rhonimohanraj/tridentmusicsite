@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { ServiceCarousel } from "@/components/service-carousel";
 import { TestimonialsSection } from "@/components/testimonials-columns";
 import TeamShowcase from "@/components/team-showcase";
-import { testimonials, teamMembers } from "@/lib/data";
+import { testimonials, teamMembers, homeShowcase } from "@/lib/data";
 import { useLocation } from "@/components/location-provider";
 
 const fadeUp = {
@@ -97,36 +97,10 @@ export default function HomePage() {
       </section>
 
       {/* ─── ABOUT — SHOWCASE SECTIONS ─── */}
-      {[
-        {
-          image: "/images/ChamberOfCommerceGala.jpg",
-          label: "Who We Are",
-          heading: "We don\u2019t just play music.\nWe pack dance floors.",
-          body: location.about.copy[0],
-          align: "left" as const,
-        },
-        {
-          image: "/images/dancing_wedding.jpg",
-          label: "The Experience",
-          heading: "Your uncle who never dances?\nHe\u2019ll be out there.",
-          body: location.about.copy[1],
-          align: "right" as const,
-        },
-        {
-          image: "/images/wedding_homephoto.jpg",
-          label: "Our Promise",
-          heading: "Every event gets the\nfull Trident treatment.",
-          body: "A personalized music consultation. Professional-grade sound and lighting. A DJ who reads the room and adjusts in real time. Backup systems for everything. No cookie-cutter playlists. No autopilot. Just a crew that treats your night like it matters \u2014 because it does.",
-          align: "left" as const,
-        },
-        {
-          image: "/images/photobooth_homepage.jpg",
-          label: "The Result",
-          heading: "Shoes off. Ties loose.\nStories for months.",
-          body: "When the night ends, your guests won\u2019t just leave. They\u2019ll walk out with sore feet, shoes in hand, and stories they\u2019ll be telling at brunch for the next month. That\u2019s the difference between hiring a DJ and hiring us.",
-          align: "right" as const,
-        },
-      ].map((section, i) => (
+      {homeShowcase.map((item) => ({
+        ...item,
+        body: item.body ?? location.about.copy[item.aboutCopyIndex ?? 0],
+      })).map((section, i) => (
         <section
           key={i}
           className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden"

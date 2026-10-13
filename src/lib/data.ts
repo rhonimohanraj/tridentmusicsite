@@ -47,6 +47,46 @@ export const services: Service[] = [
   },
 ];
 
+// Homepage showcase sections. Items without a fixed body use the visitor's
+// location copy (LocationConfig.about.copy[aboutCopyIndex]).
+export const homeShowcase: {
+  image: string;
+  label: string;
+  heading: string;
+  body?: string;
+  aboutCopyIndex?: number;
+  align: "left" | "right";
+}[] = [
+  {
+    image: "/images/ChamberOfCommerceGala.jpg",
+    label: "Who We Are",
+    heading: "We don\u2019t just play music.\nWe pack dance floors.",
+    aboutCopyIndex: 0,
+    align: "left",
+  },
+  {
+    image: "/images/dancing_wedding.jpg",
+    label: "The Experience",
+    heading: "Your uncle who never dances?\nHe\u2019ll be out there.",
+    aboutCopyIndex: 1,
+    align: "right",
+  },
+  {
+    image: "/images/wedding_homephoto.jpg",
+    label: "Our Promise",
+    heading: "Every event gets the\nfull Trident treatment.",
+    body: "A personalized music consultation. Professional-grade sound and lighting. A DJ who reads the room and adjusts in real time. Backup systems for everything. No cookie-cutter playlists. No autopilot. Just a crew that treats your night like it matters \u2014 because it does.",
+    align: "left",
+  },
+  {
+    image: "/images/photobooth_homepage.jpg",
+    label: "The Result",
+    heading: "Shoes off. Ties loose.\nStories for months.",
+    body: "When the night ends, your guests won\u2019t just leave. They\u2019ll walk out with sore feet, shoes in hand, and stories they\u2019ll be telling at brunch for the next month. That\u2019s the difference between hiring a DJ and hiring us.",
+    align: "right",
+  },
+];
+
 export const teamMembers: TeamMember[] = [
   { id: "2", name: "Joey Simms", role: "Sales Manager | Host | DJ", image: "https://framerusercontent.com/images/vQuVTK9ADWkDhikVBY0lMY8sIo.jpg?width=1067&height=1600", objectPosition: "52% 5%", imageScale: 1.0, social: { instagram: "https://www.instagram.com/tridentmusic/" } },
   { id: "6", name: "Jared Weir", role: "Host | DJ | Music Master", image: "https://framerusercontent.com/images/pwVwklZywXKq0qhySUvzyZ9jpE.jpg?width=1067&height=1600", objectPosition: "48% 5%", social: { instagram: "https://www.instagram.com/tridentmusic/" } },

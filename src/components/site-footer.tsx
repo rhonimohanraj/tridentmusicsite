@@ -7,7 +7,9 @@ import { LocationSwitcher } from "@/components/location-switcher";
 const links = [
   { label: "Event Group", href: "https://www.tridenteventgroup.ca", external: true },
   { label: "Instagram", href: socialLinks.instagram, external: true },
-  { label: "Contact", href: "mailto:hello@tridenteventgroup.ca", external: false },
+  { label: "About", href: "/about", external: false },
+  { label: "Contact", href: "/contact", external: false },
+  { label: "Privacy", href: "/privacy", external: false },
 ];
 
 // Mirrors the Trident Films footer: centered logo, one row of links, one credit line.
