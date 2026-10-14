@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Playfair_Display, Outfit } from "next/font/google";
 import { TimezoneThemeProvider } from "@/components/timezone-theme-provider";
 import { Cursor } from "@/components/cursor";
+import { MotionPreferences } from "@/components/motion-preferences";
 import { getServerLocation } from "@/lib/get-server-location";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -149,7 +150,7 @@ gtag('js', new Date());
 gtag('config', 'G-7QWGYGM05T');`}
         </Script>
         <TimezoneThemeProvider>
-          {children}
+          <MotionPreferences>{children}</MotionPreferences>
           <Cursor />
         </TimezoneThemeProvider>
         <Analytics />
