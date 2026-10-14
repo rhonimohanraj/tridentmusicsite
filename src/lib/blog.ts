@@ -1,6 +1,8 @@
 export interface BlogPost {
   title: string;
   excerpt: string;
+  /** Search-result description (120-160 chars) when the excerpt is too short. */
+  metaDescription?: string;
   category: string;
   image: string;
   slug: string;
@@ -63,6 +65,8 @@ export const blogPosts: BlogPost[] = [
   {
     title: "Top 10 Wedding Venues in Winnipeg We Love Working With",
     excerpt: "Our top 10 favorite Winnipeg wedding venues",
+    metaDescription:
+      "Our top 10 favourite Winnipeg wedding venues, from The Metropolitan to The Fort Garry Hotel, picked by DJs who have played weddings across the city for years.",
     category: "Venues",
     image:
       "https://framerusercontent.com/images/8FxAMW3iIeXfGczdzs3wAtW5g38.jpg?width=1400&height=851",
@@ -177,6 +181,8 @@ export const blogPosts: BlogPost[] = [
   {
     title: "Top 25 Songs For Your Wedding Day!",
     excerpt: "Top 25 songs for your groomsmen to walk down the aisle to.",
+    metaDescription:
+      "25 wedding songs that never miss, from the ceremony entrance and groomsmen walk to the first dance, parent dances, and the tracks that open the dance floor.",
     category: "Music",
     image:
       "https://framerusercontent.com/images/riAr7RpZCXn4fKvzqPGGvbtsA.jpg?width=500&height=500",

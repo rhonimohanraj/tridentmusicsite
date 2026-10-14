@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { blogPosts, getBlogPost } from "@/lib/blog";
 import { BlogArticle } from "./blog-article";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -15,15 +16,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) return {};
-  return {
-    title: `${post.title} | Trident Music`,
-    description: post.excerpt,
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      images: [post.image],
-    },
-  };
+  return pageMetadata({
+    title: post.title,
+    description: post.metaDescription ?? post.excerpt,
+    path: `/blog/${post.slug}`,
+    ogTitle: post.title,
+    images: [post.image],
+    type: "article",
+  });
 }
 
 export default async function BlogPostPage({

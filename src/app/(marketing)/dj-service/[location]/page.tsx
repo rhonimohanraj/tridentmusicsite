@@ -4,6 +4,7 @@ import Link from "next/link";
 import { LOCATIONS, CITY_SLUGS } from "@/lib/locations";
 import type { LocationSlug } from "@/lib/locations";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { services } from "@/lib/data";
 
 interface Props {
@@ -18,14 +19,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { location: slug } = await params;
   if (!(slug in LOCATIONS)) return {};
   const loc = LOCATIONS[slug as LocationSlug];
-  return {
-    title: `DJ Service in ${loc.city} | Trident Music`,
+  return pageMetadata({
+    title: `DJ Service in ${loc.city}`,
     description: loc.seo.description,
-    openGraph: {
-      title: `DJ Service in ${loc.city} | Trident Music`,
-      description: loc.seo.description,
-    },
-  };
+    path: `/dj-service/${slug}`,
+  });
 }
 
 export default async function DJServicePage({ params }: Props) {

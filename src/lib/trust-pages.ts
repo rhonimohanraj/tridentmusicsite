@@ -34,7 +34,7 @@ export const aboutPage: TrustPage = {
   title: "The crew behind the dance floor",
   metaTitle: "About",
   description:
-    "Trident Music is a wedding and event DJ company based in Brandon, Manitoba, with a team in Winnipeg and coverage across Regina and Saskatchewan. A division of Trident Event Group.",
+    "Trident Music is a wedding and event DJ company based in Brandon, Manitoba, with a team in Winnipeg and coverage across Regina and Saskatchewan.",
   intro:
     "Trident Music is a DJ and event entertainment company for weddings, socials, corporate events, galas, graduations, and private celebrations across Manitoba and Saskatchewan. Our headquarters are in Brandon, we have a team in Winnipeg, and we take dates across Regina and Saskatchewan.",
   sections: [

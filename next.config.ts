@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
     return [{ source: "/:path*", headers: [{ key: "Vary", value: "Accept" }] }];
   },
   images: {
+    // Serve AVIF/WebP to browsers that accept them; JPEG fallback otherwise.
+    formats: ["image/avif", "image/webp"],
+    // Drop the default 3840w breakpoint: source photos are capped at 2400px,
+    // so 3840w requests only re-encoded the full original at maximum weight.
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     remotePatterns: [
       {
         protocol: "https",

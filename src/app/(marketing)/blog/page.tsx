@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import BlogPage from "./blog-listing";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Blog",
   description:
-    "Real advice from hundreds of weddings, socials, and late nights across Manitoba and Saskatchewan. Wedding planning tips, venue guides, and entertainment insights from Trident Music.",
-  openGraph: {
-    title: "Blog | Trident Music",
-    description:
-      "Notes from the dance floor — wedding tips, venue guides, and event entertainment insights from the Trident Music team.",
-  },
-};
+    "Wedding planning tips, venue guides, and entertainment insights from Trident Music, drawn from hundreds of weddings and events across Manitoba and Saskatchewan.",
+  path: "/blog",
+  ogDescription:
+    "Notes from the dance floor — wedding tips, venue guides, and event entertainment insights from the Trident Music team.",
+});
 
 export default function Page() {
   return <BlogPage />;

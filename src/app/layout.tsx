@@ -34,7 +34,6 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: location.seo.title,
       description: location.seo.description,
-      url: "https://www.tridentmusic.ca",
       siteName: "Trident Music",
       type: "website",
       locale: "en_CA",
@@ -52,9 +51,6 @@ export async function generateMetadata(): Promise<Metadata> {
       title: location.seo.title,
       description: location.seo.description,
       images: ["/images/ChamberOfCommerceGala.jpg"],
-    },
-    alternates: {
-      canonical: "https://www.tridentmusic.ca",
     },
   };
 }
