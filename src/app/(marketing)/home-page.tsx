@@ -22,6 +22,20 @@ const fadeUp = {
   }),
 };
 
+// The h1 is the mobile LCP element. Animating it from opacity 0 hid it until
+// hydration (LCP 11.8s on mobile), so it only slides in and paints at once.
+const slideUp = {
+  hidden: { y: 40 },
+  visible: (i: number = 0) => ({
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  }),
+};
+
 export default function HomePage() {
   const { location } = useLocation();
 
@@ -54,7 +68,7 @@ export default function HomePage() {
             {location.hero.label}
           </motion.p>
           <motion.h1
-            variants={fadeUp}
+            variants={slideUp}
             className="text-4xl md:text-6xl lg:text-7xl font-[family-name:var(--font-playfair)] leading-[1.05] tracking-tight"
           >
             for those celebrations

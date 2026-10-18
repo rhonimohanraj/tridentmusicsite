@@ -79,6 +79,13 @@ export default function TeamShowcase({ members = [] }: TeamShowcaseProps) {
   );
 }
 
+// Team photos sit below the fold; Framer serves some as 6000px originals
+// (2.4MB), so ask its CDN for a card-sized copy.
+function teamImage(src: string) {
+  if (!src.startsWith('https://framerusercontent.com/')) return src;
+  return `${src.split('?')[0]}?scale-down-to=800`;
+}
+
 /* ─────────────────────────────────────────
    Mobile member card (photo + text below)
 ───────────────────────────────────────── */
@@ -89,7 +96,9 @@ function MemberCard({ member }: { member: TeamMember }) {
       <div className="overflow-hidden rounded-2xl w-full aspect-[3/4]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={member.image}
+          src={teamImage(member.image)}
+          loading="lazy"
+          decoding="async"
           alt={member.name}
           className="w-full h-full object-cover"
           style={{
@@ -141,7 +150,9 @@ function PhotoCard({
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={member.image}
+        src={teamImage(member.image)}
+        loading="lazy"
+        decoding="async"
         alt={member.name}
         className="w-full h-full object-cover rounded-3xl transition-[filter,transform] duration-500"
         style={{
