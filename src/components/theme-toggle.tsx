@@ -3,15 +3,21 @@
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
 import { Sun, Moon } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { isForcedDark } from "@/lib/forced-dark";
+
+const noopSubscribe = () => () => {};
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  // false on the server and during hydration, true once hydrated on the client
+  // (the theme is only known client-side, so this avoids a hydration mismatch).
+  const mounted = useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false
+  );
   const forcedDark = isForcedDark(usePathname());
-
-  useEffect(() => setMounted(true), []);
 
   function toggle() {
     const next = theme === "dark" ? "light" : "dark";

@@ -4,9 +4,10 @@ import {
   createContext,
   useContext,
   useState,
-  useEffect,
+  useRef,
   useCallback,
   useMemo,
+  useSyncExternalStore,
 } from "react";
 import { useRouter } from "next/navigation";
 import {
@@ -37,21 +38,37 @@ function setCookie(name: string, value: string) {
   document.cookie = `${name}=${value};path=/;max-age=${60 * 60 * 24 * 365}`;
 }
 
+const noopSubscribe = () => () => {};
+
 export function LocationProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
-  const [slug, setSlug] = useState<LocationSlug>(DEFAULT_LOCATION);
+  // Location chosen in this session via setLocation (wins over the cookie).
+  const [selectedSlug, setSelectedSlug] = useState<LocationSlug | null>(null);
 
-  useEffect(() => {
-    const cookie = getCookie(LOCATION_COOKIE);
-    if (cookie && cookie in LOCATIONS) setSlug(cookie as LocationSlug);
-  }, []);
+  // Cookie value read once on the client after hydration; the server snapshot
+  // is empty so the server and hydration renders use DEFAULT_LOCATION.
+  const mountCookie = useRef<string | null>(null);
+  const cookie = useSyncExternalStore(
+    noopSubscribe,
+    () => {
+      if (mountCookie.current === null) {
+        mountCookie.current = getCookie(LOCATION_COOKIE) ?? "";
+      }
+      return mountCookie.current;
+    },
+    () => ""
+  );
+
+  const slug: LocationSlug =
+    selectedSlug ??
+    (cookie && cookie in LOCATIONS ? (cookie as LocationSlug) : DEFAULT_LOCATION);
 
   const location = useMemo(() => getLocationBySlug(slug), [slug]);
 
   const setLocation = useCallback(
     (newSlug: LocationSlug) => {
-      setSlug(newSlug);
+      setSelectedSlug(newSlug);
       setCookie(LOCATION_COOKIE, newSlug);
       // Mark as manual override so proxy doesn't overwrite with geo
       setCookie("location-manual-override", "true");

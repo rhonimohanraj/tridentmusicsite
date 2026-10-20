@@ -11,7 +11,7 @@
 1. `npm ci` (node_modules already present on a1).
 2. `npm run build` (verified passing; generates route types).
 3. `npx tsc --noEmit` (verified passing after the build; fails on `RouteContext` before it).
-4. `npm run lint` (FAILS today: 2 errors + 3 warnings, pre-existing, e.g. set-state-in-effect in `theme-toggle.tsx`; lint only the files you touched with `npx eslint <files>`).
+4. `npm run lint` (passing as of 2026-10-20: 0 errors, 3 unused-var warnings).
 5. `bash scripts/mobile-lint.sh` (mobile overflow checks, also runs a build; not run).
 6. Preview: `npm run dev` -> http://localhost:3000
 - Then run the teg-site-checker agent on the branch or live URL.
