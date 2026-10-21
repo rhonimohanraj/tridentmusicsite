@@ -6,6 +6,7 @@ import { homeShowcase, services, teamMembers, testimonials, navigation } from ".
 import { LOCATIONS, CITY_SLUGS, type LocationConfig, type LocationSlug } from "./locations";
 import { business, SITE_URL } from "./site";
 import { trustPages, type TrustPage } from "./trust-pages";
+import { CITY_PAGES, isCityPageSlug, PHONE_DISPLAY, type CityPageContent } from "./city-pages";
 
 const plain = (s: string) => s.replace(/\n/g, " ");
 
@@ -103,7 +104,69 @@ function homeMarkdown(): string {
   ].join("\n");
 }
 
+/** Markdown twin of the Brandon/Winnipeg landing pages (same content as the HTML). */
+function cityLandingMarkdown(page: CityPageContent): string {
+  return [
+    `# ${page.h1}`,
+    "",
+    `${page.answer} Book by calling ${PHONE_DISPLAY} or through the inquiry form: ${business.inquiryUrl}`,
+    "",
+    "## At a glance",
+    "",
+    ...page.glance.map((g) => `- **${g.label}:** ${g.text}`),
+    "",
+    `## ${page.packagesHeading}`,
+    "",
+    page.packagesIntro,
+    "",
+    "| Package | Coverage | What's included | Starting price |",
+    "|---|---|---|---|",
+    ...page.packages.map((p) => `| ${p.name} | ${p.coverage} | ${p.included} | ${p.price} |`),
+    "",
+    page.packagesNote,
+    "",
+    `## ${page.venuesHeading}`,
+    "",
+    page.venuesIntro,
+    "",
+    ...page.venues.flatMap((v) => [`### ${v.name}`, "", v.body, ""]),
+    page.venuesAlso,
+    "",
+    `## ${page.areaHeading}`,
+    "",
+    ...page.areaCopy.flatMap((p) => [p, ""]),
+    `### ${page.travelHeading}`,
+    "",
+    ...page.travel.map((t) => `- ${t.place}: ${t.time}`),
+    "",
+    page.travelNote,
+    "",
+    `## ${page.processHeading}`,
+    "",
+    ...page.process.flatMap((p) => [p, ""]),
+    `## ${page.faqHeading}`,
+    "",
+    ...page.faqs.flatMap((f) => [`### ${f.question}`, "", f.answer, ""]),
+    `${page.otherCity.before}[${page.otherCity.anchor}](${SITE_URL}${page.otherCity.href})${page.otherCity.after}`,
+    "",
+    "## More reading",
+    "",
+    ...page.reading.map((r) => `- [${r.label}](${SITE_URL}${r.href})`),
+    "",
+    `## ${page.ctaHeading}`,
+    "",
+    page.ctaText,
+    "",
+    `[Start your inquiry](${business.inquiryUrl})`,
+    "",
+    page.contactLine,
+    "",
+    pagesBlock(),
+  ].join("\n");
+}
+
 function cityMarkdown(slug: LocationSlug): string {
+  if (isCityPageSlug(slug)) return cityLandingMarkdown(CITY_PAGES[slug]);
   const loc = LOCATIONS[slug];
   return [
     `# ${loc.city}'s premier wedding & event DJ service`,

@@ -7,7 +7,6 @@ import { getServerLocation } from "@/lib/get-server-location";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { webmcpScript } from "@/lib/webmcp-script";
-import { business, SITE_URL } from "@/lib/site";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -55,69 +54,6 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-// Organization identity for agents and search engines. Facts come from
-// src/lib/site.ts so pages, Markdown twins, and JSON-LD stay in sync.
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": ["Organization", "LocalBusiness", "EntertainmentBusiness"],
-  "@id": `${SITE_URL}/#organization`,
-  name: business.name,
-  alternateName: "Trident Event Group",
-  legalName: business.legalName,
-  url: SITE_URL,
-  logo: business.logo,
-  image: business.image,
-  telephone: "+1-431-441-2676",
-  email: business.email,
-  description:
-    "DJ entertainment for weddings, events, and celebrations across Manitoba and Saskatchewan.",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: business.hq.street,
-    addressLocality: business.hq.city,
-    addressRegion: business.hq.region,
-    postalCode: business.hq.postalCode,
-    addressCountry: business.hq.country,
-  },
-  location: [
-    {
-      "@type": "Place",
-      name: "Trident Music Winnipeg",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: business.winnipeg.street,
-        addressLocality: business.winnipeg.city,
-        addressRegion: business.winnipeg.region,
-        postalCode: business.winnipeg.postalCode,
-        addressCountry: business.winnipeg.country,
-      },
-    },
-  ],
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    email: business.email,
-    telephone: business.phoneDisplay,
-    url: business.inquiryUrl,
-    areaServed: ["CA-MB", "CA-SK"],
-    availableLanguage: "en",
-  },
-  areaServed: [
-    { "@type": "City", name: "Brandon" },
-    { "@type": "City", name: "Winnipeg" },
-    { "@type": "City", name: "Regina" },
-    { "@type": "State", name: "Manitoba" },
-    { "@type": "State", name: "Saskatchewan" },
-  ],
-  openingHours: "Mo-Fr 09:00-16:00",
-  sameAs: [...business.sameAs],
-  parentOrganization: {
-    "@type": "Organization",
-    name: business.parent.name,
-    url: business.parent.url,
-  },
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -130,10 +66,8 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        {/* Business JSON-LD is rendered per route group: (marketing)/layout.tsx
+            carries the site organization, city pages carry their own entity. */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-7QWGYGM05T"
           strategy="afterInteractive"

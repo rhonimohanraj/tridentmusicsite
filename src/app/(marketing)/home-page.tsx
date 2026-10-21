@@ -196,6 +196,32 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── CITY PAGES ─── */}
+      <section className="py-16 md:py-20 px-6 md:px-12 border-t border-theme">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-baseline">
+          <h2 className="md:col-span-5 text-2xl md:text-3xl font-[family-name:var(--font-playfair)] tracking-tight">
+            Brandon, Winnipeg and the roads between
+          </h2>
+          <p className="md:col-span-7 text-muted-foreground leading-relaxed">
+            Trident Music started in Brandon and books weddings and events across
+            Manitoba and Saskatchewan. For local venues, drive times and answers,
+            see our pages for a{" "}
+            <Link href="/dj-service/brandon" className="text-foreground underline underline-offset-4">
+              wedding DJ in Brandon
+            </Link>{" "}
+            and a{" "}
+            <Link href="/dj-service/winnipeg" className="text-foreground underline underline-offset-4">
+              wedding DJ in Winnipeg
+            </Link>
+            . Planning in Saskatchewan? Start with our{" "}
+            <Link href="/dj-service/regina" className="text-foreground underline underline-offset-4">
+              DJ service in Regina
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
       {/* ─── CTA ─── */}
       <section className="py-24 md:py-32 px-6 md:px-12 flex flex-col items-center text-center">
         <motion.div

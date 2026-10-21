@@ -6,6 +6,9 @@ import type { LocationSlug } from "@/lib/locations";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import { services } from "@/lib/data";
+import { CITY_PAGES, isCityPageSlug } from "@/lib/city-pages";
+import { cityPageJsonLd, jsonLdHtml, siteOrganizationJsonLd } from "@/lib/schema";
+import { CityLanding } from "@/components/city-landing";
 
 interface Props {
   params: Promise<{ location: string }>;
@@ -18,6 +21,22 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { location: slug } = await params;
   if (!(slug in LOCATIONS)) return {};
+  if (isCityPageSlug(slug)) {
+    const page = CITY_PAGES[slug];
+    return pageMetadata({
+      title: page.title,
+      description: page.description,
+      path: `/dj-service/${slug}`,
+      images: [
+        {
+          url: page.heroPhoto.src,
+          width: page.heroPhoto.width,
+          height: page.heroPhoto.height,
+          alt: page.heroPhoto.alt,
+        },
+      ],
+    });
+  }
   const loc = LOCATIONS[slug as LocationSlug];
   return pageMetadata({
     title: `DJ Service in ${loc.city}`,
@@ -29,6 +48,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function DJServicePage({ params }: Props) {
   const { location: slug } = await params;
   if (!CITY_SLUGS.includes(slug as LocationSlug)) notFound();
+
+  // Brandon and Winnipeg: full long-form landing page with its own single
+  // business entity (EntertainmentBusiness + FAQPage + breadcrumb).
+  if (isCityPageSlug(slug)) {
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: jsonLdHtml(cityPageJsonLd(slug)) }}
+        />
+        <CityLanding page={CITY_PAGES[slug]} />
+      </>
+    );
+  }
+
+  // Other cities (Regina) keep the original template and the site organization.
   const loc = LOCATIONS[slug as LocationSlug];
 
   const faqJsonLd = {
@@ -48,7 +83,11 @@ export default async function DJServicePage({ params }: Props) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdHtml(siteOrganizationJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdHtml(faqJsonLd) }}
       />
       {/* Hero */}
       <section className="relative h-[70vh] flex items-end pb-16 md:pb-24 px-6 md:px-12 overflow-hidden">
