@@ -168,7 +168,7 @@ export const CITY_PAGES: Record<CityPageSlug, CityPageContent> = {
       },
     ],
     packagesNote:
-      "Add-ons combine with any package. Your quote lists every line, including any travel for venues outside the city.",
+      "Add-ons combine with any package. Your quote lists every line, including travel to halls in Virden, Souris or Neepawa and a generator if your site has no power.",
     venuesHeading: "Brandon venues we know",
     venuesIntro:
       "Trident Music started in Brandon, so most of the city's event rooms are familiar ground. A few we've played:",
@@ -294,7 +294,7 @@ export const CITY_PAGES: Record<CityPageSlug, CityPageContent> = {
     ],
     packagesHeading: "What a Winnipeg booking includes",
     packagesIntro:
-      "Pick the closest match and we'll shape it to your night. Every price is a custom quote for your date and hours.",
+      "Pick the closest match and we'll shape it to your night, whether that's a Fort Garry ballroom or a community hall in Selkirk. Every price is a custom quote for your date and hours.",
     packages: [
       {
         name: "Wedding reception",
@@ -358,7 +358,7 @@ export const CITY_PAGES: Record<CityPageSlug, CityPageContent> = {
       "We also take weddings and events at venues such as the RBC Convention Centre and Inn at the Forks, and at community centres and halls across the city.",
     heroPhoto: photos.stringLights,
     featurePhoto: photos.tent,
-    areaHeading: "Neighbourhoods and the Capital Region",
+    areaHeading: "From the Exchange District out to Selkirk and Steinbach",
     areaCopy: [
       "Inside the Perimeter we cover the whole city: loft and warehouse venues in the Exchange District, family celebrations in St. Boniface, house parties and small weddings around Osborne Village and Corydon/Crescentwood, and backyard and golf-club events in River Heights and Tuxedo.",
       "Socials are a Manitoba tradition, and Winnipeg has plenty of them: a hall, a bar, a late lunch of rye bread and cold cuts, and a dance floor that needs to stay full all night. We plan socials with the hosts the same way we plan weddings, with the classics your crowd expects and room for requests.",
