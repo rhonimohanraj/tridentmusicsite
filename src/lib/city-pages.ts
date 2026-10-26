@@ -252,6 +252,11 @@ export const CITY_PAGES: Record<CityPageSlug, CityPageContent> = {
         answer:
           "Yes. Westman is home territory: Virden, Souris, Neepawa, Minnedosa, Carberry, Shilo and the halls and farms in between. For venues an hour or more away we plan an earlier arrival so everything is tested before guests come in, and your quote shows any travel. For Winnipeg dates, our Winnipeg team takes the booking.",
       },
+      {
+        question: "What happens if something goes wrong with the sound at our Brandon event?",
+        answer:
+          "We plan for it. Backup equipment comes to every Trident Music event, and your DJ arrives early enough to set up and sound-check before the first guest walks in. For community halls and farm venues around Westman, we confirm power and load-in with the venue ahead of time, and we can bring a generator for sites with no power at all.",
+      },
     ],
     otherCity: {
       before: "Planning in the city instead? Our page for a ",
@@ -414,6 +419,11 @@ export const CITY_PAGES: Record<CityPageSlug, CityPageContent> = {
         question: "Do you cover weddings outside Winnipeg?",
         answer:
           "Yes. We travel across the Capital Region and beyond: Selkirk, Steinbach, Stonewall, Oak Bluff, Headingley, Gimli and Portage la Prairie are all within about an hour. Your quote shows any travel for venues outside the city. For Westman weddings, our Brandon crew is closer, and the same planning process applies.",
+      },
+      {
+        question: "How many hours of DJ coverage does a Winnipeg wedding need?",
+        answer:
+          "Most Winnipeg receptions run from dinner to the last song, usually about 5 PM to 1 AM, and our wedding reception package is built around that. If your ceremony and cocktail hour need music and microphones, add ceremony and cocktail sound to the same booking. Your quote lists the hours you choose, so send us your timeline and we will match it.",
       },
     ],
     otherCity: {

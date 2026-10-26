@@ -303,7 +303,7 @@ export const LOCATIONS: Record<LocationSlug, LocationConfig> = {
       },
     ],
     seo: {
-      title: "Trident Music | Manitoba & Saskatchewan Wedding & Event DJs",
+      title: "Wedding DJ in Manitoba & Saskatchewan | Trident Music",
       description:
         "DJ entertainment for weddings, events, and celebrations across Manitoba and Saskatchewan. Teams in Brandon, Winnipeg, and Regina.",
     },
