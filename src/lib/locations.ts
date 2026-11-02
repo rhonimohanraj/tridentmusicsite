@@ -17,6 +17,8 @@ export interface LocationConfig {
   heroImage: string;
   hero: {
     label: string;
+    /** First line of the homepage H1: service + place, in raw HTML for crawlers. */
+    h1Lead: string;
     headline: string;
     subtitle: string;
   };
@@ -72,6 +74,7 @@ export const LOCATIONS: Record<LocationSlug, LocationConfig> = {
       "https://framerusercontent.com/images/5xFSwGZatNRutmzk45FXSubv4qc.webp?width=1800&height=1200",
     hero: {
       label: "Brandon \u00B7 Manitoba",
+      h1Lead: "Wedding DJs in Brandon, Manitoba",
       headline: "for those celebrations\nyou can never forget",
       subtitle:
         "DJ entertainment for weddings, events, and every celebration worth remembering in Brandon and the Westman area.",
@@ -134,6 +137,7 @@ export const LOCATIONS: Record<LocationSlug, LocationConfig> = {
       "https://framerusercontent.com/images/5xFSwGZatNRutmzk45FXSubv4qc.webp?width=1800&height=1200",
     hero: {
       label: "Winnipeg \u00B7 Manitoba",
+      h1Lead: "Wedding DJs in Winnipeg, Manitoba",
       headline: "for those celebrations\nyou can never forget",
       subtitle:
         "The DJ crew Winnipeg couples trust with their biggest nights.",
@@ -197,6 +201,7 @@ export const LOCATIONS: Record<LocationSlug, LocationConfig> = {
       "https://framerusercontent.com/images/5xFSwGZatNRutmzk45FXSubv4qc.webp?width=1800&height=1200",
     hero: {
       label: "Regina \u00B7 Saskatchewan",
+      h1Lead: "Wedding DJs in Regina, Saskatchewan",
       headline: "for those celebrations\nyou can never forget",
       subtitle:
         "Manitoba\u2019s most booked DJ team, now taking dates across Saskatchewan.",
@@ -259,9 +264,10 @@ export const LOCATIONS: Record<LocationSlug, LocationConfig> = {
       "https://framerusercontent.com/images/5xFSwGZatNRutmzk45FXSubv4qc.webp?width=1800&height=1200",
     hero: {
       label: "Brandon \u00B7 Winnipeg \u00B7 Regina",
+      h1Lead: "Wedding DJs in Manitoba & Saskatchewan",
       headline: "for those celebrations\nyou can never forget",
       subtitle:
-        "DJ entertainment for weddings, events, and every celebration worth remembering across Manitoba and Saskatchewan.",
+        "Wedding DJ and MC service across Manitoba, with teams in Brandon and Winnipeg and dates across Saskatchewan. We play socials, grads and company parties too.",
     },
     about: {
       heading:

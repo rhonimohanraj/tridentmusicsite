@@ -47,16 +47,14 @@ export default function HomePage() {
           animate="visible"
           variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
         >
-          <motion.p
-            variants={fadeUp}
-            className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4"
-          >
-            {location.hero.label}
-          </motion.p>
           <motion.h1
             variants={fadeUp}
             className="text-4xl md:text-6xl lg:text-7xl font-[family-name:var(--font-playfair)] leading-[1.05] tracking-tight"
           >
+            {/* Service + place lead-in: the H1 carries the keyword, the tagline stays the display line. */}
+            <span className="block mb-4 font-sans text-xs md:text-sm uppercase tracking-[0.25em] leading-normal text-muted-foreground">
+              {location.hero.h1Lead}
+            </span>{" "}
             for those celebrations
             <br />
             you can <em className="italic">never</em> forget

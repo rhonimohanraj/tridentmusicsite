@@ -115,16 +115,16 @@ export const CITY_PAGES: Record<CityPageSlug, CityPageContent> = {
     city: "Brandon",
     title: "Wedding & Event DJ in Brandon, MB | Trident Music",
     description:
-      "Wedding and event DJ service in Brandon and Westman: DJ/MC, sound, lighting and music planning. Rated 5.0 on Google from 32 reviews. Get a quote.",
+      "Wedding and event DJ service in Brandon and Westman: DJ/MC, sound, lighting and music planning. Rated 5.0 on Google from 31 reviews. Get a quote.",
     h1: "Wedding & Event DJ Service in Brandon, Manitoba",
     answer:
-      "Trident Music is a wedding and event DJ company that started in Brandon, Manitoba, and still calls the city home. We cover Brandon and the Westman towns around it, including Virden, Souris, Neepawa, Minnedosa and Carberry. Every booking includes a DJ who also MCs, sound sized to your room, dance-floor lighting, a music consultation and coordination with your venue, quoted per event. Brandon clients rate us 5.0 on Google from 32 reviews.",
+      "Trident Music is a wedding and event DJ company that started in Brandon, Manitoba, and still calls the city home. We cover Brandon and the Westman towns around it, including Virden, Souris, Neepawa, Minnedosa and Carberry. Every booking includes a DJ who also MCs, sound sized to your room, dance-floor lighting, a music consultation and coordination with your venue, quoted per event. Brandon clients rate us 5.0 on Google from 31 reviews.",
     glance: [
       { label: "Price", text: "Quoted per event from your date, venue and hours, with a written quote within 24 hours of your inquiry." },
       { label: "Included", text: "DJ and MC, sound, lighting, a music consultation before the day, and coordination with your venue." },
       { label: "Service area", text: "Brandon, Shilo, Carberry, Souris, Virden, Minnedosa, Neepawa and the rest of Westman." },
       { label: "Lead time", text: "Saturdays from May to September fill first. Reach out once your venue is confirmed." },
-      { label: "Rating", text: "5.0 on Google from 32 reviews." },
+      { label: "Rating", text: "5.0 on Google from 31 reviews." },
     ],
     packagesHeading: "Brandon DJ packages",
     packagesIntro:
@@ -256,6 +256,11 @@ export const CITY_PAGES: Record<CityPageSlug, CityPageContent> = {
         question: "What happens if something goes wrong with the sound at our Brandon event?",
         answer:
           "We plan for it. Backup equipment comes to every Trident Music event, and your DJ arrives early enough to set up and sound-check before the first guest walks in. For community halls and farm venues around Westman, we confirm power and load-in with the venue ahead of time, and we can bring a generator for sites with no power at all.",
+      },
+      {
+        question: "Will our Brandon DJ take song requests from guests?",
+        answer:
+          "Yes. Guests can ask for songs during the night, and your DJ works requests into the set when they suit the dance floor. Your do-not-play list comes first, so a song you have ruled out stays off even if someone asks for it. At your music consultation we go through your must-plays, your do-not-plays and how open you want the night to be to requests.",
       },
     ],
     otherCity: {
@@ -424,6 +429,11 @@ export const CITY_PAGES: Record<CityPageSlug, CityPageContent> = {
         question: "How many hours of DJ coverage does a Winnipeg wedding need?",
         answer:
           "Most Winnipeg receptions run from dinner to the last song, usually about 5 PM to 1 AM, and our wedding reception package is built around that. If your ceremony and cocktail hour need music and microphones, add ceremony and cocktail sound to the same booking. Your quote lists the hours you choose, so send us your timeline and we will match it.",
+      },
+      {
+        question: "Can we meet our Winnipeg DJ before the wedding?",
+        answer:
+          "Yes. Once you book, your DJ meets with you for a music consultation, in person or over a call. You go through your must-plays and do-not-plays, your entrance and first-dance songs, the parent dances and the order of speeches. If your venue has a coordinator, your DJ confirms the timeline and load-in with them as well, so the person running your night already knows the plan.",
       },
     ],
     otherCity: {
