@@ -91,7 +91,7 @@ export const contactPage: TrustPage = {
     {
       heading: "Where we are",
       items: [
-        { label: "Brandon headquarters", value: business.hq.full },
+        { label: "Brandon headquarters", value: "Brandon, Manitoba. We come to your venue across Brandon and Westman." },
         { label: "Winnipeg", value: business.winnipeg.full },
         { label: "Regina and Saskatchewan", value: "Served from our Brandon headquarters. Travel is included in your quote." },
       ],
@@ -178,7 +178,6 @@ export const privacyPage: TrustPage = {
         { label: "Organization", value: business.legalName },
         { label: "Email", value: business.email, href: `mailto:${business.email}` },
         { label: "Phone", value: business.phoneDisplay, href: `tel:${business.phoneE164}` },
-        { label: "Mail", value: business.hq.full },
       ],
     },
   ],

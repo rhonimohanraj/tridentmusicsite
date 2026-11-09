@@ -13,21 +13,20 @@ export const business = {
   phoneE164: "+14314412676",
   inquiryUrl: `${SITE_URL}/inquire`,
   hours: "Monday to Friday, 9 AM to 4 PM (Central Time)",
+  // Brandon is a service-area base: no street address is published (city-page brief).
   hq: {
-    street: "19 Premier Avenue",
     city: "Brandon",
     region: "MB",
-    postalCode: "R7B 3N9",
     country: "CA",
-    full: "19 Premier Avenue, Brandon, MB R7B 3N9, Canada",
+    full: "Brandon, Manitoba, Canada (service area; no public storefront)",
   },
   winnipeg: {
-    street: "425 Ballantrae Dr",
+    street: "425 Ballantrae Dr Suite 110",
     city: "Winnipeg",
     region: "MB",
     postalCode: "R3T 6H6",
     country: "CA",
-    full: "425 Ballantrae Dr, Winnipeg, MB R3T 6H6, Canada",
+    full: "425 Ballantrae Dr Suite 110, Winnipeg, MB R3T 6H6, Canada",
   },
   serviceArea:
     "Brandon and the Westman area, Winnipeg and surrounding areas, Regina and Saskatchewan, and communities across Manitoba and Saskatchewan",

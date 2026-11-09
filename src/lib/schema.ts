@@ -34,10 +34,8 @@ export const siteOrganizationJsonLd = {
     "DJ entertainment for weddings, events, and celebrations across Manitoba and Saskatchewan.",
   address: {
     "@type": "PostalAddress",
-    streetAddress: business.hq.street,
     addressLocality: business.hq.city,
     addressRegion: business.hq.region,
-    postalCode: business.hq.postalCode,
     addressCountry: business.hq.country,
   },
   location: [
@@ -74,6 +72,7 @@ export const siteOrganizationJsonLd = {
   sameAs: [...business.sameAs],
   parentOrganization: {
     "@type": "Organization",
+    "@id": TEG_ORGANIZATION_ID,
     name: business.parent.name,
     url: business.parent.url,
   },

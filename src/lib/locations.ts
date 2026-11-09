@@ -48,18 +48,19 @@ export const DEFAULT_LOCATION: LocationSlug = "generic";
 /** City slugs only — excludes "generic" */
 export const CITY_SLUGS: LocationSlug[] = ["brandon", "winnipeg", "regina"];
 
+// Brandon is a service-area base: city only, never a street address.
 const brandonAddress: LocationAddress = {
-  street: "19 Premier Avenue",
+  street: "",
   cityProvince: "Brandon, MB",
-  postalCode: "R7B 3N9",
-  full: "19 Premier Avenue, Brandon, MB R7B 3N9",
+  postalCode: "",
+  full: "Brandon, MB",
 };
 
 const winnipegAddress: LocationAddress = {
-  street: "425 Ballantrae Dr",
+  street: "425 Ballantrae Dr Suite 110",
   cityProvince: "Winnipeg, MB",
   postalCode: "R3T 6H6",
-  full: "425 Ballantrae Dr, Winnipeg, MB R3T 6H6",
+  full: "425 Ballantrae Dr Suite 110, Winnipeg, MB R3T 6H6",
 };
 
 export const LOCATIONS: Record<LocationSlug, LocationConfig> = {

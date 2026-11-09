@@ -201,8 +201,10 @@ export default function HomePage() {
             Brandon, Winnipeg and the roads between
           </h2>
           <p className="md:col-span-7 text-muted-foreground leading-relaxed">
-            Trident Music started in Brandon and books weddings and events across
-            Manitoba and Saskatchewan. For local venues, drive times and answers,
+            Trident Music started in Brandon and still provides DJ entertainment
+            for Brandon weddings, socials, grads, company parties and Wheat Kings
+            game nights at the Keystone Centre. We book weddings and events across
+            Manitoba and Saskatchewan too. For local venues, drive times and answers,
             see our pages for a{" "}
             <Link href="/dj-service/brandon" className="text-foreground underline underline-offset-4">
               wedding DJ in Brandon

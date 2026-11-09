@@ -262,6 +262,11 @@ export const CITY_PAGES: Record<CityPageSlug, CityPageContent> = {
         answer:
           "Yes. Guests can ask for songs during the night, and your DJ works requests into the set when they suit the dance floor. Your do-not-play list comes first, so a song you have ruled out stays off even if someone asks for it. At your music consultation we go through your must-plays, your do-not-plays and how open you want the night to be to requests.",
       },
+      {
+        question: "Have you DJed at our Brandon venue before?",
+        answer:
+          "Most likely. Recent Brandon bookings include weddings at The Firehall Event Venue and the Dome Building, socials at the Riverview Curling Club and Royal Canadian Legion Branch 3, and Wheat Kings game nights at the Keystone Centre. If your room is new to us, we call the venue before the day to check power, load-in and where the dance floor sits, so setup goes quickly.",
+      },
     ],
     otherCity: {
       before: "Planning in the city instead? Our page for a ",
@@ -302,9 +307,9 @@ export const CITY_PAGES: Record<CityPageSlug, CityPageContent> = {
       { label: "When to book", text: "Summer Saturdays and December party dates go first. Inquire once your venue is set." },
       { label: "Reviews", text: "4.8 on Google." },
     ],
-    packagesHeading: "What a Winnipeg booking includes",
+    packagesHeading: "Wedding DJ and wedding music packages in Winnipeg",
     packagesIntro:
-      "Pick the closest match and we'll shape it to your night, whether that's a Fort Garry ballroom or a community hall in Selkirk. Every price is a custom quote for your date and hours.",
+      "Pick the closest match and we'll shape it to your night, whether that's a Fort Garry ballroom or a community hall in Selkirk. A Winnipeg wedding usually needs music for three parts of the day: the ceremony, cocktails while you're away for photos, and the reception from dinner to the last dance. Every price is a custom quote for your date and hours.",
     packages: [
       {
         name: "Wedding reception",
@@ -387,7 +392,7 @@ export const CITY_PAGES: Record<CityPageSlug, CityPageContent> = {
     ],
     travelNote:
       "Times are from the city centre in normal traffic. For lake-country weddings past Gimli, ask and we'll include the travel in your quote.",
-    processHeading: "From inquiry to last dance",
+    processHeading: "Planning your Winnipeg wedding music, from inquiry to last dance",
     process: [
       "Tell us your date, venue and guest count through the inquiry form or by phone. You'll get a written quote within 24 hours, and a deposit holds your date.",
       "Your DJ then meets with you, in person or over a call, for the music consultation: must-plays and do-not-plays, entrance songs, first dance, parent dances, and the run of speeches. If your venue has a coordinator, we confirm the timeline and load-in with them directly.",
@@ -434,6 +439,11 @@ export const CITY_PAGES: Record<CityPageSlug, CityPageContent> = {
         question: "Can we meet our Winnipeg DJ before the wedding?",
         answer:
           "Yes. Once you book, your DJ meets with you for a music consultation, in person or over a call. You go through your must-plays and do-not-plays, your entrance and first-dance songs, the parent dances and the order of speeches. If your venue has a coordinator, your DJ confirms the timeline and load-in with them as well, so the person running your night already knows the plan.",
+      },
+      {
+        question: "Will our Winnipeg DJ play clean versions of songs?",
+        answer:
+          "Yes, if you want them. Our library carries clean radio edits of the songs most requested at weddings, which helps when grandparents, kids or coworkers are on the dance floor. At your music consultation you decide whether the night stays clean, switches to original versions later in the evening, or plays everything as released. Your do-not-play list still applies to every request.",
       },
     ],
     otherCity: {
