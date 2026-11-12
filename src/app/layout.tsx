@@ -145,7 +145,7 @@ gtag('js', new Date());
 gtag('config', 'G-7QWGYGM05T');`}
         </Script>
         {/* Lead tracking: inquiry_click + generate_lead key events (shared Trident script). */}
-        <Script src="/lead-tracking.js" strategy="afterInteractive" />
+        <Script src="/lead-tracking.js" data-meta-pixel="193307651415133" strategy="afterInteractive" />
         <TimezoneThemeProvider>
           {children}
           <Cursor />
