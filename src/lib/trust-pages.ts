@@ -155,6 +155,13 @@ export const privacyPage: TrustPage = {
       ],
     },
     {
+      heading: "Advertising and remarketing",
+      body: [
+        "We use Google Analytics and advertising tools from Google and Meta (Facebook and Instagram) to measure which pages and ads lead to inquiries, and to show our ads to people who have visited this site. These tools use cookies and similar technologies. Google may connect visits across your devices if you are signed in to a Google account with ad personalization turned on. When you submit an inquiry form, these tools are told that a form was sent; the answers you type stay with us.",
+        "You can turn off personalized ads at adssettings.google.com and in your Facebook or Instagram ad preferences, install the Google Analytics opt-out browser add-on, or block cookies in your browser.",
+      ],
+    },
+    {
       heading: "Who we share it with",
       body: [
         "We share personal information only with service providers that help us run the business and deliver your event, such as our booking and CRM software, email and payment providers, website hosting and analytics tools, and, where you have booked them, our sister Trident Event Group brands or the team members working your event. These providers may only use your information to perform services for us. We may also disclose information when required by law.",
