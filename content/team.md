@@ -13,12 +13,11 @@ In a world where every beat is expected to be louder and every moment is rushed,
 3. Danylo Denysevych — Web Developer | Web Designer
 4. Jared Weir — Host | DJ | Music Master
 5. Eldon Santillan — Host | DJ
-6. Austin Liske — DJ
-7. Hailey Rapsky — MC | DJ
-8. Annie Wurtz — Photographer | Photobooth Lead
-9. Brenna Kelland — Executive Assistant
-10. Sarah-Jane Speers — Host | DJ
-11. Rhoni Mohanraj — Co-Founder | DJ
+6. Hailey Rapsky — MC | DJ
+7. Annie Wurtz — Photographer | Photobooth Lead
+8. Brenna Kelland — Executive Assistant
+9. Sarah-Jane Speers — Host | DJ
+10. Rhoni Mohanraj — Co-Founder | DJ
 
 ## Gallery
 **Headline:** Memories From Past Events
